@@ -2,6 +2,15 @@
   .AnswerBox {
     display: flex;
     justify-content: center;
+    .green {
+      background-color: green;
+    }
+    .yellow {
+      background-color: yellow;
+    }
+    .gray {
+      background-color: gray;
+    }
   }
   .AnswerBox div{
     border: 1px solid grey;
