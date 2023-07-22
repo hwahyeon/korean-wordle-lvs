@@ -4,29 +4,42 @@
     justify-content: center;
   }
   .AnswerBox div{
-    border: 1px solid black; /* 검정색 테두리 설정 */
-    padding: 10px; /* 내부 여백 */
-    margin: 5px; /* 외부 여백 */
+    border: 1px solid grey;
+    padding: 5px;
+    margin: 3px;
     width: 30px;
     height: 30px;
-    
   }
   .keyBoard {
 
       justify-content: center;
 
     .raw1 Button{
-      border: 1px solid black; /* 검정색 테두리 설정 */
-      padding: 5px; /* 내부 여백 */
-      margin: 3px; /* 외부 여백 */
+      border: 1px solid grey;
+      padding: 5px;
+      margin: 3px;
       width: 30px;
       height: 30px;
     }
     .raw2{
       justify-content: center;
     }
+    .raw2 Button{
+      border: 1px solid grey;
+      padding: 5px;
+      margin: 3px;
+      width: 30px;
+      height: 30px;
+    }
     .raw3{
       justify-content: center;
+    }
+    .raw3 Button{
+      border: 1px solid grey;
+      padding: 5px;
+      margin: 3px;
+      width: 30px;
+      height: 30px;
     }
   }
 }
