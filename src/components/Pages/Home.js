@@ -4,14 +4,18 @@ import { Container, Box, Button } from '@mui/material';
 
 function HomePage() {
   const [pred, setPred] = useState([]); // List of input
-
+  const [listLen, setListLen] = useState(5);
 
   const handleButtonClick = (value) => {
-    const newItem = {
-      value: value,
-      deletable: true,
-    };
-    setPred((pred) => [...pred, newItem]);
+    if (pred.length < listLen){
+      const newItem = {
+        value: value,
+        deletable: true,
+      };
+      setPred((pred) => [...pred, newItem]);
+    } else {
+      alert('입력값을 초과했습니다.')
+    }
   };
 
   const handleRemoveButtonClick = () => {
@@ -23,11 +27,16 @@ function HomePage() {
   }
   
   const handleSubmitButtonClick = () => {
-    const updatedList = pred.map((item) => ({
-      ...item,
-      deletable: false,
-    }));
-    setPred([...updatedList]);
+    if (pred.length % 5 !== 0){
+      alert('글자가 적어요')
+    } else {
+      const updatedList = pred.map((item) => ({
+        ...item,
+        deletable: false,
+      }));
+      setPred([...updatedList]);
+      setListLen((listLen) => listLen + 5);
+    }
   }
 
 
@@ -41,7 +50,13 @@ function HomePage() {
         <div>{pred[3]?.value}</div>
         <div>{pred[4]?.value}</div>
       </Box>
-
+      <Box>
+        <div>{pred[5]?.value}</div>
+        <div>{pred[6]?.value}</div>
+        <div>{pred[7]?.value}</div>
+        <div>{pred[8]?.value}</div>
+        <div>{pred[9]?.value}</div>
+      </Box>
       <Box>
         <Button onClick={() => handleButtonClick('ㅂ')}>ㅂ</Button>
         <Button onClick={() => handleButtonClick('ㅈ')}>ㅈ</Button>
@@ -66,7 +81,7 @@ function HomePage() {
         <Button onClick={() => handleButtonClick('ㅣ')}>ㅣ</Button>
       </Box>
       <Box>
-        <Button onClick={() => handleSubmitButtonClick()}>Enter</Button>
+        <Button onClick={() => handleSubmitButtonClick()}>제출</Button>
         <Button onClick={() => handleButtonClick('ㅋ')}>ㅋ</Button>
         <Button onClick={() => handleButtonClick('ㅌ')}>ㅌ</Button>
         <Button onClick={() => handleButtonClick('ㅊ')}>ㅊ</Button>
@@ -74,7 +89,7 @@ function HomePage() {
         <Button onClick={() => handleButtonClick('ㅠ')}>ㅠ</Button>
         <Button onClick={() => handleButtonClick('ㅜ')}>ㅜ</Button>
         <Button onClick={() => handleButtonClick('ㅡ')}>ㅡ</Button>
-        <Button onClick={() => handleRemoveButtonClick()}>Remove</Button>
+        <Button onClick={() => handleRemoveButtonClick()}>지우기</Button>
       </Box>
     </Container>
   );
