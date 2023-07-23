@@ -55,7 +55,40 @@ function WordleKorPage() {
     }
   }
 
+  const myButtons1 = [
+    { id: 1, value: 'ㅂ' },
+    { id: 2, value: 'ㅈ' },
+    { id: 3, value: 'ㄷ' },
+    { id: 4, value: 'ㄱ' },
+    { id: 5, value: 'ㅅ' },
+    { id: 6, value: 'ㅛ' },
+    { id: 7, value: 'ㅕ' },
+    { id: 8, value: 'ㅑ' },
+    { id: 9, value: 'ㅐ' },
+    { id: 10, value: 'ㅔ' },
+  ];
 
+    const myButton2 = [
+      { id: 11, value: 'ㅁ' },
+      { id: 12, value: 'ㄴ' },
+      { id: 13, value: 'ㅇ' },
+      { id: 14, value: 'ㄹ' },
+      { id: 15, value: 'ㅎ' },
+      { id: 16, value: 'ㅗ' },
+      { id: 17, value: 'ㅓ' },
+      { id: 18, value: 'ㅏ' },
+      { id: 19, value: 'ㅣ' },
+    ];
+
+    const myButton3 = [
+      { id: 20, value: 'ㅋ' },
+      { id: 21, value: 'ㅌ' },
+      { id: 22, value: 'ㅊ' },
+      { id: 23, value: 'ㅍ' },
+      { id: 24, value: 'ㅠ' },
+      { id: 25, value: 'ㅜ' },
+      { id: 26, value: 'ㅡ' },
+    ];
 
   return (
     <Container className="WorldKorPage">
@@ -96,39 +129,29 @@ function WordleKorPage() {
       </Box>
       <Box className="keyBoard">
         <Box className="raw1">
-          <Button onClick={() => handleButtonClick('ㅂ')}>ㅂ</Button>
-          <Button onClick={() => handleButtonClick('ㅈ')}>ㅈ</Button>
-          <Button onClick={() => handleButtonClick('ㄷ')}>ㄷ</Button>
-          <Button onClick={() => handleButtonClick('ㄱ')}>ㄱ</Button>
-          <Button onClick={() => handleButtonClick('ㅅ')}>ㅅ</Button>
-          <Button onClick={() => handleButtonClick('ㅛ')}>ㅛ</Button>
-          <Button onClick={() => handleButtonClick('ㅕ')}>ㅕ</Button>
-          <Button onClick={() => handleButtonClick('ㅑ')}>ㅑ</Button>
-          <Button onClick={() => handleButtonClick('ㅐ')}>ㅐ</Button>
-          <Button onClick={() => handleButtonClick('ㅔ')}>ㅔ</Button>
+          {myButtons1.map((button) => (
+            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={``}>
+              {button.value}
+            </Button>
+          ))}
         </Box>
         <Box className="raw2">
-          <Button onClick={() => handleButtonClick('ㅁ')}>ㅁ</Button>
-          <Button onClick={() => handleButtonClick('ㄴ')}>ㄴ</Button>
-          <Button onClick={() => handleButtonClick('ㅇ')}>ㅇ</Button>
-          <Button onClick={() => handleButtonClick('ㄹ')}>ㄹ</Button>
-          <Button onClick={() => handleButtonClick('ㅎ')}>ㅎ</Button>
-          <Button onClick={() => handleButtonClick('ㅗ')}>ㅗ</Button>
-          <Button onClick={() => handleButtonClick('ㅓ')}>ㅓ</Button>
-          <Button onClick={() => handleButtonClick('ㅏ')}>ㅏ</Button>
-          <Button onClick={() => handleButtonClick('ㅣ')}>ㅣ</Button>
+          {myButton2.map((button) => (
+            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={``}>
+              {button.value}
+            </Button>
+          ))}
         </Box>
         <Box className="raw3">
           <Button onClick={() => handleSubmitButtonClick()}>제출</Button>
-          <Button onClick={() => handleButtonClick('ㅋ')}>ㅋ</Button>
-          <Button onClick={() => handleButtonClick('ㅌ')}>ㅌ</Button>
-          <Button onClick={() => handleButtonClick('ㅊ')}>ㅊ</Button>
-          <Button onClick={() => handleButtonClick('ㅍ')}>ㅍ</Button>
-          <Button onClick={() => handleButtonClick('ㅠ')}>ㅠ</Button>
-          <Button onClick={() => handleButtonClick('ㅜ')}>ㅜ</Button>
-          <Button onClick={() => handleButtonClick('ㅡ')}>ㅡ</Button>
+          {myButton3.map((button) => (
+            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={``}>
+              {button.value}
+            </Button>
+          ))}
           <Button onClick={() => handleRemoveButtonClick()}>지우기</Button>
         </Box>
+        
       </Box>
     </Container>
   );
