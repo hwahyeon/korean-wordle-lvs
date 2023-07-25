@@ -1,54 +1,58 @@
 .WorldKorPage{
-  .AnswerBox {
-    display: flex;
-    justify-content: center;
-    .green {
-      background-color: green;
+  .AnswerBoxes{
+    padding-bottom: 15px;
+
+    .AnswerBox {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      .green {
+        background-color: #6aaa64;
+      }
+      .yellow {
+        background-color: #dfca6c;
+      }
+      .gray {
+        background-color: #94a3b8;
+      }
     }
-    .yellow {
-      background-color: yellow;
-    }
-    .gray {
-      background-color: gray;
+    .AnswerBox div{
+      border: 0.5px solid #d3d6da;
+      border-radius: 3px;
+      padding: 5px;
+      margin: 3px;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
     }
   }
-  .AnswerBox div{
-    border: 1px solid grey;
-    padding: 5px;
-    margin: 3px;
-    width: 30px;
-    height: 30px;
-  }
+  
   .keyBoard {
+    .raw{
+      display: flex;
+      justify-content: center;
+    }
+    .raw Button{
+      color: black;
+      font-weight: bold;
+      font-size: 13px;
+      border: 0.5px solid #d3d6da;
+      margin: 2px;
+      // padding: 5px;
+      // max-width: 30px;
+      // max-height: 30px;
+      min-width: 45px;
+      min-height: 45px;
+      .green {
+        background-color: #6aaa64;
+      }
+      .yellow {
+        background-color: #dfca6c;
+      }
+      .gray {
+        background-color: #94a3b8;
+      }
+    }
 
-      justify-content: center;
-
-    .raw1 Button{
-      border: 1px solid grey;
-      padding: 5px;
-      margin: 3px;
-      width: 30px;
-      height: 30px;
-    }
-    .raw2{
-      justify-content: center;
-    }
-    .raw2 Button{
-      border: 1px solid grey;
-      padding: 5px;
-      margin: 3px;
-      width: 30px;
-      height: 30px;
-    }
-    .raw3{
-      justify-content: center;
-    }
-    .raw3 Button{
-      border: 1px solid grey;
-      padding: 5px;
-      margin: 3px;
-      width: 30px;
-      height: 30px;
-    }
   }
 }
