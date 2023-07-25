@@ -6,6 +6,7 @@ function WordleKorPage() {
   const [pred, setPred] = useState([]); // List of input
   const [colorList, setColorList] = useState([]) // List of color
   const [listLen, setListLen] = useState(5);
+  const [submitBlock, setSubmitBlock] = useState(false)
 
   const answer = ['ㅇ', 'ㅏ', 'ㄴ', 'ㄴ', 'ㅏ']
 
@@ -17,7 +18,11 @@ function WordleKorPage() {
       };
       setPred((pred) => [...pred, newItem]);
     } else {
-      alert('입력값을 초과했습니다.')
+      // alert('입력값을 초과했습니다.')
+    }
+
+    if (pred.length % 5 !== 0){
+      setSubmitBlock(true)
     }
   };
 
@@ -31,7 +36,9 @@ function WordleKorPage() {
   
   const handleSubmitButtonClick = () => {
     if (pred.length % 5 !== 0){
-      alert('글자가 적어요')
+      alert(msg.lack)
+    } else if (!submitBlock){
+      alert(msg.lack)
     } else {
       const updatedList = pred.map((item) => ({
         ...item,
@@ -50,8 +57,9 @@ function WordleKorPage() {
           updatedColorList.push('gray')
         }
       }
+
       setColorList(colorList.concat(updatedColorList))
-      console.log(colorList)
+      setSubmitBlock(false)
     }
   }
 
@@ -90,59 +98,68 @@ function WordleKorPage() {
       { id: 26, value: 'ㅡ' },
     ];
 
+    const msg = {
+      lack: '글자 수가 충분하지 않습니다.',
+      answer: '정답입니다.',
+      wrong: '단어를 찾을 수 없습니다.',
+    }
+
+
   return (
     <Container className="WorldKorPage">
-      <Box className="AnswerBox">
-        <div className={`${colorList[0]}`}>{pred[0]?.value}</div>
-        <div className={`${colorList[1]}`}>{pred[1]?.value}</div>
-        <div className={`${colorList[2]}`}>{pred[2]?.value}</div>
-        <div className={`${colorList[3]}`}>{pred[3]?.value}</div>
-        <div className={`${colorList[4]}`}>{pred[4]?.value}</div>
-      </Box>
-      <Box className="AnswerBox">
-        <div className={`${colorList[5]}`}>{pred[5]?.value}</div>
-        <div className={`${colorList[6]}`}>{pred[6]?.value}</div>
-        <div className={`${colorList[7]}`}>{pred[7]?.value}</div>
-        <div className={`${colorList[8]}`}>{pred[8]?.value}</div>
-        <div className={`${colorList[9]}`}>{pred[9]?.value}</div>
-      </Box>
-      <Box className="AnswerBox">
-        <div className={`${colorList[10]}`}>{pred[10]?.value}</div>
-        <div className={`${colorList[11]}`}>{pred[11]?.value}</div>
-        <div className={`${colorList[12]}`}>{pred[12]?.value}</div>
-        <div className={`${colorList[13]}`}>{pred[13]?.value}</div>
-        <div className={`${colorList[14]}`}>{pred[14]?.value}</div>
-      </Box>
-      <Box className="AnswerBox">
-        <div className={`${colorList[15]}`}>{pred[15]?.value}</div>
-        <div className={`${colorList[16]}`}>{pred[16]?.value}</div>
-        <div className={`${colorList[17]}`}>{pred[17]?.value}</div>
-        <div className={`${colorList[18]}`}>{pred[18]?.value}</div>
-        <div className={`${colorList[19]}`}>{pred[19]?.value}</div>
-      </Box>
-      <Box className="AnswerBox">
-        <div className={`${colorList[20]}`}>{pred[20]?.value}</div>
-        <div className={`${colorList[21]}`}>{pred[21]?.value}</div>
-        <div className={`${colorList[22]}`}>{pred[22]?.value}</div>
-        <div className={`${colorList[23]}`}>{pred[23]?.value}</div>
-        <div className={`${colorList[24]}`}>{pred[24]?.value}</div>
+      <Box className="AnswerBoxes">
+        <Box className="AnswerBox">
+          <div className={`${colorList[0]}`}>{pred[0]?.value}</div>
+          <div className={`${colorList[1]}`}>{pred[1]?.value}</div>
+          <div className={`${colorList[2]}`}>{pred[2]?.value}</div>
+          <div className={`${colorList[3]}`}>{pred[3]?.value}</div>
+          <div className={`${colorList[4]}`}>{pred[4]?.value}</div>
+        </Box>
+        <Box className="AnswerBox">
+          <div className={`${colorList[5]}`}>{pred[5]?.value}</div>
+          <div className={`${colorList[6]}`}>{pred[6]?.value}</div>
+          <div className={`${colorList[7]}`}>{pred[7]?.value}</div>
+          <div className={`${colorList[8]}`}>{pred[8]?.value}</div>
+          <div className={`${colorList[9]}`}>{pred[9]?.value}</div>
+        </Box>
+        <Box className="AnswerBox">
+          <div className={`${colorList[10]}`}>{pred[10]?.value}</div>
+          <div className={`${colorList[11]}`}>{pred[11]?.value}</div>
+          <div className={`${colorList[12]}`}>{pred[12]?.value}</div>
+          <div className={`${colorList[13]}`}>{pred[13]?.value}</div>
+          <div className={`${colorList[14]}`}>{pred[14]?.value}</div>
+        </Box>
+        <Box className="AnswerBox">
+          <div className={`${colorList[15]}`}>{pred[15]?.value}</div>
+          <div className={`${colorList[16]}`}>{pred[16]?.value}</div>
+          <div className={`${colorList[17]}`}>{pred[17]?.value}</div>
+          <div className={`${colorList[18]}`}>{pred[18]?.value}</div>
+          <div className={`${colorList[19]}`}>{pred[19]?.value}</div>
+        </Box>
+        <Box className="AnswerBox">
+          <div className={`${colorList[20]}`}>{pred[20]?.value}</div>
+          <div className={`${colorList[21]}`}>{pred[21]?.value}</div>
+          <div className={`${colorList[22]}`}>{pred[22]?.value}</div>
+          <div className={`${colorList[23]}`}>{pred[23]?.value}</div>
+          <div className={`${colorList[24]}`}>{pred[24]?.value}</div>
+        </Box>
       </Box>
       <Box className="keyBoard">
-        <Box className="raw1">
+        <Box className="raw">
           {myButtons1.map((button) => (
             <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={``}>
               {button.value}
             </Button>
           ))}
         </Box>
-        <Box className="raw2">
+        <Box className="raw">
           {myButton2.map((button) => (
             <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={``}>
               {button.value}
             </Button>
           ))}
         </Box>
-        <Box className="raw3">
+        <Box className="raw">
           <Button onClick={() => handleSubmitButtonClick()}>제출</Button>
           {myButton3.map((button) => (
             <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={``}>
