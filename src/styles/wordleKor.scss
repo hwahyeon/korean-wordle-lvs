@@ -31,6 +31,15 @@
     .raw{
       display: flex;
       justify-content: center;
+      .green {
+        background-color: #6aaa64;
+      }
+      .yellow {
+        background-color: #dfca6c;
+      }
+      .gray {
+        background-color: #94a3b8;
+      }
     }
     .raw Button{
       color: black;
@@ -43,15 +52,6 @@
       // max-height: 30px;
       min-width: 45px;
       min-height: 45px;
-      .green {
-        background-color: #6aaa64;
-      }
-      .yellow {
-        background-color: #dfca6c;
-      }
-      .gray {
-        background-color: #94a3b8;
-      }
     }
 
   }

@@ -15,6 +15,7 @@ function WordleKorPage() {
       const newItem = {
         value: value,
         deletable: true,
+        color: '',
       };
       setPred((pred) => [...pred, newItem]);
     } else {
@@ -40,23 +41,24 @@ function WordleKorPage() {
     } else if (!submitBlock){
       alert(msg.lack)
     } else {
-      const updatedList = pred.map((item) => ({
-        ...item,
-        deletable: false,
-      }));
-      setPred([...updatedList]);
       setListLen((listLen) => listLen + 5);
 
       let updatedColorList = []
       for (let i = listLen - 5; i < listLen; i++){
         if(answer[i - listLen + 5] === pred[i]?.value) {
           updatedColorList.push('green')
+          pred[i].color = 'green'
         } else if (answer.includes(pred[i]?.value)){
           updatedColorList.push('yellow')
+          pred[i].color = 'yellow'
         } else {
           updatedColorList.push('gray')
+          pred[i].color = 'gray'
         }
+        pred[i].deletable = false
       }
+
+      setPred([...pred])
 
       setColorList(colorList.concat(updatedColorList))
       setSubmitBlock(false)
@@ -105,6 +107,17 @@ function WordleKorPage() {
     }
 
 
+  function keyboardColor(v){
+    if (pred.find(pred => pred.value === v) === undefined){
+      return 
+    } else {
+      return pred.find(pred => pred.value === v).color
+    }
+  }
+
+  console.log(pred)
+
+
   return (
     <Container className="WorldKorPage">
       <Box className="AnswerBoxes">
@@ -147,14 +160,14 @@ function WordleKorPage() {
       <Box className="keyBoard">
         <Box className="raw">
           {myButtons1.map((button) => (
-            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={``}>
+            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)}>
               {button.value}
             </Button>
           ))}
         </Box>
         <Box className="raw">
           {myButton2.map((button) => (
-            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={``}>
+            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)}>
               {button.value}
             </Button>
           ))}
@@ -162,7 +175,7 @@ function WordleKorPage() {
         <Box className="raw">
           <Button onClick={() => handleSubmitButtonClick()}>제출</Button>
           {myButton3.map((button) => (
-            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={``}>
+            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)}>
               {button.value}
             </Button>
           ))}
