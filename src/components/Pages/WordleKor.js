@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Box, Button } from '@mui/material';
 import '../../styles/wordleKor.scss';
+import jsonData from '../../assets/dataset.json'
 
 function WordleKorPage() {
   const [pred, setPred] = useState([]); // List of input
@@ -41,32 +42,38 @@ function WordleKorPage() {
     } else if (!submitBlock){
       alert(msg.lack)
     } else {
-      setListLen((listLen) => listLen + 5);
+      const submitted = pred.slice(-5).map(obj => obj.value).join('');
+      if (!(jsonData.includes(submitted))){
+        alert(msg.wrong)
+      } else {
+        setListLen((listLen) => listLen + 5);
 
-      let updatedColorList = []
-      for (let i = listLen - 5; i < listLen; i++){
-        if(answer[i - listLen + 5] === pred[i]?.value) {
-          updatedColorList.push('green')
-          pred[i].color = 'green'
-        } else if (answer.includes(pred[i]?.value)){
-          updatedColorList.push('yellow')
-          pred[i].color = 'yellow'
-        } else {
-          updatedColorList.push('gray')
-          pred[i].color = 'gray'
+        let updatedColorList = []
+  
+        for (let i = listLen - 5; i < listLen; i++){  
+          if(answer[i - listLen + 5] === pred[i]?.value) {
+            updatedColorList.push('green')
+            pred[i].color = 'green'
+          } else if (answer.includes(pred[i]?.value)){
+            updatedColorList.push('yellow')
+            pred[i].color = 'yellow'
+          } else {
+            updatedColorList.push('gray')
+            pred[i].color = 'gray'
+          }
+          pred[i].deletable = false
         }
-        pred[i].deletable = false
-      }
+  
+        setPred([...pred])
+  
+        setColorList(colorList.concat(updatedColorList))
+        setSubmitBlock(false)
 
-      setPred([...pred])
-
-      setColorList(colorList.concat(updatedColorList))
-      setSubmitBlock(false)
-
-      if ( 5 === updatedColorList.reduce((cnt, e) => {
-        return cnt + (e === 'green' ? 1 : 0);
-      }, 0)) {
-        alert(msg.answer)
+        if ( 5 === updatedColorList.reduce((cnt, e) => {
+          return cnt + (e === 'green' ? 1 : 0);
+        }, 0)) {
+          alert(msg.answer)
+        }
       }
     }
   }
