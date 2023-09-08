@@ -62,6 +62,12 @@ function WordleKorPage() {
 
       setColorList(colorList.concat(updatedColorList))
       setSubmitBlock(false)
+
+      if ( 5 === updatedColorList.reduce((cnt, e) => {
+        return cnt + (e === 'green' ? 1 : 0);
+      }, 0)) {
+        alert(msg.answer)
+      }
     }
   }
 
@@ -78,34 +84,33 @@ function WordleKorPage() {
     { id: 10, value: 'ㅔ' },
   ];
 
-    const myButton2 = [
-      { id: 11, value: 'ㅁ' },
-      { id: 12, value: 'ㄴ' },
-      { id: 13, value: 'ㅇ' },
-      { id: 14, value: 'ㄹ' },
-      { id: 15, value: 'ㅎ' },
-      { id: 16, value: 'ㅗ' },
-      { id: 17, value: 'ㅓ' },
-      { id: 18, value: 'ㅏ' },
-      { id: 19, value: 'ㅣ' },
-    ];
+  const myButton2 = [
+    { id: 11, value: 'ㅁ' },
+    { id: 12, value: 'ㄴ' },
+    { id: 13, value: 'ㅇ' },
+    { id: 14, value: 'ㄹ' },
+    { id: 15, value: 'ㅎ' },
+    { id: 16, value: 'ㅗ' },
+    { id: 17, value: 'ㅓ' },
+    { id: 18, value: 'ㅏ' },
+    { id: 19, value: 'ㅣ' },
+  ];
 
-    const myButton3 = [
-      { id: 20, value: 'ㅋ' },
-      { id: 21, value: 'ㅌ' },
-      { id: 22, value: 'ㅊ' },
-      { id: 23, value: 'ㅍ' },
-      { id: 24, value: 'ㅠ' },
-      { id: 25, value: 'ㅜ' },
-      { id: 26, value: 'ㅡ' },
-    ];
+  const myButton3 = [
+    { id: 20, value: 'ㅋ' },
+    { id: 21, value: 'ㅌ' },
+    { id: 22, value: 'ㅊ' },
+    { id: 23, value: 'ㅍ' },
+    { id: 24, value: 'ㅠ' },
+    { id: 25, value: 'ㅜ' },
+    { id: 26, value: 'ㅡ' },
+  ];
 
-    const msg = {
-      lack: '글자 수가 충분하지 않습니다.',
-      answer: '정답입니다.',
-      wrong: '단어를 찾을 수 없습니다.',
-    }
-
+  const msg = {
+    lack: '글자 수가 충분하지 않습니다.',
+    answer: '정답입니다.',
+    wrong: '단어를 찾을 수 없습니다.',
+  }
 
   function keyboardColor(v){
     if (pred.find(pred => pred.value === v) === undefined){
@@ -114,9 +119,6 @@ function WordleKorPage() {
       return pred.find(pred => pred.value === v).color
     }
   }
-
-  console.log(pred)
-
 
   return (
     <Container className="WorldKorPage">
