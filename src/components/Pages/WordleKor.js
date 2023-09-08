@@ -2,15 +2,26 @@ import React, { useState } from "react";
 import { Container, Box, Button } from '@mui/material';
 import '../../styles/wordleKor.scss';
 import jsonData from '../../assets/dataset.json'
+import CentralMessage from '../Common/CentralMessage.js'
 
 function WordleKorPage() {
   const [pred, setPred] = useState([]); // List of input
   const [colorList, setColorList] = useState([]) // List of color
   const [listLen, setListLen] = useState(5);
   const [submitBlock, setSubmitBlock] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+  const [centerMsg, setCenterMsg] = useState('')
 
   const answer = ['ㅇ', 'ㅏ', 'ㄴ', 'ㄴ', 'ㅏ']
 
+  function showMessage(m) {
+    setCenterMsg(m);
+    setIsVisible(true);
+    setTimeout(() => {
+      setIsVisible(false);
+    }, 3000);
+  }
+  
   const handleButtonClick = (value) => {
     if (pred.length < listLen){
       const newItem = {
@@ -20,7 +31,7 @@ function WordleKorPage() {
       };
       setPred((pred) => [...pred, newItem]);
     } else {
-      // alert('입력값을 초과했습니다.')
+      showMessage(msg.much)
     }
 
     if (pred.length % 5 !== 0){
@@ -38,19 +49,19 @@ function WordleKorPage() {
   
   const handleSubmitButtonClick = () => {
     if (pred.length % 5 !== 0){
-      alert(msg.lack)
+      showMessage(msg.lack)
     } else if (!submitBlock){
-      alert(msg.lack)
+      showMessage(msg.lack)
     } else {
       const submitted = pred.slice(-5).map(obj => obj.value).join('');
       if (!(jsonData.includes(submitted))){
-        alert(msg.wrong)
+        showMessage(msg.wrong)
       } else {
         setListLen((listLen) => listLen + 5);
 
         let updatedColorList = []
   
-        for (let i = listLen - 5; i < listLen; i++){  
+        for (let i = listLen - 5; i < listLen; i++){
           if(answer[i - listLen + 5] === pred[i]?.value) {
             updatedColorList.push('green')
             pred[i].color = 'green'
@@ -72,7 +83,7 @@ function WordleKorPage() {
         if ( 5 === updatedColorList.reduce((cnt, e) => {
           return cnt + (e === 'green' ? 1 : 0);
         }, 0)) {
-          alert(msg.answer)
+          showMessage(msg.answer)
         }
       }
     }
@@ -116,6 +127,7 @@ function WordleKorPage() {
   const msg = {
     lack: '글자 수가 충분하지 않습니다.',
     answer: '정답입니다.',
+    much: '입력값을 초과했습니다',
     wrong: '단어를 찾을 수 없습니다.',
   }
 
@@ -190,8 +202,11 @@ function WordleKorPage() {
           ))}
           <Button onClick={() => handleRemoveButtonClick()}>지우기</Button>
         </Box>
-        
       </Box>
+      {isVisible ?
+        <CentralMessage message={centerMsg} duration={2000} />
+        :
+        <div></div>}
     </Container>
   );
 }
