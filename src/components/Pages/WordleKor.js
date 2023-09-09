@@ -177,6 +177,13 @@ function WordleKorPage() {
           <div className={`${colorList[23]}`}>{pred[23]?.value}</div>
           <div className={`${colorList[24]}`}>{pred[24]?.value}</div>
         </Box>
+        <Box className="AnswerBox">
+          <div className={`${colorList[25]}`}>{pred[25]?.value}</div>
+          <div className={`${colorList[26]}`}>{pred[26]?.value}</div>
+          <div className={`${colorList[27]}`}>{pred[27]?.value}</div>
+          <div className={`${colorList[28]}`}>{pred[28]?.value}</div>
+          <div className={`${colorList[29]}`}>{pred[29]?.value}</div>
+        </Box>
       </Box>
       <Box className="keyBoard">
         <Box className="raw">
