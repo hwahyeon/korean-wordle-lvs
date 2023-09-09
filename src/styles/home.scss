@@ -1,0 +1,27 @@
+.HomePage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  .content {
+    text-align: center;
+    width: 350px;
+    .header{
+      font-weight: bold;
+      font-size: 30px;
+    }
+    .play_button{
+      font-size: 18px;
+      color: black;
+      padding: 10px;
+      border-color: black;
+      border-radius: 6%;
+      border: 1px solid #000;
+    }
+
+    .date{
+      font-weight: bold;
+      padding-top: 10px;
+    }
+  }
+}
