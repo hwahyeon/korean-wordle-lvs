@@ -75,6 +75,7 @@ function WordleKorPage() {
             }
             pred[i].deletable = false;
           } else {
+            // popup 넣기 글자수가 부족하다는 팝업
             console.error(`pred[${i}] is undefined`);
           }
         }
@@ -133,6 +134,7 @@ function WordleKorPage() {
     answer: '정답입니다.',
     much: '입력값을 초과했습니다',
     wrong: '단어를 찾을 수 없습니다.',
+    end: '',
   }
 
   function keyboardColor(v) {
@@ -154,48 +156,18 @@ function WordleKorPage() {
   return (
     <Container className="WorldKorPage">
       <Box className="AnswerBoxes">
-        <Box className="AnswerBox">
-          <div className={`${colorList[0]}`}>{pred[0]?.value}</div>
-          <div className={`${colorList[1]}`}>{pred[1]?.value}</div>
-          <div className={`${colorList[2]}`}>{pred[2]?.value}</div>
-          <div className={`${colorList[3]}`}>{pred[3]?.value}</div>
-          <div className={`${colorList[4]}`}>{pred[4]?.value}</div>
-        </Box>
-        <Box className="AnswerBox">
-          <div className={`${colorList[5]}`}>{pred[5]?.value}</div>
-          <div className={`${colorList[6]}`}>{pred[6]?.value}</div>
-          <div className={`${colorList[7]}`}>{pred[7]?.value}</div>
-          <div className={`${colorList[8]}`}>{pred[8]?.value}</div>
-          <div className={`${colorList[9]}`}>{pred[9]?.value}</div>
-        </Box>
-        <Box className="AnswerBox">
-          <div className={`${colorList[10]}`}>{pred[10]?.value}</div>
-          <div className={`${colorList[11]}`}>{pred[11]?.value}</div>
-          <div className={`${colorList[12]}`}>{pred[12]?.value}</div>
-          <div className={`${colorList[13]}`}>{pred[13]?.value}</div>
-          <div className={`${colorList[14]}`}>{pred[14]?.value}</div>
-        </Box>
-        <Box className="AnswerBox">
-          <div className={`${colorList[15]}`}>{pred[15]?.value}</div>
-          <div className={`${colorList[16]}`}>{pred[16]?.value}</div>
-          <div className={`${colorList[17]}`}>{pred[17]?.value}</div>
-          <div className={`${colorList[18]}`}>{pred[18]?.value}</div>
-          <div className={`${colorList[19]}`}>{pred[19]?.value}</div>
-        </Box>
-        <Box className="AnswerBox">
-          <div className={`${colorList[20]}`}>{pred[20]?.value}</div>
-          <div className={`${colorList[21]}`}>{pred[21]?.value}</div>
-          <div className={`${colorList[22]}`}>{pred[22]?.value}</div>
-          <div className={`${colorList[23]}`}>{pred[23]?.value}</div>
-          <div className={`${colorList[24]}`}>{pred[24]?.value}</div>
-        </Box>
-        <Box className="AnswerBox">
-          <div className={`${colorList[25]}`}>{pred[25]?.value}</div>
-          <div className={`${colorList[26]}`}>{pred[26]?.value}</div>
-          <div className={`${colorList[27]}`}>{pred[27]?.value}</div>
-          <div className={`${colorList[28]}`}>{pred[28]?.value}</div>
-          <div className={`${colorList[29]}`}>{pred[29]?.value}</div>
-        </Box>
+        {[...Array(6)].map((_, boxIndex) => (
+          <Box key={boxIndex} className="AnswerBox">
+            {[...Array(5)].map((_, itemIndex) => {
+              const index = boxIndex * 5 + itemIndex;
+              return (
+                <div key={index} className={`${colorList[index]}`}>
+                  {pred[index]?.value}
+                </div>
+              );
+            })}
+          </Box>
+        ))}
       </Box>
       <Box className="keyBoard">
         <Box className="raw">
