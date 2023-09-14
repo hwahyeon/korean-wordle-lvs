@@ -1,14 +1,14 @@
 .HomePage{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 350px;
   .content {
     text-align: center;
-    width: 350px;
     .header{
+      margin-top: 45px;
       font-weight: bold;
       font-size: 30px;
+      margin-bottom: 20px;
+    }
+    .cont_txt{
+      font-size: 18px;
     }
     .play_button{
       font-size: 18px;
@@ -17,11 +17,14 @@
       border-color: black;
       border-radius: 6%;
       border: 1px solid #000;
+      margin-bottom: 30px;
     }
-
+    .alink_button{
+      margin: 10px;
+    }
     .date{
       font-weight: bold;
-      padding-top: 10px;
+      padding-top: 30px;
     }
   }
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Container, Box, Button, Typography as P } from '@mui/material';
 import '../../styles/home.scss';
 
@@ -35,8 +35,23 @@ function HomePage() {
         <P className='header'>한글 Korean Wordle</P>
         <Button className='play_button' onClick={handleClick}>시작해볼까요?</Button>
         <Box>
-          <P>이 게임은 Wordle의 한글 변형판입니다</P>
-          <P>소스코드는 이쪽, 영어로 된 오리지널 Wordle은 여기로</P>
+          <P className='cont_txt'>이 게임은 Wordle의 한글 변형판입니다</P>
+          <Button
+            className='alink_button'
+            component={Link}
+            to="https://github.com/hwahyeon/reactjs-wordle-kor"
+          >
+            Source of this web
+          </Button>
+          <Button
+            className='alink_button'
+            component={Link}
+            to="https://www.nytimes.com/games/wordle/index.html"
+          >
+            Original Wordle
+          </Button>
+        </Box>
+        <Box>
           <P className='date'>{currentDateTime.date}</P>
           <P className='edit'>Edited by hwahyeon</P>
         </Box>
