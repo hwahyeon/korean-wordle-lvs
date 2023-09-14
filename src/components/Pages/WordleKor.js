@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Container, Box, Button } from '@mui/material';
 import '../../styles/wordleKor.scss';
 import jsonData from '../../assets/dataset.json'
@@ -75,8 +75,8 @@ function WordleKorPage() {
             }
             pred[i].deletable = false;
           } else {
-            // popup 넣기 글자수가 부족하다는 팝업
-            console.error(`pred[${i}] is undefined`);
+            showMessage(msg.lack)
+            // console.error(`pred[${i}] is undefined`);
           }
         }
   
