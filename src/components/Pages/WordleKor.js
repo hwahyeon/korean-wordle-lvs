@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Box, Button } from '@mui/material';
 import '../../styles/wordleKor.scss';
 import jsonData from '../../assets/dataset.json'
@@ -62,17 +62,21 @@ function WordleKorPage() {
         let updatedColorList = []
   
         for (let i = listLen - 5; i < listLen; i++){
-          if(answer[i - listLen + 5] === pred[i]?.value) {
-            updatedColorList.push('green')
-            pred[i].color = 'green'
-          } else if (answer.includes(pred[i]?.value)){
-            updatedColorList.push('yellow')
-            pred[i].color = 'yellow'
+          if (pred[i]) {
+            if(answer[i - listLen + 5] === pred[i].value) {
+              updatedColorList.push('green');
+              pred[i].color = 'green';
+            } else if (answer.includes(pred[i].value)){
+              updatedColorList.push('yellow');
+              pred[i].color = 'yellow';
+            } else {
+              updatedColorList.push('gray');
+              pred[i].color = 'gray';
+            }
+            pred[i].deletable = false;
           } else {
-            updatedColorList.push('gray')
-            pred[i].color = 'gray'
+            console.error(`pred[${i}] is undefined`);
           }
-          pred[i].deletable = false
         }
   
         setPred([...pred])
@@ -131,12 +135,20 @@ function WordleKorPage() {
     wrong: '단어를 찾을 수 없습니다.',
   }
 
-  function keyboardColor(v){
-    if (pred.find(pred => pred.value === v) === undefined){
-      return 
-    } else {
-      return pred.find(pred => pred.value === v).color
+  function keyboardColor(v) {
+    const foundPreds = pred.filter(predItem => predItem.value === v);
+    
+    if (foundPreds.some(predItem => predItem.color === 'green')) {
+      return 'green';
     }
+    if (foundPreds.some(predItem => predItem.color === 'yellow')) {
+      return 'yellow';
+    }
+    if (foundPreds.some(predItem => predItem.color === 'gray')) {
+      return 'gray';
+    }
+  
+    return ''; // 어떤 색상도 찾지 못했을 시
   }
 
   return (
