@@ -3,6 +3,7 @@ import { Container, Box, Button } from '@mui/material';
 import '../../styles/wordleKor.scss';
 import jsonData from '../../assets/dataset.json'
 import CentralMessage from '../Common/CentralMessage.js'
+import getDailyRandomNumber from '../Common/RandomNumber'
 
 function WordleKorPage() {
   const [pred, setPred] = useState([]); // List of input
@@ -11,6 +12,8 @@ function WordleKorPage() {
   const [submitBlock, setSubmitBlock] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [centerMsg, setCenterMsg] = useState('')
+
+  console.log(getDailyRandomNumber())
 
   const answer = ['ㅇ', 'ㅏ', 'ㄴ', 'ㄴ', 'ㅏ']
 
