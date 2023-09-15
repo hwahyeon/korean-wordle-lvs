@@ -1,23 +1,33 @@
 .HomePage{
   .content {
     text-align: center;
+    .icon{
+      margin-top: 65px;
+    }
     .header{
-      margin-top: 45px;
+      margin-top: 30px;
       font-weight: bold;
       font-size: 30px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     .cont_txt{
       font-size: 18px;
     }
     .play_button{
       font-size: 18px;
+      background: white;
       color: black;
       padding: 10px;
       border-color: black;
-      border-radius: 6%;
+      border-radius: 12px;
       border: 1px solid #000;
       margin-bottom: 30px;
+      transition: background 0.3s, color 0.3s;
+
+      &:hover {
+        background: black;
+        color: white;
+      }
     }
     .alink_button{
       margin: 10px;

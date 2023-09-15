@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Container, Box, Button, Typography as P } from '@mui/material';
 import '../../styles/home.scss';
+import icon from '../../assets/wordleicon.svg';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ function HomePage() {
   return (
     <Container className='HomePage'>
       <Box className='content'>
+        <img src={icon} alt="icon" className='icon' />
         <P className='header'>한글 Korean Wordle</P>
         <Button className='play_button' onClick={handleClick}>시작해볼까요?</Button>
         <Box>
