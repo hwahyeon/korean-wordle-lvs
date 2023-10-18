@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Box, Button } from '@mui/material';
 import '../../styles/wordleKor.scss';
+import Header from "../Common/Header";
 import jsonData from '../../assets/dataset.json'
 import CentralMessage from '../Common/CentralMessage.js'
 import getDailyRandomNumber from '../Common/RandomNumber'
@@ -13,9 +14,10 @@ function WordleKorPage() {
   const [isVisible, setIsVisible] = useState(false)
   const [centerMsg, setCenterMsg] = useState('')
 
-  console.log(getDailyRandomNumber())
+  // console.log(jsonData[getDailyRandomNumber()])
 
-  const answer = ['ㅇ', 'ㅏ', 'ㄴ', 'ㄴ', 'ㅏ']
+  // const answer = ['ㅇ', 'ㅏ', 'ㄴ', 'ㄴ', 'ㅏ']
+  const answer = jsonData[getDailyRandomNumber()]
 
   function showMessage(m) {
     setCenterMsg(m);
@@ -158,6 +160,7 @@ function WordleKorPage() {
 
   return (
     <Container className="WorldKorPage">
+      <Header></Header>
       <Box className="AnswerBoxes">
         {[...Array(6)].map((_, boxIndex) => (
           <Box key={boxIndex} className="AnswerBox">
