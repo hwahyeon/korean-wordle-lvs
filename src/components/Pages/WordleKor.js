@@ -25,9 +25,9 @@ function WordleKorPage() {
   const jsonData = hardMode
   let answer;
   if (mode === 'easy'){
-    answer = hardMode[getDailyRandomNumber.hard()]
-  } else {
     answer = easyMode[getDailyRandomNumber.easy()]
+  } else {
+    answer = hardMode[getDailyRandomNumber.hard()]
   }
   // const answer = ['ㅇ', 'ㅏ', 'ㄴ', 'ㄴ', 'ㅏ']
   console.log(answer)
