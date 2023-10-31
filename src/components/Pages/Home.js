@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Container, Box, Button, Typography as P } from '@mui/material';
 import '../../styles/home.scss';
 import icon from '../../assets/wordleicon.svg';
+import Header from "../Common/Header";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -36,9 +37,9 @@ function HomePage() {
 
   return (
     <Container className='HomePage'>
+      <Header />
       <Box className='content'>
         <img src={icon} alt="icon" className='icon' />
-        <P className='header'>한글 Korean Wordle</P>
         <Box>시작해볼까요?
           <br></br>
           <Button className='play_button' onClick={handleEasyClick}>낮은 난이도</Button>

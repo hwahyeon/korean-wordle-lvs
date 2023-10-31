@@ -4,7 +4,7 @@ import '../../styles/header.scss'
 function Header() {
   return (
     <header className="header">
-      {/* <h1>Wordle</h1> */}
+      <p>한글 Wordle</p>
     </header>
   );
 }
