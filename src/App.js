@@ -5,10 +5,10 @@ import WordleKor from './components/Pages/WordleKor.js';
 
 function App() {
   return (
-    <Router>
+    <Router basename={`${process.env.PUBLIC_URL}`}>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/play" element={<WordleKor />} />
+        <Route path="/"  element={<Home />} />
+        <Route path="/play/:mode" element={<WordleKor />} />
       </Routes>
     </Router>
   );

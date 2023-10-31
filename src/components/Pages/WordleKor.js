@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Container, Box, Button } from '@mui/material';
 import '../../styles/wordleKor.scss';
 import Header from "../Common/Header";
-import jsonData from '../../assets/dataset.json'
+import hardMode from '../../assets/hard_mode.json'
+import easyMode from '../../assets/easy_mode.json'
 import CentralMessage from '../Common/CentralMessage.js'
 import getDailyRandomNumber from '../Common/RandomNumber'
+import { useParams } from 'react-router-dom';
 
 function WordleKorPage() {
   const [pred, setPred] = useState([]); // List of input
@@ -14,10 +16,20 @@ function WordleKorPage() {
   const [isVisible, setIsVisible] = useState(false)
   const [centerMsg, setCenterMsg] = useState('')
 
-  // console.log(jsonData[getDailyRandomNumber()])
-
+  // Adjust selected mode
+  const { mode } = useParams();
+  let jsonData;
+  let answer;
+  if (mode === 'easy'){
+    jsonData = hardMode
+    answer = jsonData[getDailyRandomNumber.hard()]
+  } else {
+    jsonData = easyMode
+    answer = jsonData[getDailyRandomNumber.easy()]
+  }
   // const answer = ['ㅇ', 'ㅏ', 'ㄴ', 'ㄴ', 'ㅏ']
-  const answer = jsonData[getDailyRandomNumber()]
+  console.log(answer)
+
 
   function showMessage(m) {
     setCenterMsg(m);
