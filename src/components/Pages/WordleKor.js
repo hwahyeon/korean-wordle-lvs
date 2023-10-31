@@ -5,6 +5,8 @@ import Header from "../Common/Header";
 import hardMode from '../../assets/hard_mode.json'
 import easyMode from '../../assets/easy_mode.json'
 import CentralMessage from '../Common/CentralMessage.js'
+import AnswerPopup from '../Common/AnswerMessage';
+import FailedPopup from '../Common/FailedMessage';
 import getDailyRandomNumber from '../Common/RandomNumber'
 import { useParams } from 'react-router-dom';
 
@@ -15,17 +17,17 @@ function WordleKorPage() {
   const [submitBlock, setSubmitBlock] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [centerMsg, setCenterMsg] = useState('')
+  const [gotAnwser, setGotAnwser] = useState(false)
+  const [failAnwser, setFailAnwser] = useState(false)
 
   // Adjust selected mode
   const { mode } = useParams();
-  let jsonData;
+  const jsonData = hardMode
   let answer;
   if (mode === 'easy'){
-    jsonData = hardMode
-    answer = jsonData[getDailyRandomNumber.hard()]
+    answer = hardMode[getDailyRandomNumber.hard()]
   } else {
-    jsonData = easyMode
-    answer = jsonData[getDailyRandomNumber.easy()]
+    answer = easyMode[getDailyRandomNumber.easy()]
   }
   // const answer = ['ㅇ', 'ㅏ', 'ㄴ', 'ㄴ', 'ㅏ']
   console.log(answer)
@@ -96,17 +98,18 @@ function WordleKorPage() {
             // console.error(`pred[${i}] is undefined`);
           }
         }
-  
         setPred([...pred])
-  
         setColorList(colorList.concat(updatedColorList))
         setSubmitBlock(false)
 
         if ( 5 === updatedColorList.reduce((cnt, e) => {
           return cnt + (e === 'green' ? 1 : 0);
         }, 0)) {
-          showMessage(msg.answer)
-        }
+          // 정답인 경우
+          setGotAnwser(true)
+        } else if (pred.length === 30){
+          setFailAnwser(true)
+        } 
       }
     }
   }
@@ -148,7 +151,6 @@ function WordleKorPage() {
 
   const msg = {
     lack: '글자 수가 충분하지 않습니다.',
-    answer: '정답입니다.',
     much: '입력값을 초과했습니다',
     wrong: '단어를 찾을 수 없습니다.',
     end: '',
@@ -216,6 +218,16 @@ function WordleKorPage() {
         <CentralMessage message={centerMsg} duration={2000} />
         :
         <div></div>}
+      {gotAnwser ?
+        <AnswerPopup />
+        :
+        null
+      }
+      {failAnwser ?
+        <FailedPopup />
+        :
+        null
+      }
     </Container>
   );
 }
