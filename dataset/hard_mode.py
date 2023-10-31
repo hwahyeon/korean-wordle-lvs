@@ -3,9 +3,10 @@ import pandas as pd
 import os
 import json
 
-os.chdir('dataset/xls')
-lst_xls = os.listdir()
 
+## 우리말샘 data 추출
+os.chdir('dataset.xls')
+lst_xls = os.listdir()
 
 def add_to_json(new_set, file_path='dataset.json'):
     try:
