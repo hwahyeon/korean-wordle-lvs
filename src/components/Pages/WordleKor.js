@@ -67,7 +67,7 @@ function WordleKorPage() {
   }
   
   const handleSubmitButtonClick = () => {
-    if (pred.length % 5 !== 0){
+    if (pred.length % 5 !== 0 || pred.length == 0){
       showMessage(msg.lack)
     } else if (!submitBlock){
       showMessage(msg.lack)
@@ -211,7 +211,7 @@ function WordleKorPage() {
               {button.value}
             </Button>
           ))}
-          <Button onClick={() => handleRemoveButtonClick()}>지우기</Button>
+          <Button onClick={() => handleRemoveButtonClick()}>⌫</Button>
         </Box>
       </Box>
       {isVisible ?
