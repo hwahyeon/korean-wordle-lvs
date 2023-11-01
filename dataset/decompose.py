@@ -8,11 +8,30 @@ def decompose(syllable):
     ]
     TRAILING_CONSONANTS = [
         '', 'ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 
-        'ㄶ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㄺ', 'ㄻ', 
+        'ㄶ', 'ㄷ', 'ㄹ', 'ㄺ', 'ㄻ', 
         'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 
-        'ㅁ', 'ㅂ', 'ㅃ', 'ㅄ', 'ㅅ', 'ㅆ', 
-        'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'
+        'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 
+        'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'
     ]
+
+    COMPLEX_CONSONANTS_MAP = {
+        'ㄲ': ('ㄱ', 'ㄱ'),
+        'ㄳ': ('ㄱ', 'ㅅ'),
+        'ㄵ': ('ㄴ', 'ㅈ'),
+        'ㄶ': ('ㄴ', 'ㅎ'),
+        'ㄸ': ('ㄷ', 'ㄷ'),
+        'ㄺ': ('ㄹ', 'ㄱ'),
+        'ㄻ': ('ㄹ', 'ㅁ'),
+        'ㄼ': ('ㄹ', 'ㅂ'),
+        'ㄽ': ('ㄹ', 'ㅅ'),
+        'ㄾ': ('ㄹ', 'ㅌ'),
+        'ㄿ': ('ㄹ', 'ㅍ'),
+        'ㅀ': ('ㄹ', 'ㅎ'),
+        'ㅄ': ('ㅂ', 'ㅅ'),
+        'ㅃ': ('ㅂ', 'ㅂ'),
+        'ㅆ': ('ㅅ', 'ㅅ'),
+        'ㅉ': ('ㅈ', 'ㅈ'),
+    }
 
     COMPLEX_VOWELS_MAP = {
         'ㅘ': ('ㅗ', 'ㅏ'),
@@ -25,40 +44,26 @@ def decompose(syllable):
         'ㅒ': ('ㅑ', 'ㅣ'),
         'ㅖ': ('ㅕ', 'ㅣ'),
     }
-    COMPLEX_CONSONANTS_MAP = {
-        'ㄳ': ('ㄱ', 'ㅅ'),
-        'ㄵ': ('ㄴ', 'ㅈ'),
-        'ㄶ': ('ㄴ', 'ㅎ'),
-        'ㄺ': ('ㄹ', 'ㄱ'),
-        'ㄻ': ('ㄹ', 'ㅁ'),
-        'ㄼ': ('ㄹ', 'ㅂ'),
-        'ㄽ': ('ㄹ', 'ㅅ'),
-        'ㄾ': ('ㄹ', 'ㅌ'),
-        'ㄿ': ('ㄹ', 'ㅍ'),
-        'ㅀ': ('ㄹ', 'ㅎ'),
-        'ㅄ': ('ㅂ', 'ㅅ'),
-        'ㄲ': ('ㄱ', 'ㄱ'),
-        'ㄸ': ('ㄷ', 'ㄷ'),
-        'ㅃ': ('ㅂ', 'ㅂ'),
-        'ㅆ': ('ㅅ', 'ㅅ'),
-        'ㅉ': ('ㅈ', 'ㅈ'),
-    }
-    
+
     if '가' <= syllable <= '힣':
         base = ord(syllable) - ord('가')
         lead = base // (21 * 28)
         vowel = (base // 28) % 21
         trail = base % 28
         
+        lead_char = LEADING_CONSONANTS[lead]
+        if lead_char in COMPLEX_CONSONANTS_MAP:
+            lead_char = ''.join(COMPLEX_CONSONANTS_MAP[lead_char])
+        
         vowel_char = VOWELS[vowel]
         if vowel_char in COMPLEX_VOWELS_MAP:
             vowel_char = ''.join(COMPLEX_VOWELS_MAP[vowel_char])
-
+        
         trail_char = TRAILING_CONSONANTS[trail]
         if trail_char in COMPLEX_CONSONANTS_MAP:
             trail_char = ''.join(COMPLEX_CONSONANTS_MAP[trail_char])
         
-        return f"{LEADING_CONSONANTS[lead]}{vowel_char}{trail_char}"
+        return f"{lead_char}{vowel_char}{trail_char}"
     else:
         return syllable
 
