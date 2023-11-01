@@ -4,7 +4,7 @@ import json
 import re
 
 # 파일 불러오기
-data = pd.read_excel('dataset.xlsx')
+data = pd.read_excel('dataset.xls')
 
 # 숫자 제거 함수
 def remove_numbers(text):
