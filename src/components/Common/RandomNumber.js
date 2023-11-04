@@ -9,7 +9,7 @@ function hard() {
   const rng = seedrandom(seed);
   
   // 1부터 23742까지의 난수 생성
-  const randomNumber = Math.floor(rng() * 23742) + 1;
+  const randomNumber = Math.floor(rng() * 26096) + 1;
   
   return randomNumber;
 }
@@ -23,7 +23,7 @@ function easy() {
   const rng = seedrandom(seed);
   
   // 1부터 23742까지의 난수 생성
-  const randomNumber = Math.floor(rng() * 1046) + 1;
+  const randomNumber = Math.floor(rng() * 992) + 1;
   
   return randomNumber;
 }
