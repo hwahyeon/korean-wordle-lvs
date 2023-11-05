@@ -17,7 +17,7 @@ function WordleKorPage() {
   const [submitBlock, setSubmitBlock] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [centerMsg, setCenterMsg] = useState('')
-  const [gotAnwser, setGotAnwser] = useState(false)
+  const [gotAnswer, setGotAnwser] = useState(false)
   const [failAnwser, setFailAnwser] = useState(false)
 
   // Adjust selected mode
@@ -192,33 +192,33 @@ function WordleKorPage() {
       <Box className="keyBoard">
         <Box className="raw">
           {myButtons1.map((button) => (
-            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)}>
+            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)} disabled={gotAnswer}>
               {button.value}
             </Button>
           ))}
         </Box>
         <Box className="raw">
           {myButton2.map((button) => (
-            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)}>
+            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)} disabled={gotAnswer}>
               {button.value}
             </Button>
           ))}
         </Box>
         <Box className="raw">
-          <Button onClick={() => handleSubmitButtonClick()}>제출</Button>
+          <Button onClick={() => handleSubmitButtonClick()} disabled={gotAnswer}>제출</Button>
           {myButton3.map((button) => (
-            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)}>
+            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)} disabled={gotAnswer}>
               {button.value}
             </Button>
           ))}
-          <Button onClick={() => handleRemoveButtonClick()}>⌫</Button>
+          <Button onClick={() => handleRemoveButtonClick()} disabled={gotAnswer}>⌫</Button>
         </Box>
       </Box>
       {isVisible ?
         <CentralMessage message={centerMsg} duration={2000} />
         :
         <div></div>}
-      {gotAnwser ?
+      {gotAnswer ?
         <AnswerPopup />
         :
         null
