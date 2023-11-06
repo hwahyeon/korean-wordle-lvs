@@ -1,41 +1,80 @@
-.HomePage{
+.HomePage {
   margin-top: 70px;
   .content {
     text-align: center;
-    .icon{
+    .icon {
       margin-top: 65px;
     }
-    .header{
+    .header {
       margin-top: 30px;
       font-weight: bold;
       font-size: 30px;
       margin-bottom: 30px;
     }
-    .cont_txt{
+    .cont_txt {
       font-size: 18px;
+      margin: 10px;
     }
-    .play_button{
+    .play_button {
       font-size: 18px;
-      background: white;
+      // background: white;
       color: black;
-      padding: 10px;
+      padding: 10px 17px;
       border-color: black;
       border-radius: 12px;
       border: 1px solid #000;
-      margin-bottom: 30px;
+      // margin-top: 20px;
+      margin-bottom: 20px;
       transition: background 0.3s, color 0.3s;
+      margin-right: 5px;
 
+      &:last-child {
+        margin-right: 0;
+      }
       &:hover {
-        background: black;
+        background-color: black;
         color: white;
       }
     }
-    .alink_button{
+    .start_text{
+      font-size: 20px;
+      font-weight: 800;
+      margin: 15px;
+    }
+    .level_text{
+      font-size: 17px;
+      font-weight: 700;
+      margin: 15px;
+    }
+    .alink_button {
       margin: 10px;
     }
-    .date{
+    .date {
       font-weight: bold;
       padding-top: 30px;
+    }
+    .ref {
+      button {
+        // font-size: 18px;
+        width: 90px;
+        // background: white;
+        color: black;
+        // padding: 10px 15px;
+        border-color: black;
+        border-radius: 12px;
+        border: 1px solid #000;
+        margin-top: 40px;
+        transition: background 0.3s, color 0.3s;
+        margin-right: 5px;
+        padding: 10px;
+        &:last-child {
+          margin-right: 0;
+        }
+        &:hover {
+          background-color: black;
+          color: white;
+        }
+      }
     }
   }
 }
