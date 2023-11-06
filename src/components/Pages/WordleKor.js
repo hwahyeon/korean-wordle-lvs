@@ -1,14 +1,14 @@
 import React, { useState } from "react";
+import { useParams } from 'react-router-dom';
 import { Container, Box, Button } from '@mui/material';
 import '../../styles/wordleKor.scss';
 import Header from "../Common/Header";
 import hardMode from '../../assets/hard_mode.json'
 import easyMode from '../../assets/easy_mode.json'
 import CentralMessage from '../Common/CentralMessage.js'
-import AnswerPopup from '../Common/AnswerMessage';
-import FailedPopup from '../Common/FailedMessage';
+import AnswerPopup from '../Common/AnswerModal.js';
+import FailedPopup from '../Common/FailedModal.js';
 import getDailyRandomNumber from '../Common/RandomNumber'
-import { useParams } from 'react-router-dom';
 
 function WordleKorPage() {
   const [pred, setPred] = useState([]); // List of input
@@ -174,7 +174,7 @@ function WordleKorPage() {
 
   return (
     <Container className="WorldKorPage">
-      <Header></Header>
+      <Header />
       <Box className="AnswerBoxes">
         {[...Array(6)].map((_, boxIndex) => (
           <Box key={boxIndex} className="AnswerBox">
@@ -192,26 +192,26 @@ function WordleKorPage() {
       <Box className="keyBoard">
         <Box className="raw">
           {myButtons1.map((button) => (
-            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)} disabled={gotAnswer}>
+            <button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)} disabled={gotAnswer}>
               {button.value}
-            </Button>
+            </button>
           ))}
         </Box>
         <Box className="raw">
           {myButton2.map((button) => (
-            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)} disabled={gotAnswer}>
+            <button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)} disabled={gotAnswer}>
               {button.value}
-            </Button>
+            </button>
           ))}
         </Box>
         <Box className="raw">
-          <Button onClick={() => handleSubmitButtonClick()} disabled={gotAnswer}>제출</Button>
+          <button className="submit_btn" onClick={() => handleSubmitButtonClick()} disabled={gotAnswer}>제출</button>
           {myButton3.map((button) => (
-            <Button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)} disabled={gotAnswer}>
+            <button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)} disabled={gotAnswer}>
               {button.value}
-            </Button>
+            </button>
           ))}
-          <Button onClick={() => handleRemoveButtonClick()} disabled={gotAnswer}>⌫</Button>
+          <button className="remove_btn"onClick={() => handleRemoveButtonClick()} disabled={gotAnswer}>⌫</button>
         </Box>
       </Box>
       {isVisible ?
