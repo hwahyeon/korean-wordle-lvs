@@ -1,60 +1,77 @@
-.WorldKorPage{
+@import "reset";
+
+.WorldKorPage {
   margin-top: 70px;
-  width: 100%;
+  
 
-  .AnswerBoxes{
+  .AnswerBoxes {
     padding-bottom: 15px;
-
+    width: 100%;
     .AnswerBox {
       display: flex;
       justify-content: center;
       text-align: center;
       .green {
         background-color: #6aaa64;
+        border: 2px solid #6aaa64;
       }
       .yellow {
         background-color: #dfca6c;
+        border: 2px solid #dfca6c;
       }
       .gray {
         background-color: #94a3b8;
+        border: 2px solid #94a3b8;
       }
     }
-    .AnswerBox div{
-      border: 0.5px solid #d3d6da;
+    .AnswerBox div {
+      display: flex;
+      align-items: center; /* 수직 중앙 정렬 */
+      justify-content: center; /* 수평 중앙 정렬 */
+      border: 2px solid #d3d6da;
       border-radius: 3px;
       padding: 5px;
       margin: 3px;
-      width: 36px;
-      height: 36px;
-      line-height: 36px;
+      width: 51px;
+      height: 51px;
+      font-size: 22px;
+      font-weight: 700;
     }
   }
-  
+
   .keyBoard {
-    .raw{
+    width: 100%;
+    .raw {
       display: flex;
       justify-content: center;
       .green {
         background-color: #6aaa64;
+        border: 2px solid #6aaa64;
       }
       .yellow {
         background-color: #dfca6c;
+        border: 2px solid #dfca6c;
       }
       .gray {
         background-color: #94a3b8;
+        border: 2px solid #94a3b8;
       }
     }
-    .raw Button{
+    .raw button {
       color: black;
       font-weight: bold;
       // font-size: 15px;
       border: 0.5px solid #d3d6da;
       margin: 2px;
-      // padding: 5px;
-      // max-width: 20px;
-      max-height: 35px;
-      min-width: 30px;
-      // min-height: 30px;
+      padding: 7px;
+      max-width: 45px;
+      max-height: 45px;
+      // min-width: 35px;
+      // min-height: 35px;
+      display: flex;
+      align-items: center; /* 수직 중앙 정렬 */
+      justify-content: center; /* 수평 중앙 정렬 */
+      border-radius: 5px;
     }
   }
 }
