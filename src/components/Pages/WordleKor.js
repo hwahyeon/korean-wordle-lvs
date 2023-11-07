@@ -155,7 +155,7 @@ function WordleKorPage() {
   const msg = {
     lack: '글자 수가 충분하지 않습니다.',
     much: '입력값을 초과했습니다',
-    wrong: '단어를 찾을 수 없습니다.',
+    wrong: '정확한 명사가 아닙니다.',
     end: '',
   }
 
@@ -218,7 +218,7 @@ function WordleKorPage() {
         </Box>
       </Box>
       {isVisible ?
-        <CentralMessage message={centerMsg} duration={2000} />
+        <CentralMessage message={centerMsg} />
         :
         <div></div>}
       {gotAnswer ?
