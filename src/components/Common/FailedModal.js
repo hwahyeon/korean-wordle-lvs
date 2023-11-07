@@ -14,7 +14,7 @@ const Overlay = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: 500;
 `;
 
 const Content = styled.div`
@@ -34,8 +34,8 @@ const FailedPopup = () => {
   return (
     <Overlay>
       <Content>
-        <p>'끝났습니다'</p>
-        <Button onClick={handleClick}>홈</Button>
+        <p>아쉬워요! 다시 도전해보세요!</p>
+        <button onClick={handleClick}>홈</button>
       </Content>
     </Overlay>
   )
