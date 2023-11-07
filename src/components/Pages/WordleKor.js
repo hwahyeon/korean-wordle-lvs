@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
-import { Container, Box, Button } from '@mui/material';
+import { Container, Box } from '@mui/material';
 import '../../styles/wordleKor.scss';
 import Header from "../Common/Header";
 import hardMode from '../../assets/hard_mode.json'
+import imdtMode from '../../assets/imdt_mode.json'
 import easyMode from '../../assets/easy_mode.json'
 import CentralMessage from '../Common/CentralMessage.js'
 import AnswerPopup from '../Common/AnswerModal.js';
@@ -26,6 +27,8 @@ function WordleKorPage() {
   let answer;
   if (mode === 'easy'){
     answer = easyMode[getDailyRandomNumber.easy()]
+  } else if (mode === 'imdt'){
+    answer = imdtMode[getDailyRandomNumber.imdt()]
   } else {
     answer = hardMode[getDailyRandomNumber.hard()]
   }

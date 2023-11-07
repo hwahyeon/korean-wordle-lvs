@@ -13,8 +13,7 @@ function HomePage() {
   };
 
   const handleImdtClick = () => {
-    // navigate('/play/imdt');
-    alert("준비중입니다");
+    navigate('/play/imdt');
   };
 
   const handleHardClick = () => {
