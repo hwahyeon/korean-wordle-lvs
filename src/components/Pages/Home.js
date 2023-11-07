@@ -59,6 +59,7 @@ function HomePage() {
           </button>
         </Box>
         <Box>
+          <P>매일 12시 정각에 정답이 바뀌어요</P>
           <P className="date">{currentDateTime.date}</P>
           <P className="edit">Made by hwahyeon</P>
         </Box>
