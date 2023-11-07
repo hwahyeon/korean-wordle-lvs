@@ -24,7 +24,7 @@ const InfoModal = ({ onClose }) => {
           <Box className="examples">
             <div className="green">ㅎ</div>
             <div>ㅏ</div>
-            <div>ㄱ</div>
+            <div>ㄴ</div>
             <div>ㅡ</div>
             <div>ㄹ</div>
             <P className="explain_text">
