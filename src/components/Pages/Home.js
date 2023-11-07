@@ -13,7 +13,7 @@ function HomePage() {
   };
 
   const handleImdtClick = () => {
-    navigate('/play/imdt');
+    navigate("/play/imdt");
   };
 
   const handleHardClick = () => {
@@ -67,14 +67,19 @@ function HomePage() {
           <button
             className="alink_button"
             component={Link}
-            to="https://github.com/hwahyeon/reactjs-wordle-kor"
+            onClick={() =>
+              (window.location.href =
+                "https://github.com/hwahyeon/reactjs-wordle-kor")
+            }
           >
             Code of this game
           </button>
           <button
             className="alink_button"
-            component={Link}
-            to="https://www.nytimes.com/games/wordle/index.html"
+            onClick={() =>
+              (window.location.href =
+                "https://www.nytimes.com/games/wordle/index.html")
+            }
           >
             Original Wordle
           </button>
