@@ -57,7 +57,7 @@ const AnswerPopup = () => {
     <Overlay>
       <Content>
         <CloseButton onClick={handleCloseClick}>&times;</CloseButton>
-        <p>정답입니다.</p>
+        <p>정답입니다!</p>
         <Button onClick={handleHomeClick}>홈</Button>
       </Content>
     </Overlay>
