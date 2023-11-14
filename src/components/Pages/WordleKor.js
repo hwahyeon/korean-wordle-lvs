@@ -10,6 +10,7 @@ import CentralMessage from '../Common/CentralMessage.js'
 import AnswerPopup from '../Common/AnswerModal.js';
 import FailedPopup from '../Common/FailedModal.js';
 import getDailyRandomNumber from '../Common/RandomNumber'
+import { click } from "@testing-library/user-event/dist/click.js";
 
 function WordleKorPage() {
   const [pred, setPred] = useState([]); // List of input
@@ -33,7 +34,7 @@ function WordleKorPage() {
     answer = hardMode[getDailyRandomNumber.hard()]
   }
   // const answer = ['ㅇ', 'ㅏ', 'ㄴ', 'ㄴ', 'ㅏ']
-  console.log(answer)
+  // console.log(answer)
 
 
   function showMessage(m) {
@@ -43,21 +44,30 @@ function WordleKorPage() {
       setIsVisible(false);
     }, 3000);
   }
-  
+
+
   const handleButtonClick = (value) => {
-    if (pred.length < listLen){
+    if (pred.length < listLen) {
       const newItem = {
         value: value,
         deletable: true,
         color: '',
       };
-      setPred((pred) => [...pred, newItem]);
+      // setPred 내부에서 상태 업데이트 후 추가 로직 수행
+      setPred((prevPred) => {
+        const newPred = [...prevPred, newItem];
+        
+        // newItem이 추가된 후의 조건 검사
+        // if ((newPred.length % 5 !== 0) || 
+        //     (newPred.length > 5 &&newPred.length % 5 === 0 && newPred[newPred.length - 1].deletable === false)) {
+        if (pred.length % 5 !== 0){  
+          setSubmitBlock(true);
+        }
+  
+        return newPred;
+      });
     } else {
-      showMessage(msg.much)
-    }
-
-    if (pred.length % 5 !== 0){
-      setSubmitBlock(true)
+      showMessage(msg.much);
     }
   };
 
@@ -68,17 +78,20 @@ function WordleKorPage() {
       setPred(updatedList);
       }
   }
-  
+
+
   const handleSubmitButtonClick = () => {
+    
     if (pred.length % 5 !== 0 || pred.length === 0){
       showMessage(msg.lack)
-    } else if (!submitBlock){
+    } else if (pred.length % 5 === 0 && !pred[pred.length - 1].deletable) {
       showMessage(msg.lack)
     } else {
       const submitted = pred.slice(-5).map(obj => obj.value).join('');
       if (!(jsonData.includes(submitted))){
         showMessage(msg.wrong)
       } else {
+        // 정확한 명사
         setListLen((listLen) => listLen + 5);
 
         let updatedColorList = []
@@ -98,12 +111,13 @@ function WordleKorPage() {
             pred[i].deletable = false;
           } else {
             showMessage(msg.lack)
+            console.log('tot')
             // console.error(`pred[${i}] is undefined`);
           }
         }
         setPred([...pred])
         setColorList(colorList.concat(updatedColorList))
-        setSubmitBlock(false)
+        // setSubmitBlock(false)
 
         if ( 5 === updatedColorList.reduce((cnt, e) => {
           return cnt + (e === 'green' ? 1 : 0);
