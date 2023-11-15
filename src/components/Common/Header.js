@@ -30,6 +30,7 @@ function Header() {
 
   const toggleDarkMode = () => {
     alert("다크모드는 준비중입니다.");
+    setDarkMode(!darkMode)
   };
 
   return (
