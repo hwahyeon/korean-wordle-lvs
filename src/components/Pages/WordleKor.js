@@ -236,7 +236,7 @@ function WordleKorPage() {
         :
         <div></div>}
       {gotAnswer ?
-        <AnswerPopup />
+        <AnswerPopup rounds={pred.length} />
         :
         null
       }
