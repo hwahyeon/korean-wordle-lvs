@@ -41,7 +41,7 @@ The New York Times에서 제공하는 영문 게임 [Wordle](https://www.nytimes
 
 `오늘의 단어`는 `검사`였군요!
 
-## 참고
-### [Dataset repository](https://github.com/hwahyeon/py-wordle-kor-dataset)
+## 데이터셋
+### [Dataset preprocessing repository](https://github.com/hwahyeon/py-wordle-kor-dataset)
 - [우리말샘](https://opendict.korean.go.kr/) 사전
 - [국립국어연구원](https://www.korean.go.kr/front/etcData/etcDataView.do?mn_id=46&etc_seq=71) 한국어 학습용 어휘 목록
