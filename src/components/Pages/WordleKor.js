@@ -10,7 +10,7 @@ import CentralMessage from '../Common/CentralMessage.js'
 import AnswerPopup from '../Common/AnswerModal.js';
 import FailedPopup from '../Common/FailedModal.js';
 import getDailyRandomNumber from '../Common/RandomNumber'
-import { click } from "@testing-library/user-event/dist/click.js";
+import buttonsData from '../Pages/buttonsDataKor.json'
 
 function WordleKorPage() {
   const [pred, setPred] = useState([]); // List of input
@@ -131,40 +131,45 @@ function WordleKorPage() {
     }
   }
 
-  const myButtons1 = [
-    { id: 1, value: 'ㅂ' },
-    { id: 2, value: 'ㅈ' },
-    { id: 3, value: 'ㄷ' },
-    { id: 4, value: 'ㄱ' },
-    { id: 5, value: 'ㅅ' },
-    { id: 6, value: 'ㅛ' },
-    { id: 7, value: 'ㅕ' },
-    { id: 8, value: 'ㅑ' },
-    { id: 9, value: 'ㅐ' },
-    { id: 10, value: 'ㅔ' },
-  ];
+  const myButtons1 = buttonsData.myButtons1;
+  const myButtons2 = buttonsData.myButtons2;
+  console.log('*******', myButtons2)
+  const myButtons3 = buttonsData.myButtons3;
 
-  const myButton2 = [
-    { id: 11, value: 'ㅁ' },
-    { id: 12, value: 'ㄴ' },
-    { id: 13, value: 'ㅇ' },
-    { id: 14, value: 'ㄹ' },
-    { id: 15, value: 'ㅎ' },
-    { id: 16, value: 'ㅗ' },
-    { id: 17, value: 'ㅓ' },
-    { id: 18, value: 'ㅏ' },
-    { id: 19, value: 'ㅣ' },
-  ];
+  // const myButtons1 = [
+  //   { id: 1, value: 'ㅂ' },
+  //   { id: 2, value: 'ㅈ' },
+  //   { id: 3, value: 'ㄷ' },
+  //   { id: 4, value: 'ㄱ' },
+  //   { id: 5, value: 'ㅅ' },
+  //   { id: 6, value: 'ㅛ' },
+  //   { id: 7, value: 'ㅕ' },
+  //   { id: 8, value: 'ㅑ' },
+  //   { id: 9, value: 'ㅐ' },
+  //   { id: 10, value: 'ㅔ' },
+  // ];
 
-  const myButton3 = [
-    { id: 20, value: 'ㅋ' },
-    { id: 21, value: 'ㅌ' },
-    { id: 22, value: 'ㅊ' },
-    { id: 23, value: 'ㅍ' },
-    { id: 24, value: 'ㅠ' },
-    { id: 25, value: 'ㅜ' },
-    { id: 26, value: 'ㅡ' },
-  ];
+  // const myButton2 = [
+  //   { id: 11, value: 'ㅁ' },
+  //   { id: 12, value: 'ㄴ' },
+  //   { id: 13, value: 'ㅇ' },
+  //   { id: 14, value: 'ㄹ' },
+  //   { id: 15, value: 'ㅎ' },
+  //   { id: 16, value: 'ㅗ' },
+  //   { id: 17, value: 'ㅓ' },
+  //   { id: 18, value: 'ㅏ' },
+  //   { id: 19, value: 'ㅣ' },
+  // ];
+
+  // const myButton3 = [
+  //   { id: 20, value: 'ㅋ' },
+  //   { id: 21, value: 'ㅌ' },
+  //   { id: 22, value: 'ㅊ' },
+  //   { id: 23, value: 'ㅍ' },
+  //   { id: 24, value: 'ㅠ' },
+  //   { id: 25, value: 'ㅜ' },
+  //   { id: 26, value: 'ㅡ' },
+  // ];
 
   const msg = {
     lack: '글자 수가 충분하지 않습니다.',
@@ -215,7 +220,7 @@ function WordleKorPage() {
           ))}
         </Box>
         <Box className="raw">
-          {myButton2.map((button) => (
+          {myButtons2.map((button) => (
             <button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)} disabled={gotAnswer}>
               {button.value}
             </button>
@@ -223,7 +228,7 @@ function WordleKorPage() {
         </Box>
         <Box className="raw">
           <button className="submit_btn" onClick={() => handleSubmitButtonClick()} disabled={gotAnswer}>제출</button>
-          {myButton3.map((button) => (
+          {myButtons3.map((button) => (
             <button key={button.id} onClick={() => handleButtonClick(button.value)} value={button.value} className={keyboardColor(button.value)} disabled={gotAnswer}>
               {button.value}
             </button>
