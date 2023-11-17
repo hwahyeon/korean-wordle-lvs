@@ -1,15 +1,7 @@
 import { Box, Typography as P } from "@mui/material";
-import { useState } from "react";
 import "../../styles/infoModal.scss";
 
 const InfoModal = ({ onClose }) => {
-  // const [isVisible, setIsVisible] = useState(true);
-
-  // const handleCloseClick = () => {
-  //   setIsVisible(false);
-  // };
-
-  // if (!isVisible) return null;
 
   return (
     <Box className="overlay">

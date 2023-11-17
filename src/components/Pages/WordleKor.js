@@ -31,6 +31,17 @@ function WordleKorPage() {
   const [gotAnswer, setGotAnwser] = useState(false)
   const [failAnwser, setFailAnwser] = useState(false)
 
+  const myButtons1 = buttonsData.myButtons1;
+  const myButtons2 = buttonsData.myButtons2;
+  const myButtons3 = buttonsData.myButtons3;
+
+  const msg = {
+    lack: '글자 수가 충분하지 않습니다.',
+    much: '입력값을 초과했습니다',
+    wrong: '정확한 명사가 아닙니다.',
+    end: '',
+  }
+
   // Adjust selected mode
   const { mode } = useParams();
   const jsonData = hardMode
@@ -45,7 +56,6 @@ function WordleKorPage() {
   // const answer = ['ㅇ', 'ㅏ', 'ㄴ', 'ㄴ', 'ㅏ']
   // console.log(answer)
 
-
   function showMessage(m) {
     setCenterMsg(m);
     setIsVisible(true);
@@ -53,7 +63,6 @@ function WordleKorPage() {
       setIsVisible(false);
     }, 3000);
   }
-
 
   const handleButtonClick = (value) => {
     if (pred.length < listLen) {
@@ -66,13 +75,9 @@ function WordleKorPage() {
       setPred((prevPred) => {
         const newPred = [...prevPred, newItem];
         
-        // newItem이 추가된 후의 조건 검사
-        // if ((newPred.length % 5 !== 0) || 
-        //     (newPred.length > 5 &&newPred.length % 5 === 0 && newPred[newPred.length - 1].deletable === false)) {
         if (pred.length % 5 !== 0){  
           setSubmitBlock(true);
         }
-  
         return newPred;
       });
     } else {
@@ -87,7 +92,6 @@ function WordleKorPage() {
       setPred(updatedList);
       }
   }
-
 
   const handleSubmitButtonClick = () => {
     
@@ -139,17 +143,6 @@ function WordleKorPage() {
     }
   }
 
-  const myButtons1 = buttonsData.myButtons1;
-  const myButtons2 = buttonsData.myButtons2;
-  const myButtons3 = buttonsData.myButtons3;
-
-  const msg = {
-    lack: '글자 수가 충분하지 않습니다.',
-    much: '입력값을 초과했습니다',
-    wrong: '정확한 명사가 아닙니다.',
-    end: '',
-  }
-
   function keyboardColor(v) {
     const foundPreds = pred.filter(predItem => predItem.value === v);
     
@@ -162,7 +155,6 @@ function WordleKorPage() {
     if (foundPreds.some(predItem => predItem.color === 'gray')) {
       return 'gray';
     }
-  
     return ''; // 어떤 색상도 찾지 못했을 시
   }
 
