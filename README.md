@@ -21,23 +21,23 @@ The New York Times에서 제공하는 영문 게임 [Wordle](https://www.nytimes
 - 오늘의 단어는 **명사**입니다.
 
 ### 예시
-<img src="./readme/001.png" width="40%">
+<img src="./readme/001.png" width="45%">
   
 처음 시작화면입니다. 지금은 아무 단서가 없으니 아무 단어나 써볼까요? `하늘`이 좋겠군요.
   
-<img src="./readme/002.png" width="40%">
+<img src="./readme/002.png" width="45%">
 
 타일의 색이 변경되면서 여러 단서가 나왔어요. `오늘의 단어`는 `ㅎ`,`ㄴ`,`ㅡ`,`ㄹ` 를 포함하지 않고, `ㅏ`를 포함하고 있군요. 그럼 `복사`를 써보겠습니다. `ㅎ`,`ㄴ`,`ㅡ`,`ㄹ`를 포함하지 않고, `ㅏ`를 포함한 단어 중 하나니까요.
   
-<img src="./readme/003.png" width="40%">
+<img src="./readme/003.png" width="45%">
 
 정답에 가까워지고 있습니다. `오늘의 단어`는 `사`로 끝나는 단어였군요. 음, `경사`로 한 번 시도해보죠.
 
-<img src="./readme/004.png" width="40%">
+<img src="./readme/004.png" width="45%">
 
 정답에 아주 근접했습니다. 두 타일만 맞추면 됩니다. 혹시 답은 `검사`가 아닐까요?
 
-<img src="./readme/005.png" width="40%">
+<img src="./readme/005.png" width="45%">
 
 `오늘의 단어`는 `검사`였군요!
 
