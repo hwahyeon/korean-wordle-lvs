@@ -21,7 +21,7 @@
     .content_txt {
       padding-top: 30px;
       padding-bottom: 15px;
-      font-family: 'Noto Sans KR', sans-serif;
+      font-family: "Noto Sans KR", sans-serif;
       font-weight: 900;
       // font-size: 18px;
       text-align: center;
@@ -36,19 +36,26 @@
       cursor: pointer;
     }
 
-    .HomeButton {
-      padding: 10px 20px;
-      background-color: #94a3b8; /* 기본 파란색 */
-      color: white; /* 텍스트 색상 */
-      border: none;
-      border-radius: 20px; /* 둥근 모서리 */
-      font-size: 1em;
-      cursor: pointer;
-      transition: background-color 0.3s ease; /* 부드러운 색상 전환 효과 */
-
-      &:hover {
-        background-color: #4d5058; /* 호버 상태에서의 배경색 */
+    .Buttons{
+      display: flex;
+      justify-content: center; /* 가로 중앙 정렬 */
+      gap: 10px; /* 버튼 사이의 간격 */
+      
+      .HomeButton {
+        padding: 10px 20px;
+        background-color: #94a3b8; /* 기본 파란색 */
+        color: white; /* 텍스트 색상 */
+        border: none;
+        border-radius: 20px; /* 둥근 모서리 */
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* 부드러운 색상 전환 효과 */
+  
+        &:hover {
+          background-color: #4d5058; /* 호버 상태에서의 배경색 */
+        }
       }
     }
+    
   }
 }

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/modal.scss";
 
 const AnswerPopup = (props) => {
+  // console.log(props)
   const rounds = Math.floor(props.rounds / 5);
   let msg = "";
 
@@ -70,6 +71,7 @@ const AnswerPopup = (props) => {
   }
 
   const [isVisible, setIsVisible] = useState(true);
+  const [isMeanWord, setIsMeanWord] = useState(true);
   const navigate = useNavigate();
 
   const handleCloseClick = () => {
@@ -79,6 +81,8 @@ const AnswerPopup = (props) => {
   const handleHomeClick = () => {
     navigate("/");
   };
+
+  const handleWordsMeaningClick = () => {};
 
   if (!isVisible) return null;
 
@@ -91,8 +95,13 @@ const AnswerPopup = (props) => {
         <div className="content_txt">
           <p>{msg}</p>
         </div>
-        <div className="HomeButton" onClick={handleHomeClick}>
-          홈
+        <div className="Buttons">
+          <div className="HomeButton" onClick={handleWordsMeaningClick}>
+            단어 뜻 보기
+          </div>
+          <div className="HomeButton" onClick={handleHomeClick}>
+            홈으로
+          </div>
         </div>
       </div>
     </div>
