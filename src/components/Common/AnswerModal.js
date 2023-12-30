@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/modal.scss";
+import dictionary from "../../assets/dictionary.json";
 
 const AnswerPopup = (props) => {
-  // console.log(props)
   const rounds = Math.floor(props.rounds / 5);
   let msg = "";
 
@@ -71,7 +71,10 @@ const AnswerPopup = (props) => {
   }
 
   const [isVisible, setIsVisible] = useState(true);
-  const [isMeanWord, setIsMeanWord] = useState(true);
+  const [failAnwser] = useState(props.fail);
+  const [isMeanWord, setIsMeanWord] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+
   const navigate = useNavigate();
 
   const handleCloseClick = () => {
@@ -82,28 +85,99 @@ const AnswerPopup = (props) => {
     navigate("/");
   };
 
-  const handleWordsMeaningClick = () => {};
+  const handleWordsMeaningClick = () => {
+    setIsMeanWord(true);
+  };
+
+  const handleNoWordsMeaningClick = () => {
+    setIsMeanWord(false);
+  };
+
+  function getMeaningForKey(json, searchKey) {
+    const items = json.filter((item) => item.key === searchKey);
+    return items.map((item) => item.mean);
+  }
+
+  const meaning = getMeaningForKey(dictionary, props.answer);
 
   if (!isVisible) return null;
 
+  const totalPages = meaning.length;
+
+  const handleClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(
+        <button
+          key={i}
+          className={`pagination-btn ${currentPage === i ? "active" : ""}`}
+          onClick={() => handleClick(i)}
+        >
+          {i}
+        </button>
+      );
+    }
+    return pageNumbers;
+  };
+
   return (
     <div className="Overlay">
-      <div className="Content">
-        <div className="CloseButton" onClick={handleCloseClick}>
-          &times;
-        </div>
-        <div className="content_txt">
-          <p>{msg}</p>
-        </div>
-        <div className="Buttons">
-          <div className="HomeButton" onClick={handleWordsMeaningClick}>
-            단어 뜻 보기
+      {!!isMeanWord ? (
+        <div className="Content">
+          <div className="CloseButton" onClick={handleCloseClick}>
+            &times;
           </div>
-          <div className="HomeButton" onClick={handleHomeClick}>
-            홈으로
+          <p className="AnswerWord">{props.answer}</p>
+
+          <div className="AnswerMeaning">{meaning[currentPage - 1]}</div>
+
+          {/* 페이지 번호 */}
+          <div className="PageBtns">{renderPageNumbers()}</div>
+          <div className="Buttons">
+            <div className="HomeButton" onClick={handleNoWordsMeaningClick}>
+              뒤로 가기
+            </div>
+            <div className="HomeButton" onClick={handleHomeClick}>
+              홈으로
+            </div>
           </div>
         </div>
-      </div>
+      ) : !failAnwser ? (
+        <div className="Content">
+          <div className="CloseButton" onClick={handleCloseClick}>
+            &times;
+          </div>
+          <div className="content_txt">
+            <p>{msg}</p>
+          </div>
+          <div className="Buttons">
+            <div className="HomeButton" onClick={handleWordsMeaningClick}>
+              단어 뜻 보기
+            </div>
+            <div className="HomeButton" onClick={handleHomeClick}>
+              홈으로
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="Content">
+          <div className="CloseButton" onClick={handleCloseClick}>
+            &times;
+          </div>
+          <div className="content_txt">
+            <p>아쉬워요! 다시 도전해보세요!</p>
+          </div>
+          <div className="Buttons">
+            <div className="HomeButton" onClick={handleHomeClick}>
+              홈으로
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
