@@ -14,10 +14,13 @@
     padding: 20px;
     background-color: #fff;
     position: relative;
+    width: 350px;
+    min-height: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     .content_txt {
       padding-top: 30px;
       padding-bottom: 15px;
@@ -35,12 +38,38 @@
       font-size: 1.5em;
       cursor: pointer;
     }
+    .AnswerWord {
+      color: black;
+      font-size: 23px;
+    }
+    
+    .AnswerMeaning {
+      padding: 10px; /* 패딩 */
+    }
+    /* 페이지 번호 버튼 스타일 */
+    .pagination-btn {
+      padding: 5px 10px;
+      margin: 5px;
+      background-color: #94a3b8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* 배경색 변경 시 부드러운 전환 효과 */
+    }
 
-    .Buttons{
+    .pagination-btn:hover {
+      background-color: #adb9c9;
+    }
+
+    .pagination-btn.active {
+      background-color: #6d7991;
+    }
+    .Buttons {
       display: flex;
       justify-content: center; /* 가로 중앙 정렬 */
       gap: 10px; /* 버튼 사이의 간격 */
-      
+
       .HomeButton {
         padding: 10px 20px;
         background-color: #94a3b8; /* 기본 파란색 */
@@ -50,12 +79,11 @@
         font-size: 1em;
         cursor: pointer;
         transition: background-color 0.3s ease; /* 부드러운 색상 전환 효과 */
-  
+
         &:hover {
           background-color: #4d5058; /* 호버 상태에서의 배경색 */
         }
       }
     }
-    
   }
 }
