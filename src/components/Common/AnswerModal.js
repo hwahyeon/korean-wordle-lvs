@@ -132,9 +132,7 @@ const AnswerPopup = (props) => {
             &times;
           </div>
           <p className="AnswerWord">{props.answer}</p>
-
-          <div className="AnswerMeaning">{meaning[currentPage - 1]}</div>
-
+          <div className="AnswerMeaning" dangerouslySetInnerHTML={{__html: meaning[currentPage - 1]}}></div>
           {/* 페이지 번호 */}
           <div className="PageBtns">{renderPageNumbers()}</div>
           <div className="Buttons">
