@@ -50,13 +50,14 @@ function WordleKorPage() {
   // Adjust selected mode
   const { mode } = useParams();
   const jsonData = allDeposedWords;
-  let dict_answer = hardMode[getDailyRandomNumber.hard()];
+  let dict_answer = hardMode[getDailyRandomNumber.randomNumberAnswer(hardMode)];
+
   let answer;
   if (mode === "easy") {
-    dict_answer = easyMode[getDailyRandomNumber.easy()];
+    dict_answer = easyMode[getDailyRandomNumber.randomNumberAnswer(easyMode)];
     answer = dict_answer.value;
   } else if (mode === "imdt") {
-    dict_answer = imdtMode[getDailyRandomNumber.imdt()];
+    dict_answer = imdtMode[getDailyRandomNumber.randomNumberAnswer(imdtMode)];
     answer = dict_answer.value;
   } else {
     answer = dict_answer.value;
