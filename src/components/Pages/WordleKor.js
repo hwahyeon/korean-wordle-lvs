@@ -6,22 +6,20 @@ import { useParams } from "react-router-dom";
 import { Container, Box } from "@mui/material";
 
 // style
-import "../../styles/wordleKor.scss";
+import "../../styles/pages/_wordle-kor.scss";
 
 // Components
 import Header from "../Common/Header";
 import CentralMessage from "../Common/CentralMessage.js";
 import AnswerPopup from "../Common/AnswerModal.js";
-// import FailedPopup from "../Common/FailedModal.js";
 
 // Function & Data
-import getDailyRandomNumber from "../Common/RandomNumber";
-import hardMode from "../../assets/hard_mode.json";
-import imdtMode from "../../assets/imdt_mode.json";
-import easyMode from "../../assets/easy_mode.json";
-import allDeposedWords from "../../assets/all_deposed_words.json";
-// import dictionary from "../../assets/dictionary.json";
-import buttonsData from "../Pages/buttonsDataKor.json";
+import getDailyRandomNumber from "../utils/RandomNumber.js";
+import hardMode from "../../assets/hard-mode.json";
+import imdtMode from "../../assets/imdt-mode.json";
+import easyMode from "../../assets/easy-mode.json";
+import allDeposedWords from "../../assets/all-deposed-words.json";
+import buttonsData from "../Pages/buttons-kor.json";
 
 function WordleKorPage() {
   const [pred, setPred] = useState([]); // List of input
@@ -33,8 +31,7 @@ function WordleKorPage() {
   const [gotAnswer, setGotAnwser] = useState(false);
   const [failAnwser, setFailAnwser] = useState(false);
 
-  useEffect(()=>{},[failAnwser])
-
+  useEffect(() => {}, [failAnwser]);
 
   const myButtons1 = buttonsData.myButtons1;
   const myButtons2 = buttonsData.myButtons2;
@@ -65,8 +62,6 @@ function WordleKorPage() {
 
   // const answer = ['ㅇ', 'ㅏ', 'ㄴ', 'ㄴ', 'ㅏ']
   // console.log(answer)
-  // console.log(dict_answer.key)
-  // console.log(meaning);
 
   function showMessage(m) {
     setCenterMsg(m);
@@ -248,9 +243,20 @@ function WordleKorPage() {
         </Box>
       </Box>
       {isVisible ? <CentralMessage message={centerMsg} /> : <div></div>}
-      {gotAnswer ? <AnswerPopup rounds={pred.length} fail={failAnwser} answer={dict_answer.key} /> : null}
-      {/* {failAnwser ? <FailedPopup /> : null} */}
-      {failAnwser ? <AnswerPopup rounds={pred.length} fail={failAnwser} answer={dict_answer.key} /> : null}
+      {gotAnswer ? (
+        <AnswerPopup
+          rounds={pred.length}
+          fail={failAnwser}
+          answer={dict_answer.key}
+        />
+      ) : null}
+      {failAnwser ? (
+        <AnswerPopup
+          rounds={pred.length}
+          fail={failAnwser}
+          answer={dict_answer.key}
+        />
+      ) : null}
     </Container>
   );
 }

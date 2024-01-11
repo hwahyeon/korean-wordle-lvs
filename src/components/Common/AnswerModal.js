@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../styles/modal.scss";
+import "../../styles/components/_modal.scss";
 import dictionary from "../../assets/dictionary.json";
 
 const AnswerPopup = (props) => {

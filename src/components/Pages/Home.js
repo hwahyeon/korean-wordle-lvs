@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Container, Box, Typography as P } from "@mui/material";
-import "../../styles/home.scss";
+import { Container } from "@mui/material";
+import "../../styles/pages/_home.scss";
 import icon from "../../assets/wordleicon.svg";
 import Header from "../Common/Header";
 
@@ -42,10 +42,10 @@ function HomePage() {
   return (
     <Container className="HomePage">
       <Header />
-      <Box className="content">
+      <div className="content">
         <img src={icon} alt="icon" className="icon" />
         <p className="cont_txt">이 게임은 Wordle의 한글 변형판입니다</p>
-        <Box>
+        <div>
           <p className="start_text">시작해볼까요?</p>
           <p className="level_text">난이도를 선택하세요</p>
           <button className="play_button" onClick={handleEasyClick}>
@@ -57,13 +57,13 @@ function HomePage() {
           <button className="play_button" onClick={handleHardClick}>
             고급
           </button>
-        </Box>
-        <Box>
-          <P>매일 12시 정각에 정답이 바뀌어요</P>
-          <P className="date">{currentDateTime.date}</P>
-          <P className="edit">Made by hwahyeon</P>
-        </Box>
-        <Box className="ref">
+        </div>
+        <div>
+          <p>매일 12시 정각에 정답이 바뀌어요</p>
+          <p className="date">{currentDateTime.date}</p>
+          <p className="edit">Made by hwahyeon</p>
+        </div>
+        <div className="ref">
           <button
             className="alink_button"
             component={Link}
@@ -83,8 +83,8 @@ function HomePage() {
           >
             Original Wordle
           </button>
-        </Box>
-      </Box>
+        </div>
+      </div>
     </Container>
   );
 }
