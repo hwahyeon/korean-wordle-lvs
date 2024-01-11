@@ -1,0 +1,25 @@
+// global.scss
+
+// $primary-color: #ffffff;
+// $secondary-color: #fffff;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: #fff;
+
+  &.dark-mode {
+    color: #fff;
+    background-color: #333;
+  }
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
