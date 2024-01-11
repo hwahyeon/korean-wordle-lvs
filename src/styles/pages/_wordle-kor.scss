@@ -1,8 +1,5 @@
-// @import "/reset";
-
 .WorldKorPage {
   margin-top: 70px;
-  
 
   .AnswerBoxes {
     padding-bottom: 15px;
@@ -26,8 +23,8 @@
     }
     .AnswerBox div {
       display: flex;
-      align-items: center; /* 수직 중앙 정렬 */
-      justify-content: center; /* 수평 중앙 정렬 */
+      align-items: center;
+      justify-content: center;
       border: 2px solid #d3d6da;
       border-radius: 3px;
       padding: 5px;
@@ -60,7 +57,6 @@
     .raw button {
       color: black;
       font-weight: bold;
-      // font-size: 15px;
       border: 0.5px solid #d3d6da;
       margin: 2px;
       padding: 7px;
@@ -69,9 +65,36 @@
       // min-width: 35px;
       // min-height: 35px;
       display: flex;
-      align-items: center; /* 수직 중앙 정렬 */
-      justify-content: center; /* 수평 중앙 정렬 */
+      align-items: center;
+      justify-content: center;
       border-radius: 5px;
+    }
+  }
+
+  body.color-mode & {
+    .AnswerBoxes {
+      .AnswerBox {
+        .green {
+          background-color: #f5793a;
+          border: 2px solid #f5793a;
+        }
+        .yellow {
+          background-color: #85c0f9;
+          border: 2px solid #85c0f9;
+        }
+      }
+    }
+    .keyBoard {
+      .raw {
+        .green {
+          background-color: #f5793a;
+          border: 2px solid #f5793a;
+        }
+        .yellow {
+          background-color: #85c0f9;
+          border: 2px solid #85c0f9;
+        }
+      }
     }
   }
 }

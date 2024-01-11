@@ -7,15 +7,15 @@
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1000;
   display: flex; /* flex를 이용하여 자식 요소를 중앙 정렬 */
-  align-items: center; /* 수직 중앙 정렬 */
-  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center;
+  justify-content: center;
   .info_content {
     padding: 20px;
     background-color: #fff;
     color: black;
     position: relative;
     text-align: center;
-    .closeButton{
+    .closeButton {
       position: absolute;
       top: 10px;
       right: 15px;
@@ -25,13 +25,13 @@
       cursor: pointer;
     }
     .howto_text {
-      .header_text{
-        font-family: 'Noto Sans KR', sans-serif;
+      .header_text {
+        font-family: "Noto Sans KR", sans-serif;
         font-weight: 900;
         font-size: 25px;
         text-align: center;
       }
-      .header_sec_text{
+      .header_sec_text {
         font-size: 17px;
         padding-top: 15px;
         padding-bottom: 5px;
@@ -65,6 +65,26 @@
         }
         .explain_text {
           font-size: 15px;
+        }
+      }
+    }
+  }
+  body.dark-mode & {
+    .info_content {
+      color: #fff;
+      background-color: #333;
+    }
+  }
+  body.color-mode & {
+    .howto_text {
+      .examples {
+        .green {
+          background-color: #f5793a;
+          border: 2px solid #f5793a;
+        }
+        .yellow {
+          background-color: #85c0f9;
+          border: 2px solid #85c0f9;
         }
       }
     }
