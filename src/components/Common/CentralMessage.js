@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../../styles/components/_central-message.scss'
 
 function CentralMessage({ message, duration }) {
