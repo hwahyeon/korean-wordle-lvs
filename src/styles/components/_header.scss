@@ -8,7 +8,11 @@
   color: #fff;
   padding: 5px;
   display: flex;
-  align-items: center; // 세로 방향으로 중앙 정렬
+  align-items: center;
+
+  .spacer {
+    flex: 1; /* 전체 공간의 1/3를 차지 */
+  }
 
   &__firsticon {
     display: flex;
@@ -16,13 +20,14 @@
     justify-content: center;
     cursor: pointer;
     height: 100%;
-    width: 20%;
+    width: 30%;
+    flex: 1;
   }
 
   &__title {
     // 두 번째 div (넓이 100%일 때 가운데 정렬을 위한 margin: auto)
     flex: 0 0 60%; // flex-grow는 0, flex-shrink는 0, flex-basis는 60%
-    max-width: 60%;
+    max-width: 40%;
     margin: auto;
     display: flex;
     align-items: center;
@@ -35,7 +40,7 @@
     justify-content: space-between;
     cursor: pointer;
     height: 100%;
-    width: 20%;
+    width: 30%;
 
     .icon-items {
       flex: 1; /* 아이콘 아이템들 가용 공간 균등하게 */
