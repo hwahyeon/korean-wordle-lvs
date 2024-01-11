@@ -9,11 +9,12 @@
   display: flex; /* flex를 이용하여 자식 요소를 중앙 정렬 */
   align-items: center; /* 수직 중앙 정렬 */
   justify-content: center; /* 수평 중앙 정렬 */
-  .content {
+  .info_content {
     padding: 20px;
     background-color: #fff;
     color: black;
     position: relative;
+    text-align: center;
     .closeButton{
       position: absolute;
       top: 10px;

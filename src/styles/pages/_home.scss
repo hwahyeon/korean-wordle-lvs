@@ -17,13 +17,11 @@
     }
     .play_button {
       font-size: 18px;
-      // background: white;
       color: black;
       padding: 10px 17px;
       border-color: black;
       border-radius: 12px;
       border: 1px solid #000;
-      // margin-top: 20px;
       margin-bottom: 20px;
       transition: background 0.3s, color 0.3s;
       margin-right: 5px;
@@ -36,12 +34,12 @@
         color: white;
       }
     }
-    .start_text{
+    .start_text {
       font-size: 20px;
       font-weight: 800;
       margin: 15px;
     }
-    .level_text{
+    .level_text {
       font-size: 17px;
       font-weight: 700;
       margin: 15px;
@@ -73,6 +71,40 @@
         &:hover {
           background-color: black;
           color: white;
+        }
+      }
+    }
+  }
+  body.dark-mode & {
+    color: #e0e0e0;
+    .content {
+      .header {
+        color: #ffffff; // 헤더의 다크 모드 텍스트 색상
+      }
+      .cont_txt {
+        color: #cccccc; // 내용 텍스트의 다크 모드 색상
+      }
+      .play_button {
+        background-color: #333333; // 다크 모드 버튼 배경색
+        color: #ffffff; // 다크 모드 버튼 텍스트 색상
+        border-color: #444444; // 다크 모드 버튼 테두리 색상
+
+        &:hover {
+          background-color: #ffffff;
+          color: #000000;
+          border-color: #333333;
+        }
+      }
+
+      .ref button {
+        background-color: #333333; // 참조 버튼의 다크 모드 배경색
+        color: #ffffff; // 참조 버튼의 다크 모드 텍스트 색상
+        border-color: #444444; // 참조 버튼의 다크 모드 테두리 색상
+
+        &:hover {
+          background-color: #ffffff;
+          color: #000000;
+          border-color: #333333;
         }
       }
     }

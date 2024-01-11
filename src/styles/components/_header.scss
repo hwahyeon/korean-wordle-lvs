@@ -10,38 +10,39 @@
   display: flex;
   align-items: center; // 세로 방향으로 중앙 정렬
 
-  &__icon, &__group {
-    // Icon 1, Icon 2, Icon 3의 스타일
+  &__firsticon {
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     height: 100%;
-  }
-
-  &__icon {
-    // 첫 번째 div
     width: 20%;
   }
 
   &__title {
     // 두 번째 div (넓이 100%일 때 가운데 정렬을 위한 margin: auto)
     flex: 0 0 60%; // flex-grow는 0, flex-shrink는 0, flex-basis는 60%
-    max-width: 60%; // 최대 너비를 60%로 설정
+    max-width: 60%;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  &__group {
-    // 세 번째와 네 번째 div를 묶는 그룹 (오른쪽에 두 개의 아이콘)
-    width: 20%; // 10% + 10%
+  &__secondicon {
     display: flex;
-    justify-content: space-between; // 내부 아이콘을 양 끝으로
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    height: 100%;
+    width: 20%;
 
-    & > div {
-      width: 50%; // 그룹 내부의 각 div는 그룹 너비의 50%를 차지
+    .icon-items {
+      flex: 1; /* 아이콘 아이템들 가용 공간 균등하게 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
     }
   }
 }
