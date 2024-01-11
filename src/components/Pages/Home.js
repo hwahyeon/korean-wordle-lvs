@@ -1,12 +1,35 @@
+// React
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+
+// MUI
 import { Container } from "@mui/material";
+
+// Style
 import "../../styles/pages/_home.scss";
-import icon from "../../assets/wordleicon.svg";
+
+// Component
 import Header from "../Common/Header";
+
+// State
+import { useRecoilValue } from "recoil";
+import { colorModeState, darkModeState } from "../../state/themeState";
+
+// Images
+import iconNormal from "../../assets/wordle-icon.svg";
+import iconDark from "../../assets/wordle-icon-dark.svg";
+import iconColor from "../../assets/wordle-icon-color.svg";
+import iconBoth from "../../assets/wordle-icon-both.svg";
 
 function HomePage() {
   const navigate = useNavigate();
+
+  const darkMode = useRecoilValue(darkModeState);
+  const colorMode = useRecoilValue(colorModeState);
+  const icon = darkMode && colorMode ? iconBoth
+              : darkMode ? iconDark
+              : colorMode ? iconColor
+              : iconNormal;
 
   const handleEasyClick = () => {
     navigate("/play/easy");
@@ -43,7 +66,7 @@ function HomePage() {
     <Container className="HomePage">
       <Header />
       <div className="content">
-        <img src={icon} alt="icon" className="icon" />
+        <img src={icon} alt="wordle icon" className="icon" />
         <p className="cont_txt">이 게임은 Wordle의 한글 변형판입니다</p>
         <div>
           <p className="start_text">시작해볼까요?</p>
