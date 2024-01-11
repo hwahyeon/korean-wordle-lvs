@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../../styles/components/_central-message.scss'
 
 function CentralMessage({ message, duration }) {
   // const [isVisible, setIsVisible] = useState(true);
@@ -13,21 +14,7 @@ function CentralMessage({ message, duration }) {
 
   return (
     // isVisible && (
-      <div
-        style={{
-          position: 'absolute',
-          top: '20%',
-          left: '50%',
-          width: '70%',
-          transform: 'translate(-50%, -50%)',
-          backgroundColor: 'black',
-          color: 'white',
-          padding: '20px',
-          borderRadius: '10px',
-          boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)',
-          textAlign: 'center',
-        }}
-      >
+      <div className='center-message'>
         {message}
       </div>
     );
