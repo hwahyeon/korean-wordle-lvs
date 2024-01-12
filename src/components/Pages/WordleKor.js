@@ -178,8 +178,12 @@ function WordleKorPage() {
           <Box key={boxIndex} className="AnswerBox">
             {[...Array(5)].map((_, itemIndex) => {
               const index = boxIndex * 5 + itemIndex;
+              const valueExists = !!pred[index]?.value;
+              const animationClass = valueExists ? 'animate-pop' : '';
+              const colorClass = colorList[index];
+              const animationColorClass = colorClass ? `${colorClass} animate-color` : '';
               return (
-                <div key={index} className={`${colorList[index]}`}>
+                <div key={index} className={`${animationColorClass} ${animationClass}`}>
                   {pred[index]?.value}
                 </div>
               );
