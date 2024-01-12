@@ -28,10 +28,20 @@
     // 두 번째 div (넓이 100%일 때 가운데 정렬을 위한 margin: auto)
     flex: 0 0 60%; // flex-grow는 0, flex-shrink는 0, flex-basis는 60%
     max-width: 40%;
-    margin: auto;
+    // margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Black Han Sans';
+    
+    .title_kor{
+      padding-top: 3px;
+      font-size: 20px;
+    }
+    .title_eng{
+      padding-top: 5px;
+      font-size: 18px;
+    }
   }
 
   &__secondicon {
