@@ -70,9 +70,9 @@ function Header() {
         <FontAwesomeIcon icon={faHome} />
       </div>
       <div className="spacer"></div>
-      <div className="header__title">
-        <p className="title_kor">한글&nbsp;</p>
-        <p className="title_eng">Wordle</p>
+      <div className="header__title" >
+        <p className="title_kor" onClick={goHome}>한글&nbsp;</p>
+        <p className="title_eng" onClick={goHome}>Wordle</p>
       </div>
       <div className="header__secondicon">
         <div className="icon-items" onClick={openInfoModal}>
