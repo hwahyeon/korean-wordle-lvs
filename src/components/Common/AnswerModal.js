@@ -11,7 +11,9 @@ const AnswerPopup = (props) => {
     case 1:
       msg = (
         <>
-          대단한 운! 첫 시도에 바로 맞추셨어요!
+          대단한 운!
+          <br />
+          첫 시도에 바로 맞추셨어요!
           <br />
           저기, 혹시 복권 번호 좀 알려줄래요?
         </>
@@ -24,7 +26,7 @@ const AnswerPopup = (props) => {
           <br />
           복권 구매를 고려해 보는 건 어떨까요?
           <br />
-          물론 저는 책임지지 않을 겁니다만
+          (물론 저는 책임지지 않을 겁니다.)
         </>
       );
       break;
@@ -53,7 +55,7 @@ const AnswerPopup = (props) => {
         <>
           다섯 번째 시도에 성공하셨군요.
           <br />
-          표정이 여유로워 보여요
+          표정이 여유로워 보이진 않는데...
           <br />
           긴장 안 했다고요? 정말?
         </>
@@ -62,7 +64,8 @@ const AnswerPopup = (props) => {
     default:
       msg = (
         <>
-          휴<br />
+          휴
+          <br />
           마지막 기회를 놓치지 않으셨군요!
           <br />
           성공!
@@ -95,7 +98,12 @@ const AnswerPopup = (props) => {
 
   function getMeaningForKey(json, searchKey) {
     const items = json.filter((item) => item.key === searchKey);
-    return items.map((item) => item.mean);
+    return items.map((item) => {
+      return {
+        mean: item.mean,
+        original: item.original,
+      };
+    });
   }
 
   const meaning = getMeaningForKey(dictionary, props.answer);
@@ -131,8 +139,15 @@ const AnswerPopup = (props) => {
           <div className="CloseButton" onClick={handleCloseClick}>
             &times;
           </div>
-          <p className="AnswerWord">{props.answer}</p>
-          <div className="AnswerMeaning" dangerouslySetInnerHTML={{__html: meaning[currentPage - 1]}}></div>
+          <p className="AnswerWord">
+            <p>{props.answer}</p>
+            <p className="Original">{meaning[currentPage - 1].original}</p>
+          </p>
+
+          <div
+            className="AnswerMeaning"
+            dangerouslySetInnerHTML={{ __html: meaning[currentPage - 1].mean }}
+          ></div>
           {/* 페이지 번호 */}
           <div className="PageBtns">{renderPageNumbers()}</div>
           <div className="Buttons">

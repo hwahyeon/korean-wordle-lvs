@@ -15,7 +15,7 @@
     background-color: #fff;
     position: relative;
     width: 350px;
-    min-height: 300px;
+    min-height: 330px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -23,9 +23,9 @@
     justify-content: space-between;
     
     .content_txt {
-      padding-top: 30px;
+      padding-top: 55px;
       padding-bottom: 15px;
-      font-family: "Noto Sans KR", sans-serif;
+      font-family: "Orbit";
       font-weight: 900;
       text-align: center;
     }
@@ -40,11 +40,19 @@
     }
     .AnswerWord {
       color: black;
-      font-size: 23px;
+      font-size: 25px;
+      p{
+        display: inline-block;
+        margin-right: 5px;
+      }
+      .Original{
+        font-size: 20px;
+      }
     }
 
     .AnswerMeaning {
       padding: 10px;
+      font-family: "Orbit";
     }
     /* 페이지 번호 버튼 스타일 */
     .pagination-btn {
