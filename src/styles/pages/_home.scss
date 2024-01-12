@@ -53,9 +53,7 @@
     }
     .ref {
       button {
-        // font-size: 18px;
         width: 90px;
-        // background: white;
         color: black;
         // padding: 10px 15px;
         border-color: black;
@@ -79,15 +77,15 @@
     color: #e0e0e0;
     .content {
       .header {
-        color: #ffffff; // 헤더의 다크 모드 텍스트 색상
+        color: #ffffff;
       }
       .cont_txt {
-        color: #cccccc; // 내용 텍스트의 다크 모드 색상
+        color: #cccccc;
       }
       .play_button {
-        background-color: #333333; // 다크 모드 버튼 배경색
-        color: #ffffff; // 다크 모드 버튼 텍스트 색상
-        border-color: #444444; // 다크 모드 버튼 테두리 색상
+        background-color: #333333;
+        color: #ffffff;
+        border-color: #444444;
 
         &:hover {
           background-color: #ffffff;
@@ -97,9 +95,9 @@
       }
 
       .ref button {
-        background-color: #333333; // 참조 버튼의 다크 모드 배경색
-        color: #ffffff; // 참조 버튼의 다크 모드 텍스트 색상
-        border-color: #444444; // 참조 버튼의 다크 모드 테두리 색상
+        background-color: #333333;
+        color: #ffffff; 
+        border-color: #444444;
 
         &:hover {
           background-color: #ffffff;
