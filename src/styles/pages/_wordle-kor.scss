@@ -20,14 +20,14 @@
         background-color: #94a3b8;
         border: 2px solid #94a3b8;
       }
-      .animate-color{
+      .animate-color {
         animation: rotate-360 1.5s ease-in-out !important;
       }
       .animate-pop {
         animation: answer-up-down 0.5s ease;
       }
     }
-    
+
     .AnswerBox div {
       display: flex;
       align-items: center;
@@ -45,10 +45,13 @@
   }
 
   .keyBoard {
-    width: 100%;
-    .raw {
+    .raw1,
+    .raw2,
+    .raw3 {
       display: flex;
       justify-content: center;
+      padding-left: 8px;
+      padding-right: 8px;
       .green {
         background-color: #6aaa64;
         border: 2px solid #6aaa64;
@@ -62,14 +65,24 @@
         border: 2px solid #94a3b8;
       }
     }
-    .raw button {
+    .raw2 {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    .raw1 button,
+    .raw2 button,
+    .raw3 button {
       color: black;
+      font-size: 14px;
       font-weight: bold;
       border: 0.5px solid #d3d6da;
       margin: 2px;
-      padding: 7px;
-      max-width: 45px;
-      max-height: 45px;
+      padding: 8px;
+      width: 100%;
+      max-width: 55px;
+      // min-height: 55px;
+      aspect-ratio: 1 / 1; /* 1:1 비율 */
       // min-width: 35px;
       // min-height: 35px;
       display: flex;
@@ -120,7 +133,8 @@
 }
 
 @keyframes answer-up-down {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -134,5 +148,38 @@
   }
   to {
     transform: rotateX(360deg);
+  }
+}
+
+/* 화면 너비가 465px 이하일 때 */
+@media (max-width: 465px) {
+  .WorldKorPage {
+    .keyBoard {
+      .raw3 button{
+        aspect-ratio: auto;
+      }
+      .raw3 .submit_btn {
+        min-width: 48px;
+      }
+    }
+  }
+}
+
+/* 화면 너비가 360px 이하일 때 */
+@media (max-width: 359px) {
+  .WorldKorPage {
+    .keyBoard {
+      .raw1 button,
+      .raw2 button,
+      .raw3 button {
+        margin: 1.5px;
+        padding: 6px;
+        max-width: 45px;
+        aspect-ratio: auto;
+      }
+      .submit_btn {
+        min-width: 40px;
+      }
+    }
   }
 }

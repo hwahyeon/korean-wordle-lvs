@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 // MUI
-import { Container, Box } from "@mui/material";
+import { Box } from "@mui/material";
 
 // style
 import "../../styles/pages/_wordle-kor.scss";
@@ -237,7 +237,7 @@ function WordleKorPage() {
   }
 
   return (
-    <Container className="WorldKorPage">
+    <div className="WorldKorPage">
       <Header />
       <Box className="AnswerBoxes">
         {[...Array(6)].map((_, boxIndex) => (
@@ -263,7 +263,7 @@ function WordleKorPage() {
         ))}
       </Box>
       <Box className="keyBoard">
-        <Box className="raw">
+        <Box className="raw1">
           {myButtons1.map((button) => (
             <button
               key={button.id}
@@ -279,7 +279,7 @@ function WordleKorPage() {
             </button>
           ))}
         </Box>
-        <Box className="raw">
+        <Box className="raw2">
           {myButtons2.map((button) => (
             <button
               key={button.id}
@@ -295,7 +295,7 @@ function WordleKorPage() {
             </button>
           ))}
         </Box>
-        <Box className="raw">
+        <Box className="raw3">
           <button
             className="submit_btn"
             onClick={(event) => {
@@ -347,7 +347,7 @@ function WordleKorPage() {
           answer={dict_answer.key}
         />
       ) : null}
-    </Container>
+    </div>
   );
 }
 
