@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/components/_modal.scss";
 import dictionary from "../../assets/dictionary.json";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AnswerPopup = (props) => {
   const rounds = Math.floor(props.rounds / 5);
@@ -15,7 +17,7 @@ const AnswerPopup = (props) => {
           <br />
           첫 시도에 바로 맞추셨어요!
           <br />
-          저기, 혹시 복권 번호 좀 알려줄래요?
+          저기, 혹시 복권 번호 좀 알려줄래요?😏
         </>
       );
       break;
@@ -26,7 +28,7 @@ const AnswerPopup = (props) => {
           <br />
           복권 구매를 고려해 보는 건 어떨까요?
           <br />
-          (물론 저는 책임지지 않을 겁니다.)
+          (물론 저는 책임지지 않을 겁니다만 😉)
         </>
       );
       break;
@@ -37,7 +39,7 @@ const AnswerPopup = (props) => {
           <br />
           운인가요? 실력인가요?
           <br />
-          아, 운도 실력이라고요?
+          아, 운도 실력이라고요?😎
         </>
       );
       break;
@@ -46,7 +48,7 @@ const AnswerPopup = (props) => {
         <>
           네 번째 시도에 성공하셨군요.
           <br />
-          진짜 재미는 네 번째부터죠!
+          진짜 재미는 네 번째부터죠!🤩
         </>
       );
       break;
@@ -57,7 +59,7 @@ const AnswerPopup = (props) => {
           <br />
           표정이 여유로워 보이진 않는데...
           <br />
-          긴장 안 했다고요? 정말?
+          긴장 안 했다고요? 정말?🤨
         </>
       );
       break;
@@ -68,7 +70,7 @@ const AnswerPopup = (props) => {
           <br />
           마지막 기회를 놓치지 않으셨군요!
           <br />
-          성공!
+          성공!🤗
         </>
       );
   }
@@ -77,8 +79,15 @@ const AnswerPopup = (props) => {
   const [failAnwser] = useState(props.fail);
   const [isMeanWord, setIsMeanWord] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isExpanded, setIsExpanded] = useState(false); // 텍스트 확장 상태
 
   const navigate = useNavigate();
+
+  const toggleExpand = () => {
+    setIsExpanded(true);
+  };
+
+  const maxLength = 55;
 
   const handleCloseClick = () => {
     setIsVisible(false);
@@ -144,12 +153,22 @@ const AnswerPopup = (props) => {
             <p className="Original">{meaning[currentPage - 1].original}</p>
           </p>
 
-          <div
-            className="AnswerMeaning"
-            dangerouslySetInnerHTML={{ __html: meaning[currentPage - 1].mean }}
-          ></div>
+          {/* Meaning of words */}
+          <div className={`AnswerMeaning ${isExpanded ? '' : 'more_active'}`} onClick={toggleExpand}>
+            <div
+              dangerouslySetInnerHTML={{
+                __html:
+                  isExpanded ||
+                  meaning[currentPage - 1].mean.length <= maxLength
+                    ? meaning[currentPage - 1].mean
+                    : meaning[currentPage - 1].mean.substring(0, maxLength) +
+                      "...▼",
+              }}
+            ></div>
+          </div>
+
           {/* 페이지 번호 */}
-          <div className="PageBtns">{renderPageNumbers()}</div>
+          <div className="pagination-btn">{renderPageNumbers()}</div>
           <div className="Buttons">
             <div className="HomeButton" onClick={handleNoWordsMeaningClick}>
               뒤로 가기
@@ -182,7 +201,7 @@ const AnswerPopup = (props) => {
             &times;
           </div>
           <div className="content_txt">
-            <p>아쉬워요! 다시 도전해보세요!</p>
+            <p>아쉬워요! 다시 도전해보세요!😔</p>
           </div>
           <div className="Buttons">
             <div className="HomeButton" onClick={handleHomeClick}>

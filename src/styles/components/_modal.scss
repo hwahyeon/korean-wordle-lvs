@@ -39,13 +39,14 @@
       cursor: pointer;
     }
     .AnswerWord {
+      margin-bottom: 10px;
       color: black;
       font-size: 25px;
-      p{
+      p {
         display: inline-block;
         margin-right: 5px;
       }
-      .Original{
+      .Original {
         font-size: 20px;
       }
     }
@@ -53,26 +54,34 @@
     .AnswerMeaning {
       padding: 10px;
       font-family: "Orbit";
+      min-height: 92px;
+      
     }
+    .more_active {
+      cursor: pointer;
+    }
+
     /* 페이지 번호 버튼 스타일 */
     .pagination-btn {
       padding: 5px 10px;
       margin: 5px;
-      background-color: #94a3b8;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      button {
+        background-color: #94a3b8;
+      }
+      button:hover{
+        background-color: #adb9c9;
+      }
+      button.active{
+        background-color: #596275;
+      }
     }
 
-    .pagination-btn:hover {
-      background-color: #adb9c9;
-    }
-
-    .pagination-btn.active {
-      background-color: #6d7991;
-    }
+    
     .Buttons {
       display: flex;
       justify-content: center;
