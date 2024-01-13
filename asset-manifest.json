@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/reactjs-wordle-kor/static/css/main.b8d2b218.css",
-    "main.js": "/reactjs-wordle-kor/static/js/main.6979aae4.js",
+    "main.css": "/reactjs-wordle-kor/static/css/main.1d985170.css",
+    "main.js": "/reactjs-wordle-kor/static/js/main.37dbd0cc.js",
     "static/media/wordle-icon-both.svg": "/reactjs-wordle-kor/static/media/wordle-icon-both.e8c6fb9d7122d44e8f3a2c518d6c193f.svg",
     "static/media/wordle-icon-dark.svg": "/reactjs-wordle-kor/static/media/wordle-icon-dark.edd3b502f6ff75590273e97431c14619.svg",
     "static/media/wordle-icon.svg": "/reactjs-wordle-kor/static/media/wordle-icon.3c5b2cd8fcc342972d3531440e33af11.svg",
     "static/media/wordle-icon-color.svg": "/reactjs-wordle-kor/static/media/wordle-icon-color.115dc9419d5757143fec90d7dabd9499.svg",
     "index.html": "/reactjs-wordle-kor/index.html",
-    "main.b8d2b218.css.map": "/reactjs-wordle-kor/static/css/main.b8d2b218.css.map",
-    "main.6979aae4.js.map": "/reactjs-wordle-kor/static/js/main.6979aae4.js.map"
+    "main.1d985170.css.map": "/reactjs-wordle-kor/static/css/main.1d985170.css.map",
+    "main.37dbd0cc.js.map": "/reactjs-wordle-kor/static/js/main.37dbd0cc.js.map"
   },
   "entrypoints": [
-    "static/css/main.b8d2b218.css",
-    "static/js/main.6979aae4.js"
+    "static/css/main.1d985170.css",
+    "static/js/main.37dbd0cc.js"
   ]
 }
