@@ -74,7 +74,7 @@
     .raw2 button,
     .raw3 button {
       color: black;
-      font-size: 14px;
+      font-size: 18px;
       font-weight: bold;
       border: 0.5px solid #d3d6da;
       margin: 2px;
@@ -89,6 +89,9 @@
       align-items: center;
       justify-content: center;
       border-radius: 5px;
+    }
+    .raw3 .submit_btn{
+      min-width: 60px;
     }
   }
 
@@ -155,23 +158,29 @@
 @media (max-width: 465px) {
   .WorldKorPage {
     .keyBoard {
+      .raw1 button,
+      .raw2 button{
+        font-size: 15px;
+      }
       .raw3 button{
+        font-size: 15px;
         aspect-ratio: auto;
       }
       .raw3 .submit_btn {
-        min-width: 48px;
+        min-width: 50px;
       }
     }
   }
 }
 
 /* 화면 너비가 360px 이하일 때 */
-@media (max-width: 359px) {
+@media (max-width: 360px) {
   .WorldKorPage {
     .keyBoard {
       .raw1 button,
       .raw2 button,
       .raw3 button {
+        font-size: 15px;
         margin: 1.5px;
         padding: 6px;
         max-width: 45px;
