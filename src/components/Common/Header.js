@@ -66,15 +66,15 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="header__firsticon" onClick={goHome}>
+      <div className="header__icon-first" onClick={goHome}>
         <FontAwesomeIcon icon={faHome} />
       </div>
-      <div className="spacer"></div>
+      <div className="header__spacer"></div>
       <div className="header__title" >
-        <p className="title_kor" onClick={goHome}>한글&nbsp;</p>
-        <p className="title_eng" onClick={goHome}>Wordle</p>
+        <p className="header__title-kor" onClick={goHome}>한글&nbsp;</p>
+        <p className="header__title-eng" onClick={goHome}>Wordle</p>
       </div>
-      <div className="header__secondicon">
+      <div className="header__icon-second">
         <div className="icon-items" onClick={openInfoModal}>
           <FontAwesomeIcon icon={faInfoCircle} />
         </div>
