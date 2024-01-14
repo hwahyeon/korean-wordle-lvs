@@ -10,11 +10,12 @@
   align-items: center;
   justify-content: center;
   .info_content {
-    padding: 20px;
+    padding: 15px;
     background-color: #fff;
     color: black;
     position: relative;
     text-align: center;
+
     .closeButton {
       position: absolute;
       top: 10px;
@@ -26,18 +27,23 @@
     }
     .howto_text {
       .header_text {
-        font-family: "Noto Sans KR", sans-serif;
-        font-weight: 900;
+        font-family: "Black Han Sans";
         font-size: 25px;
         text-align: center;
       }
+      .header_sub_text {
+        font-family: "Orbit";
+      }
+
       .header_sec_text {
         font-size: 17px;
-        padding-top: 15px;
+        padding-top: 20px;
         padding-bottom: 5px;
         font-weight: 600;
+        font-family: "Orbit";
       }
       .examples {
+        flex-direction: row;
         .green {
           background-color: #6aaa64;
           border: 2px solid #6aaa64;
@@ -50,21 +56,32 @@
           background-color: #94a3b8;
           border: 2px solid #94a3b8;
         }
-        div {
-          display: inline-block;
-          align-items: center; /* 수직 중앙 정렬 */
-          justify-content: center; /* 수평 중앙 정렬 */
-          border: 2px solid #d3d6da;
-          border-radius: 3px;
-          padding: 5px;
-          margin: 3px;
-          width: 51px;
-          height: 51px;
-          font-size: 22px;
-          font-weight: 700;
+        .example {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          flex-wrap: wrap;
+          div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #d3d6da;
+            border-radius: 3px;
+            padding: 5px;
+            margin: 3px;
+            width: 51px;
+            height: 51px;
+            font-size: 22px;
+            font-family: sans-serif;
+            font-weight: 700;
+            animation: start-pop 0.3s ease;
+          }
         }
         .explain_text {
-          font-size: 15px;
+          font-size: 16px;
+          font-family: "Orbit";
+          padding-top: 5px;
+          padding-bottom: 5px;
         }
       }
     }
@@ -88,5 +105,17 @@
         }
       }
     }
+  }
+}
+
+@keyframes start-pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
   }
 }
