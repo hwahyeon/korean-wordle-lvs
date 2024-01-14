@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/components/_modal.scss";
 import dictionary from "../../assets/dictionary.json";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AnswerPopup = (props) => {
   const rounds = Math.floor(props.rounds / 5);
