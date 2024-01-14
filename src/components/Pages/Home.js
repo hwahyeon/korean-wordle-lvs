@@ -63,32 +63,32 @@ function HomePage() {
   }, []);
 
   return (
-    <Container className="HomePage">
+    <Container className="homepage">
       <Header />
-      <div className="content">
-        <img src={icon} alt="wordle icon" className="icon" />
-        <p className="cont_txt">이 게임은 Wordle의 한글 변형판입니다</p>
+      <div className="homepage__content">
+        <img src={icon} alt="wordle icon" className="cont__icon" />
+        <p className="cont__txt">이 게임은 Wordle의 한글 변형판입니다</p>
         <div>
-          <p className="start_text">시작해볼까요?</p>
-          <p className="level_text">난이도를 선택하세요</p>
-          <button className="play_button" onClick={handleEasyClick}>
+          <p className="text-start">시작해볼까요?</p>
+          <p className="text-level">난이도를 선택하세요</p>
+          <button className="play-button" onClick={handleEasyClick}>
             초급
           </button>
-          <button className="play_button" onClick={handleImdtClick}>
+          <button className="play-button" onClick={handleImdtClick}>
             중급
           </button>
-          <button className="play_button" onClick={handleHardClick}>
+          <button className="play-button" onClick={handleHardClick}>
             고급
           </button>
         </div>
         <div>
           <p>매일 12시 정각에 정답이 바뀌어요</p>
-          <p className="date">{currentDateTime.date}</p>
-          <p className="edit">Made by hwahyeon</p>
+          <p className="text-date">{currentDateTime.date}</p>
+          <p className="text-edit">Made by hwahyeon</p>
         </div>
         <div className="ref">
           <button
-            className="alink_button"
+            className="alink-button"
             component={Link}
             onClick={() =>
               (window.location.href =
@@ -98,7 +98,8 @@ function HomePage() {
             Code of this game
           </button>
           <button
-            className="alink_button"
+            className="alink-button"
+            component={Link}
             onClick={() =>
               (window.location.href =
                 "https://www.nytimes.com/games/wordle/index.html")

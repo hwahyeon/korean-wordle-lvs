@@ -1,9 +1,9 @@
-.HomePage {
+.homepage {
   margin-top: 70px;
   font-family: "Orbit";
-  .content {
+  &__content {
     text-align: center;
-    .icon {
+    .cont__icon {
       margin-top: 50px;
     }
     .header {
@@ -12,11 +12,11 @@
       font-size: 30px;
       margin-bottom: 30px;
     }
-    .cont_txt {
+    .cont__txt {
       font-size: 18px;
       margin: 10px;
     }
-    .play_button {
+    .play-button {
       font-family: Arial;
       font-size: 18px;
       color: black;
@@ -27,7 +27,8 @@
       margin-bottom: 20px;
       transition: background 0.3s, color 0.3s;
       margin-right: 5px;
-      
+      animation: rotate-360 1s ease;
+
       &:last-child {
         margin-right: 0;
       }
@@ -36,35 +37,31 @@
         color: white;
       }
     }
-    .start_text {
+    .text-start {
       font-size: 20px;
       font-weight: 800;
       margin: 15px;
     }
-    .level_text {
+    .text-level {
       font-size: 17px;
       font-weight: 700;
       margin: 15px;
     }
-    .alink_button {
-      margin: 10px;
-    }
-    .date {
+    .text-date {
       font-weight: bold;
-      padding-top: 30px;
+      padding-top: 25px;
     }
     .ref {
       button {
         font-family: "Orbit";
         width: 96px;
         color: black;
-        // padding: 10px 15px;
         border-color: black;
         border-radius: 12px;
         border: 2px solid #000;
         margin-top: 40px;
         transition: background 0.3s, color 0.3s;
-        margin-right: 5px;
+        margin-right: 10px;
         padding: 10px;
         &:last-child {
           margin-right: 0;
@@ -78,14 +75,14 @@
   }
   body.dark-mode & {
     color: #e0e0e0;
-    .content {
+    &__content {
       .header {
         color: #ffffff;
       }
-      .cont_txt {
+      .cont__txt {
         color: #cccccc;
       }
-      .play_button {
+      .play-button {
         background-color: #333333;
         color: #ffffff;
         border-color: #444444;
@@ -99,7 +96,7 @@
 
       .ref button {
         background-color: #333333;
-        color: #ffffff; 
+        color: #ffffff;
         border-color: #444444;
 
         &:hover {
@@ -109,5 +106,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes rotate-360 {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(360deg);
   }
 }
