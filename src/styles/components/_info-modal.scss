@@ -9,14 +9,14 @@
   display: flex; /* flex를 이용하여 자식 요소를 중앙 정렬 */
   align-items: center;
   justify-content: center;
-  .info_content {
+  .content {
     padding: 15px;
     background-color: #fff;
     color: black;
     position: relative;
     text-align: center;
 
-    .closeButton {
+    .close--btn {
       position: absolute;
       top: 10px;
       right: 15px;
@@ -25,38 +25,41 @@
       font-size: 1.5em;
       cursor: pointer;
     }
-    .howto_text {
-      .header_text {
+    .example {
+      &__header {
         font-family: "Black Han Sans";
         font-size: 25px;
         text-align: center;
       }
-      .header_sub_text {
+      &__explain {
         font-family: "Orbit";
       }
 
-      .header_sec_text {
+      .example__sub-header {
         font-size: 17px;
         padding-top: 20px;
         padding-bottom: 5px;
         font-weight: 600;
         font-family: "Orbit";
       }
-      .examples {
+      .example__group {
         flex-direction: row;
         .green {
           background-color: #6aaa64;
           border: 2px solid #6aaa64;
+          animation: rotate-360 1s ease;
         }
         .yellow {
           background-color: #dfca6c;
           border: 2px solid #dfca6c;
+          animation: rotate-360 1s ease;
         }
         .gray {
           background-color: #94a3b8;
           border: 2px solid #94a3b8;
+          animation: rotate-360 1s ease;
         }
-        .example {
+        .example__div {
           display: flex;
           flex-direction: row;
           justify-content: center;
@@ -74,27 +77,36 @@
             font-size: 22px;
             font-family: sans-serif;
             font-weight: 700;
-            animation: start-pop 0.3s ease;
+          }
+          .letter-example {
+            border: 2px solid black;
+            animation: rotate-360 1s ease;
           }
         }
-        .explain_text {
-          font-size: 16px;
-          font-family: "Orbit";
-          padding-top: 5px;
-          padding-bottom: 5px;
+        .example__text-explain {
+          padding: 5px;
         }
       }
     }
   }
   body.dark-mode & {
-    .info_content {
-      color: #fff;
+    .content {
+      color: #d0d0d0;
       background-color: #333;
+      .example {
+        .example__group {
+          .example__div {
+            .letter-example {
+              border: 3px solid #f6a6a6;
+            }
+          }
+        }
+      }
     }
   }
   body.color-mode & {
-    .howto_text {
-      .examples {
+    .example__group {
+      .example__div {
         .green {
           background-color: #f5793a;
           border: 2px solid #f5793a;
@@ -117,5 +129,14 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes rotate-360 {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(360deg);
   }
 }
