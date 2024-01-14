@@ -25,7 +25,6 @@ function WordleKorPage() {
   const [pred, setPred] = useState([]); // List of input
   const [colorList, setColorList] = useState([]); // List of color
   const [listLen, setListLen] = useState(5);
-  const [submitBlock, setSubmitBlock] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [centerMsg, setCenterMsg] = useState("");
   const [gotAnswer, setGotAnwser] = useState(false);
@@ -87,8 +86,6 @@ function WordleKorPage() {
     if (firstRender) {
       setFirstRender(false);
     } else {
-      // console.log("Key", key);
-
       if (key === "enter") {
         handleSubmitButtonClick();
       } else if (key === "backspace") {
@@ -126,9 +123,6 @@ function WordleKorPage() {
     answer = dict_answer.value;
   }
 
-  // const answer = ['ㅇ', 'ㅏ', 'ㄴ', 'ㄴ', 'ㅏ']
-  // console.log(answer)
-
   function showMessage(m) {
     setCenterMsg(m);
     setIsVisible(true);
@@ -147,10 +141,6 @@ function WordleKorPage() {
       // setPred 내부에서 상태 업데이트 후 추가 로직 수행
       setPred((prevPred) => {
         const newPred = [...prevPred, newItem];
-
-        if (pred.length % 5 !== 0) {
-          setSubmitBlock(true);
-        }
         return newPred;
       });
     } else {
@@ -204,7 +194,6 @@ function WordleKorPage() {
         }
         setPred([...pred]);
         setColorList(colorList.concat(updatedColorList));
-        // setSubmitBlock(false)
 
         if (
           5 ===
@@ -233,7 +222,7 @@ function WordleKorPage() {
     if (foundPreds.some((predItem) => predItem.color === "gray")) {
       return "gray";
     }
-    return ""; // 어떤 색상도 찾지 못했을 시
+    return "";
   }
 
   return (
