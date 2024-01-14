@@ -237,11 +237,11 @@ function WordleKorPage() {
   }
 
   return (
-    <div className="WorldKorPage">
+    <div className="wordle-page">
       <Header />
-      <Box className="AnswerBoxes">
+      <Box className="wordle-page__answer-board">
         {[...Array(6)].map((_, boxIndex) => (
-          <Box key={boxIndex} className="AnswerBox">
+          <Box key={boxIndex} className="answer-box">
             {[...Array(5)].map((_, itemIndex) => {
               const index = boxIndex * 5 + itemIndex;
               const valueExists = !!pred[index]?.value;
@@ -262,7 +262,7 @@ function WordleKorPage() {
           </Box>
         ))}
       </Box>
-      <Box className="keyBoard">
+      <Box className="keyboard">
         <Box className="raw1">
           {myButtons1.map((button) => (
             <button
@@ -297,7 +297,7 @@ function WordleKorPage() {
         </Box>
         <Box className="raw3">
           <button
-            className="submit_btn"
+            className="submit__btn"
             onClick={(event) => {
               handleSubmitButtonClick();
               event.currentTarget.blur();

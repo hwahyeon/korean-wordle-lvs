@@ -1,10 +1,10 @@
-.WorldKorPage {
+.wordle-page {
   margin-top: 70px;
 
-  .AnswerBoxes {
+  &__answer-board {
     padding-bottom: 15px;
     width: 100%;
-    .AnswerBox {
+    .answer-box {
       display: flex;
       justify-content: center;
       text-align: center;
@@ -28,7 +28,7 @@
       }
     }
 
-    .AnswerBox div {
+    .answer-box div {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -44,7 +44,7 @@
     }
   }
 
-  .keyBoard {
+  .keyboard {
     .raw1,
     .raw2,
     .raw3 {
@@ -80,7 +80,7 @@
       margin: 2px;
       padding: 8px;
       width: 100%;
-      max-width: 55px;
+      max-width: 50px;
       // min-height: 55px;
       aspect-ratio: 1 / 1; /* 1:1 비율 */
       // min-width: 35px;
@@ -90,14 +90,14 @@
       justify-content: center;
       border-radius: 5px;
     }
-    .raw3 .submit_btn{
-      min-width: 60px;
+    .raw3 .submit__btn {
+      min-width: 57px;
     }
   }
 
   body.color-mode & {
-    .AnswerBoxes {
-      .AnswerBox {
+    &__answer-board {
+      .answer-box {
         .green {
           background-color: #f5793a;
           border: 2px solid #f5793a;
@@ -108,8 +108,10 @@
         }
       }
     }
-    .keyBoard {
-      .raw {
+    .keyboard {
+      .raw1,
+      .raw2,
+      .raw3 {
         .green {
           background-color: #f5793a;
           border: 2px solid #f5793a;
@@ -156,13 +158,13 @@
 
 /* 화면 너비가 465px 이하일 때 */
 @media (max-width: 465px) {
-  .WorldKorPage {
-    .keyBoard {
+  .wordle-page {
+    .keyboard {
       .raw1 button,
-      .raw2 button{
+      .raw2 button {
         font-size: 15px;
       }
-      .raw3 button{
+      .raw3 button {
         font-size: 15px;
         aspect-ratio: auto;
       }
@@ -175,8 +177,8 @@
 
 /* 화면 너비가 360px 이하일 때 */
 @media (max-width: 360px) {
-  .WorldKorPage {
-    .keyBoard {
+  .wordle-page {
+    .keyboard {
       .raw1 button,
       .raw2 button,
       .raw3 button {
@@ -186,7 +188,7 @@
         max-width: 45px;
         aspect-ratio: auto;
       }
-      .submit_btn {
+      .submit__btn {
         min-width: 40px;
       }
     }
