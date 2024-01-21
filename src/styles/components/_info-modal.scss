@@ -9,7 +9,7 @@
   display: flex; /* flex를 이용하여 자식 요소를 중앙 정렬 */
   align-items: center;
   justify-content: center;
-  
+
   .content {
     padding: 15px;
     background-color: #fff;
@@ -48,16 +48,16 @@
         .green {
           background-color: #6aaa64;
           border: 2px solid #6aaa64;
-          animation: rotate-360 1s ease;
         }
         .yellow {
           background-color: #dfca6c;
           border: 2px solid #dfca6c;
-          animation: rotate-360 1s ease;
         }
         .gray {
           background-color: #94a3b8;
           border: 2px solid #94a3b8;
+        }
+        .btn--active{
           animation: rotate-360 1s ease;
         }
         .example__div {

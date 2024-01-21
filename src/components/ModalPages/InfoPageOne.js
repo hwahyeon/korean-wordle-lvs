@@ -1,56 +1,8 @@
-import { useState } from "react";
-import "../../styles/components/_info-modal.scss";
-import PageOne from "../ModalPages/InfoPageOne"
-import PageTwo from "../ModalPages/InfoPageTwo"
-import PageThree from "../ModalPages/InfoPageThree"
-import PageFour from "../ModalPages/InfoPageFour"
-import PageFive from "../ModalPages/InfoPageFive"
-import PageSix from "../ModalPages/InfoPageSix"
-
-const InfoModal = ({ onClose }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 6;
-
-  const nextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
+const InfoPageOne = () => {
   return (
-    <div className="overlay">
-      <div className="content">
-        <button className="close--btn" onClick={onClose}>
-          &times;
-        </button>
-
-        {currentPage === 1 && <PageOne />}
-        {currentPage === 2 && <PageTwo />}
-        {currentPage === 3 && <PageThree />}
-        {currentPage === 4 && <PageFour />}
-        {currentPage === 5 && <PageFive />}
-        {currentPage === 6 && <PageSix />}
-
-        <div className="navigation">
-          {currentPage > 1 && (
-            <button className="prev--btn" onClick={prevPage}>
-              &#8592; 이전
-            </button>
-          )}
-          {currentPage < totalPages && (
-            <button className="next--btn" onClick={nextPage}>
-              다음 &#8594;
-            </button>
-          )}
-        </div>
-
-        {/* <div className="example">
+    // <div className="overlay">
+    //   <div className="content">
+        <div className="example">
           <p className="example__header">게임하는 방법</p>
           <p className="example__explain">
             6번 시도해서 숨겨진 글자(명사)를 맞춰보세요
@@ -58,7 +10,7 @@ const InfoModal = ({ onClose }) => {
           <p className="example__sub-header">색상은 정답의 단서가 됩니다.</p>
           <div className="example__group">
             <div className="example__div">
-              <div className="green">ㅎ</div>
+              <div className="green btn--active">ㅎ</div>
               <div>ㅏ</div>
               <div>ㄴ</div>
               <div>ㅡ</div>
@@ -69,7 +21,7 @@ const InfoModal = ({ onClose }) => {
             </p>
             <div className="example__div">
               <div>ㄴ</div>
-              <div className="yellow">ㅓ</div>
+              <div className="yellow btn--active">ㅓ</div>
               <div>ㅇ</div>
               <div>ㅜ</div>
               <div>ㄹ</div>
@@ -80,7 +32,7 @@ const InfoModal = ({ onClose }) => {
             <div className="example__div">
               <div>ㅂ</div>
               <div>ㅏ</div>
-              <div className="gray">ㄹ</div>
+              <div className="gray btn--active">ㄹ</div>
               <div>ㅣ</div>
               <div>ㅁ</div>
             </div>
@@ -105,10 +57,10 @@ const InfoModal = ({ onClose }) => {
             </div>
             <p className="example__text-explain">ㅘ는 ㅗㅏ로 표기합니다.</p>
           </div>
-        </div> */}
-      </div>
-    </div>
+        </div>
+    //   </div>
+    // </div>
   );
 };
 
-export default InfoModal;
+export default InfoPageOne;
