@@ -9,6 +9,7 @@
   display: flex; /* flex를 이용하여 자식 요소를 중앙 정렬 */
   align-items: center;
   justify-content: center;
+  
   .content {
     padding: 15px;
     background-color: #fff;
@@ -95,9 +96,16 @@
       background-color: #333;
       .example {
         .example__group {
+          .green,
+          .yellow,
+          .gray {
+            color: white;
+            box-shadow: 0px 0px 7px white;
+          }
           .example__div {
             .letter-example {
-              border: 3px solid #f6a6a6;
+              border: 3px solid white;
+              box-shadow: 0px 0px 8px white;
             }
           }
         }
