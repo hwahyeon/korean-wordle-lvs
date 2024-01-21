@@ -85,6 +85,10 @@ const AnswerPopup = (props) => {
     setIsExpanded(true);
   };
 
+  const toggleContract = () => {
+    setIsExpanded(false);
+  };
+
   const maxLength = 55;
 
   const handleCloseClick = () => {
@@ -121,6 +125,7 @@ const AnswerPopup = (props) => {
 
   const handleClick = (pageNumber) => {
     setCurrentPage(pageNumber);
+    toggleContract()
   };
 
   const renderPageNumbers = () => {
