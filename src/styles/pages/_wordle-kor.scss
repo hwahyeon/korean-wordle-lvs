@@ -65,7 +65,7 @@
         border: 2px solid #94a3b8;
       }
       .animate-button {
-        animation: button-click-animation 0.5s;
+        animation: button-click-animation 0.3s;
       }
     }
     .raw2 {
@@ -84,17 +84,14 @@
       padding: 8px;
       width: 100%;
       max-width: 50px;
-      // min-height: 55px;
-      aspect-ratio: 1 / 1; /* 1:1 비율 */
-      // min-width: 35px;
-      // min-height: 35px;
+      // aspect-ratio: 1 / 1; /* 1:1 비율 */
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 5px;
     }
-    .raw3 .submit__btn {
-      min-width: 57px;
+    .submit__btn {
+      min-width: 70px;
     }
   }
 
@@ -171,34 +168,28 @@
   }
 }
 
-
-/* 화면 너비가 465px 이하일 때 */
 @media (max-width: 465px) {
-  .wordle-page {
-    .keyboard {
-      .raw1 button,
-      .raw2 button {
-        font-size: 15px;
-      }
-      .raw3 button {
-        font-size: 15px;
-        aspect-ratio: auto;
-      }
-      .raw3 .submit_btn {
-        min-width: 50px;
-      }
-    }
-  }
-}
-
-/* 화면 너비가 360px 이하일 때 */
-@media (max-width: 360px) {
   .wordle-page {
     .keyboard {
       .raw1 button,
       .raw2 button,
       .raw3 button {
         font-size: 15px;
+      }
+      .raw3 .submit_btn {
+        min-width: 45px;
+      }
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .wordle-page {
+    .keyboard {
+      .raw1 button,
+      .raw2 button,
+      .raw3 button {
+        font-size: 13px;
         margin: 1.5px;
         padding: 6px;
         max-width: 45px;
