@@ -64,6 +64,9 @@
         background-color: #94a3b8;
         border: 2px solid #94a3b8;
       }
+      .animate-button {
+        animation: button-click-animation 0.5s;
+      }
     }
     .raw2 {
       padding-left: 5%;
@@ -155,6 +158,19 @@
     transform: rotateX(360deg);
   }
 }
+
+@keyframes button-click-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 
 /* 화면 너비가 465px 이하일 때 */
 @media (max-width: 465px) {
