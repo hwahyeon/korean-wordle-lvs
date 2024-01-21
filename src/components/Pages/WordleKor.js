@@ -32,6 +32,7 @@ function WordleKorPage() {
   const [key, setKey] = useState("");
   const [keyUpdateCount, setKeyUpdateCount] = useState(0);
   const [firstRender, setFirstRender] = useState(true);
+  const [animatedButton, setAnimatedButton] = useState(null);
 
   useEffect(() => {}, [failAnwser]);
   useEffect(() => {
@@ -132,6 +133,7 @@ function WordleKorPage() {
   }
 
   const handleButtonClick = (value) => {
+    setAnimatedButton(value)
     if (pred.length < listLen) {
       const newItem = {
         value: value,
@@ -261,7 +263,7 @@ function WordleKorPage() {
                 event.currentTarget.blur();
               }}
               value={button.value}
-              className={keyboardColor(button.value)}
+              className={`${keyboardColor(button.value)} ${animatedButton === button.value ? 'animate-button' : ''}`}
               disabled={gotAnswer}
             >
               {button.value}
@@ -277,7 +279,7 @@ function WordleKorPage() {
                 event.currentTarget.blur();
               }}
               value={button.value}
-              className={keyboardColor(button.value)}
+              className={`${keyboardColor(button.value)} ${animatedButton === button.value ? 'animate-button' : ''}`}
               disabled={gotAnswer}
             >
               {button.value}
@@ -303,7 +305,7 @@ function WordleKorPage() {
                 event.currentTarget.blur();
               }}
               value={button.value}
-              className={keyboardColor(button.value)}
+              className={`${keyboardColor(button.value)} ${animatedButton === button.value ? 'animate-button' : ''}`}
               disabled={gotAnswer}
             >
               {button.value}
