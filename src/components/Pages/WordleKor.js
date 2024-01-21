@@ -33,6 +33,7 @@ function WordleKorPage() {
   const [keyUpdateCount, setKeyUpdateCount] = useState(0);
   const [firstRender, setFirstRender] = useState(true);
   const [animatedButton, setAnimatedButton] = useState(null);
+  const [animationKey, setAnimationKey] = useState(0);
 
   useEffect(() => {}, [failAnwser]);
   useEffect(() => {
@@ -84,6 +85,16 @@ function WordleKorPage() {
   }, []);
 
   useEffect(() => {
+    if (animatedButton !== null) {
+      const timer = setTimeout(() => {
+        setAnimatedButton(null);
+      }, 300); // CSS 애니메이션 지속 시간과 일치
+
+      return () => clearTimeout(timer);
+    }
+  }, [animatedButton, animationKey]);
+
+  useEffect(() => {
     if (firstRender) {
       setFirstRender(false);
     } else {
@@ -132,8 +143,14 @@ function WordleKorPage() {
     }, 3000);
   }
 
+  function animationBtn(value) {
+    setAnimatedButton(value);
+    setAnimationKey((prevKey) => prevKey + 1);
+  }
+
   const handleButtonClick = (value) => {
-    setAnimatedButton(value)
+    animationBtn(value);
+
     if (pred.length < listLen) {
       const newItem = {
         value: value,
@@ -263,7 +280,10 @@ function WordleKorPage() {
                 event.currentTarget.blur();
               }}
               value={button.value}
-              className={`${keyboardColor(button.value)} ${animatedButton === button.value ? 'animate-button' : ''}`}
+              className={`${keyboardColor(button.value)} ${
+                animatedButton === button.value ? "animate-button" : ""
+              }`}
+              style={{ animationIterationCount: animationKey }}
               disabled={gotAnswer}
             >
               {button.value}
@@ -279,7 +299,10 @@ function WordleKorPage() {
                 event.currentTarget.blur();
               }}
               value={button.value}
-              className={`${keyboardColor(button.value)} ${animatedButton === button.value ? 'animate-button' : ''}`}
+              className={`${keyboardColor(button.value)} ${
+                animatedButton === button.value ? "animate-button" : ""
+              }`}
+              style={{ animationIterationCount: animationKey }}
               disabled={gotAnswer}
             >
               {button.value}
@@ -288,10 +311,13 @@ function WordleKorPage() {
         </Box>
         <Box className="raw3">
           <button
-            className="submit__btn"
+            className={`submit__btn ${
+              animatedButton === "enter" ? "animate-button" : ""
+            }`}
             onClick={(event) => {
               handleSubmitButtonClick();
               event.currentTarget.blur();
+              animationBtn("enter");
             }}
             disabled={gotAnswer}
           >
@@ -305,17 +331,23 @@ function WordleKorPage() {
                 event.currentTarget.blur();
               }}
               value={button.value}
-              className={`${keyboardColor(button.value)} ${animatedButton === button.value ? 'animate-button' : ''}`}
+              className={`${keyboardColor(button.value)} ${
+                animatedButton === button.value ? "animate-button" : ""
+              }`}
+              style={{ animationIterationCount: animationKey }}
               disabled={gotAnswer}
             >
               {button.value}
             </button>
           ))}
           <button
-            className="remove_btn"
+            className={`remove_btn ${
+              animatedButton === "backspace" ? "animate-button" : ""
+            }`}
             onClick={(event) => {
               handleRemoveButtonClick();
               event.currentTarget.blur();
+              animationBtn("backspace");
             }}
             disabled={gotAnswer}
           >
