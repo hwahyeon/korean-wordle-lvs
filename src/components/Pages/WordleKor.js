@@ -356,14 +356,7 @@ function WordleKorPage() {
         </Box>
       </Box>
       {isVisible ? <CentralMessage message={centerMsg} /> : <div></div>}
-      {gotAnswer ? (
-        <AnswerPopup
-          rounds={pred.length}
-          fail={failAnwser}
-          answer={dict_answer.key}
-        />
-      ) : null}
-      {failAnwser ? (
+      {gotAnswer || failAnwser ? (
         <AnswerPopup
           rounds={pred.length}
           fail={failAnwser}
