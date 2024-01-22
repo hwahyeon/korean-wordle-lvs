@@ -99,20 +99,32 @@ const Keyboard = ({
     setAnimationKey((prevKey) => prevKey + 1);
   }
 
-  function keyboardColor(v) {
-    const foundPreds = pred.filter((predItem) => predItem.value === v);
+  // function keyboardColor(v) {
+  //   const foundPreds = pred.filter((predItem) => predItem.value === v);
 
-    if (foundPreds.some((predItem) => predItem.color === "green")) {
-      return "green";
-    }
-    if (foundPreds.some((predItem) => predItem.color === "yellow")) {
-      return "yellow";
-    }
-    if (foundPreds.some((predItem) => predItem.color === "gray")) {
-      return "gray";
+  //   if (foundPreds.some((predItem) => predItem.color === "green")) {
+  //     return "green";
+  //   }
+  //   if (foundPreds.some((predItem) => predItem.color === "yellow")) {
+  //     return "yellow";
+  //   }
+  //   if (foundPreds.some((predItem) => predItem.color === "gray")) {
+  //     return "gray";
+  //   }
+  //   return "";
+  // }
+
+  function keyboardColor(value) {
+    const colors = ["green", "yellow", "gray"];
+
+    for (const color of colors) {
+        if (pred.some(predItem => predItem.value === value && predItem.color === color)) {
+            return color;
+        }
     }
     return "";
-  }
+}
+
 
   const handleRemoveButtonClick = () => {
     if (pred[pred.length - 1]?.deletable) {
