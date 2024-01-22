@@ -37,16 +37,6 @@ const Keyboard = ({
   }, [keyUpdateCount]);
 
   useEffect(() => {
-    if (animatedButton !== null) {
-      const timer = setTimeout(() => {
-        setAnimatedButton(null);
-      }, 300); // CSS 애니메이션 지속 시간과 일치
-
-      return () => clearTimeout(timer);
-    }
-  }, [animatedButton, animationKey]);
-
-  useEffect(() => {
     const handleKeyDown = (event) => {
       const keyToHangul = {
         q: "ㅂ",
@@ -104,6 +94,11 @@ const Keyboard = ({
     }
   }, [animatedButton, animationKey]);
 
+  function animationBtn(value) {
+    setAnimatedButton(value);
+    setAnimationKey((prevKey) => prevKey + 1);
+  }
+
   function keyboardColor(v) {
     const foundPreds = pred.filter((predItem) => predItem.value === v);
 
@@ -145,11 +140,6 @@ const Keyboard = ({
       showMessage(msg.much);
     }
   };
-
-  function animationBtn(value) {
-    setAnimatedButton(value);
-    setAnimationKey((prevKey) => prevKey + 1);
-  }
 
   return (
     <Box className="keyboard">
