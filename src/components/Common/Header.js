@@ -20,7 +20,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 // Components
-import InfoModal from "../Common/InfoModal.js";
+import InfoModal from "./InfoModal.js";
 
 function Header() {
   const navi = useNavigate();

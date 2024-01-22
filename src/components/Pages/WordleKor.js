@@ -6,20 +6,20 @@ import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 
 // style
-import "../../styles/pages/_wordle-kor.scss";
+import "../../styles/pages/_wordleKor.scss";
 
 // Components
-import Header from "../Common/Header";
-import CentralMessage from "../Common/CentralMessage.js";
-import AnswerPopup from "../Common/AnswerModal.js";
+import Header from "../common/Header.js";
+import CentralMessage from "../common/CentralMessage.js";
+import AnswerPopup from "../common/AnswerModal.js";
 
 // Function & Data
-import getDailyRandomNumber from "../utils/RandomNumber.js";
+import getDailyRandomNumber from "../utils/randomNumber.js";
 import hardMode from "../../assets/hard-mode.json";
 import imdtMode from "../../assets/imdt-mode.json";
 import easyMode from "../../assets/easy-mode.json";
 import allDeposedWords from "../../assets/all-deposed-words.json";
-import buttonsData from "../Pages/buttons-kor.json";
+import buttonsData from "./buttons-kor.json";
 
 function WordleKorPage() {
   const [pred, setPred] = useState([]); // List of input

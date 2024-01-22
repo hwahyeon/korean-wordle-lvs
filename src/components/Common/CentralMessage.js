@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/components/_central-message.scss'
+import '../../styles/components/_centralMessage.scss'
 
 function CentralMessage({ message, duration }) {
   // const [isVisible, setIsVisible] = useState(true);

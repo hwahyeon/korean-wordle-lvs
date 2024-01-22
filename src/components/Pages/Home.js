@@ -9,7 +9,7 @@ import { Container } from "@mui/material";
 import "../../styles/pages/_home.scss";
 
 // Component
-import Header from "../Common/Header";
+import Header from "../common/Header";
 
 // State
 import { useRecoilValue } from "recoil";

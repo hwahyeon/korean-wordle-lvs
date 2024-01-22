@@ -1,12 +1,19 @@
+// React
 import { useState } from "react";
-import "../../styles/components/_info-modal.scss";
-import PageOne from "../ModalPages/InfoPageOne";
-import PageTwo from "../ModalPages/InfoPageTwo";
-import PageThree from "../ModalPages/InfoPageThree";
-import PageFour from "../ModalPages/InfoPageFour";
-import PageFive from "../ModalPages/InfoPageFive";
-import PageSix from "../ModalPages/InfoPageSix";
 import { useLocation, useNavigate } from "react-router-dom";
+
+// Style
+import "../../styles/components/_infoModal.scss";
+
+// Pages
+import PageOne from "../modalPages/InfoPageOne";
+import PageTwo from "../modalPages/InfoPageTwo";
+import PageThree from "../modalPages/InfoPageThree";
+import PageFour from "../modalPages/InfoPageFour";
+import PageFive from "../modalPages/InfoPageFive";
+import PageSix from "../modalPages/InfoPageSix";
+
+// Message
 import CentralMessage from "./CentralMessage";
 
 const InfoModal = ({ onClose }) => {
