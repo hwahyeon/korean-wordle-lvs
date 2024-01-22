@@ -6,7 +6,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1000;
-  display: flex; /* flex를 이용하여 자식 요소를 중앙 정렬 */
+  display: flex; /* flex로 자식 요소를 중앙 정렬 */
   align-items: center;
   justify-content: center;
 
@@ -121,7 +121,7 @@
     }
   }
   body.dark-mode & {
-    .content {
+    .info__modal {
       color: #d0d0d0;
       background-color: #333;
       .example {
@@ -179,7 +179,7 @@
 
 @media (max-width: 359px) {
   .overlay {
-    .content {
+    .info__modal {
       padding-right: 0px;
       .example {
         width: 100%;
