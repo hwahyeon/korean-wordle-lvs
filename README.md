@@ -1,5 +1,5 @@
 # Korean Wordle
-This is the Korean version of [Wordle](https://www.nytimes.com/games/wordle/index.html). Only one challenge per day is given, and the answer changes every day at 00:00.
+This is the Korean version of [Wordle](https://www.nytimes.com/games/wordle/index.html). Only one challenge per day is given, and the answer changes every day at 00:00. This Wordle game only supports nouns and standard language (no dialect or slang).
 
 
 ## Play Now
@@ -11,7 +11,7 @@ Ready to test your Korean vocabulary skills? Play Korean Wordle now! Click the l
 ## Difficulty Levels
 - **초급(Easy)**: Use common words, great for beginners.
 - **중급(Medium)**: A balanced challenge with moderately difficult words.
-- **고급(Hard)**: Longer and more complex words for advanced players.
+- **고급(Hard)**: Rare difficult words for advanced players.
 
 ## How to Play
 1. **Choose Difficulty**: Select from Easy, Medium, or Hard.
@@ -28,9 +28,12 @@ For more information, see *Information Modal* in the game.
 - **Dark Mode**: Reduce eye strain with a darker color palette, perfect for night-time play.
 - **Colorblind Mode**: Enjoy the game without color barriers.
 - **Information Modal**: Learn game rules and tips easily.
+- **Keyboard**: Keyboard input is supported.
 
 ## Dataset
 Korean Wordle uses curated datasets to ensure a diverse and challenging word selection for players. Here are some details about our datasets:
 ### [Dataset preprocessing repository](https://github.com/hwahyeon/py-wordle-kor-dataset)
-- [우리말샘](https://opendict.korean.go.kr/) 사전
-- [국립국어연구원](https://www.korean.go.kr/front/etcData/etcDataView.do?mn_id=46&etc_seq=71) 한국어 학습용 어휘 목록
+- [우리말샘](https://opendict.korean.go.kr/)
+- [국립국어원 한국어 기초사전](https://krdict.korean.go.kr/)
+- [국립국어연구원 학습용 어휘 목록](https://www.korean.go.kr/front/etcData/etcDataView.do?mn_id=46&etc_seq=71)
+
