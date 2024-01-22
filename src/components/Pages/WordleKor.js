@@ -20,6 +20,7 @@ import hardMode from "../../assets/hard-mode.json";
 import imdtMode from "../../assets/imdt-mode.json";
 import easyMode from "../../assets/easy-mode.json";
 import allDeposedWords from "../../assets/all-deposed-words.json";
+import msg from "../common/message.json"
 
 function WordleKorPage() {
   const [pred, setPred] = useState([]); // List of input
@@ -31,13 +32,6 @@ function WordleKorPage() {
   const [failAnwser, setFailAnwser] = useState(false);
 
   useEffect(() => {}, [failAnwser]);
-  
-  const msg = {
-    lack: "글자 수가 충분하지 않습니다.",
-    much: "입력값을 초과했습니다",
-    wrong: "정확한 명사가 아닙니다.",
-    end: "",
-  };
 
   // Adjust selected mode
   const { mode } = useParams();
@@ -145,6 +139,7 @@ function WordleKorPage() {
           </Box>
         ))}
       </Box>
+      
       {/* Keyboard */}
       <Keyboard {...keyboardProps} />
 

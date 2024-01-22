@@ -15,6 +15,7 @@ import PageSix from "../modalPages/InfoPageSix";
 
 // Message
 import CentralMessage from "./CentralMessage";
+import msg from "./message.json"
 
 const InfoModal = ({ onClose }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -22,8 +23,6 @@ const InfoModal = ({ onClose }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isVisible, setIsVisible] = useState(false);
-
-  const centerMsg = "이미 게임을 실행하고 있습니다. 닫기 버튼을 눌러주세요";
 
   const nextPage = () => {
     if (currentPage < totalPages) {
@@ -93,7 +92,7 @@ const InfoModal = ({ onClose }) => {
           )}
         </div>
       </div>
-      {isVisible ? <CentralMessage message={centerMsg} /> : <div></div>}
+      {isVisible ? <CentralMessage message={msg.play_block} /> : <div></div>}
     </div>
   );
 };

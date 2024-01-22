@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 import buttonsData from "./buttons-kor.json";
 import { Box } from "@mui/material";
+import msg from "./message.json";
 
-const Keyboard = ({pred, setPred, gotAnswer, listLen, showMessage, msg, handleSubmitButtonClick}) => {
+const Keyboard = ({
+  pred,
+  setPred,
+  gotAnswer,
+  listLen,
+  showMessage,
+  handleSubmitButtonClick,
+}) => {
   const [key, setKey] = useState("");
   const [keyUpdateCount, setKeyUpdateCount] = useState(0);
   const [animatedButton, setAnimatedButton] = useState(null);
@@ -142,8 +150,6 @@ const Keyboard = ({pred, setPred, gotAnswer, listLen, showMessage, msg, handleSu
     setAnimatedButton(value);
     setAnimationKey((prevKey) => prevKey + 1);
   }
-
-
 
   return (
     <Box className="keyboard">
