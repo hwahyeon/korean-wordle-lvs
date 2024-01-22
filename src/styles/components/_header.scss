@@ -9,21 +9,22 @@
   padding: 5px;
   display: flex;
   align-items: center;
-
+  font-family: "Orbit";
+  
   &__title {
     flex: 0 0 60%; // flex-grow는 0, flex-shrink는 0, flex-basis는 60%
     max-width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Black Han Sans';
-    
-    &-kor{
+    font-family: "Black Han Sans";
+
+    &-kor {
       padding-top: 3px;
       font-size: 20px;
       cursor: pointer;
     }
-    &-eng{
+    &-eng {
       padding-top: 5px;
       font-size: 18px;
       cursor: pointer;
@@ -33,7 +34,7 @@
   &__spacer {
     flex: 1; /* 전체 공간의 1/3를 차지 */
   }
-  
+
   &__icon-first {
     display: flex;
     align-items: center;
