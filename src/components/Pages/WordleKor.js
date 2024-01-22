@@ -12,7 +12,7 @@ import "../../styles/pages/_wordleKor.scss";
 import Header from "../common/Header.js";
 import CentralMessage from "../common/CentralMessage.js";
 import AnswerPopup from "../common/AnswerModal.js";
-import Keyboard from "../common/Keyboard.js"
+import Keyboard from "../common/Keyboard.js";
 
 // Function & Data
 import getDailyRandomNumber from "../utils/randomNumber.js";
@@ -20,7 +20,7 @@ import hardMode from "../../assets/hard-mode.json";
 import imdtMode from "../../assets/imdt-mode.json";
 import easyMode from "../../assets/easy-mode.json";
 import allDeposedWords from "../../assets/all-deposed-words.json";
-import msg from "../common/message.json"
+import msg from "../common/message.json";
 
 function WordleKorPage() {
   const [pred, setPred] = useState([]); // List of input
@@ -30,6 +30,8 @@ function WordleKorPage() {
   const [centerMsg, setCenterMsg] = useState("");
   const [gotAnswer, setGotAnwser] = useState(false);
   const [failAnwser, setFailAnwser] = useState(false);
+
+  const MAX_PRED_LENGTH = 30;
 
   useEffect(() => {}, [failAnwser]);
 
@@ -57,6 +59,32 @@ function WordleKorPage() {
     }, 3000);
   }
 
+  const updateColorPredList = (pred, answer, listLen) => {
+    let updatedColorList = [];
+
+    for (let i = listLen - 5; i < listLen; i++) {
+      if (pred[i]) {
+        if (answer[i - listLen + 5] === pred[i].value) {
+          updatedColorList.push("green");
+          pred[i].color = "green";
+        } else if (answer.includes(pred[i].value)) {
+          updatedColorList.push("yellow");
+          pred[i].color = "yellow";
+        } else {
+          updatedColorList.push("gray");
+          pred[i].color = "gray";
+        }
+        pred[i].deletable = false;
+      } else {
+        showMessage(msg.lack);
+        continue;
+        // console.error(`pred[${i}] is undefined`);
+      }
+    }
+
+    return updatedColorList;
+  };
+
   const handleSubmitButtonClick = () => {
     if (pred.length % 5 !== 0 || pred.length === 0) {
       showMessage(msg.lack);
@@ -70,29 +98,10 @@ function WordleKorPage() {
       if (!jsonData.includes(submitted)) {
         showMessage(msg.wrong);
       } else {
-        // 정확한 명사
+        // Case: when it's a noun
         setListLen((listLen) => listLen + 5);
 
-        let updatedColorList = [];
-
-        for (let i = listLen - 5; i < listLen; i++) {
-          if (pred[i]) {
-            if (answer[i - listLen + 5] === pred[i].value) {
-              updatedColorList.push("green");
-              pred[i].color = "green";
-            } else if (answer.includes(pred[i].value)) {
-              updatedColorList.push("yellow");
-              pred[i].color = "yellow";
-            } else {
-              updatedColorList.push("gray");
-              pred[i].color = "gray";
-            }
-            pred[i].deletable = false;
-          } else {
-            showMessage(msg.lack);
-            // console.error(`pred[${i}] is undefined`);
-          }
-        }
+        const updatedColorList = updateColorPredList(pred, answer, listLen);
         setPred([...pred]);
         setColorList(colorList.concat(updatedColorList));
 
@@ -102,16 +111,25 @@ function WordleKorPage() {
             return cnt + (e === "green" ? 1 : 0);
           }, 0)
         ) {
-          // 정답인 경우
+          // Case: got an answer
           setGotAnwser(true);
-        } else if (pred.length === 30) {
+        } else if (pred.length === MAX_PRED_LENGTH) {
+          // Case: got a failed
           setFailAnwser(true);
         }
       }
     }
   };
 
-  const keyboardProps = {pred, setPred, gotAnswer, listLen, showMessage, msg, handleSubmitButtonClick};
+  const keyboardProps = {
+    pred,
+    setPred,
+    gotAnswer,
+    listLen,
+    showMessage,
+    msg,
+    handleSubmitButtonClick,
+  };
 
   return (
     <div className="wordle-page">
@@ -139,7 +157,7 @@ function WordleKorPage() {
           </Box>
         ))}
       </Box>
-      
+
       {/* Keyboard */}
       <Keyboard {...keyboardProps} />
 
