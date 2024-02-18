@@ -17,16 +17,19 @@ import {
   faMoon,
   faAdjust,
   faEye,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Components
 import InfoModal from "./InfoModal.js";
+import { sidebarState } from "../../state/sidebarState.js";
+import Sidebar from "./Sidebar.js";
 
 function Header() {
   const navi = useNavigate();
   const [showInfoModal, setShowInfoModal] = useState(false);
-  const [darkMode, setDarkMode] = useRecoilState(darkModeState);
-  const [colorMode, setColorMode] = useRecoilState(colorModeState);
+  // const [darkMode, setDarkMode] = useRecoilState(darkModeState);
+  // const [colorMode, setColorMode] = useRecoilState(colorModeState);
 
   const goHome = () => {
     navi("/");
@@ -40,29 +43,47 @@ function Header() {
     setShowInfoModal(false);
   };
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+  // const toggleDarkMode = () => {
+  //   setDarkMode(!darkMode);
+  // };
 
-  const toggleColorMode = () => {
-    setColorMode(!colorMode);
+  // const toggleColorMode = () => {
+  //   setColorMode(!colorMode);
+  // };
+
+  const [sidebarOpen, setSidebarOpen] = useRecoilState(sidebarState);
+  const [shouldRenderSidebar, setShouldRenderSidebar] = useState(false);
+
+  const handleCloseClick = () => {
+    setSidebarOpen(!sidebarOpen);
   };
 
   useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark-mode");
+    if (sidebarOpen) {
+      setShouldRenderSidebar(true); // Sidebar 랜더링
     } else {
-      document.body.classList.remove("dark-mode");
+      // 애니메이션 종료 후 Sidebar 숨기는 로직
+      setTimeout(() => {
+        setShouldRenderSidebar(false);
+      }, 300);
     }
-  }, [darkMode]);
+  }, [sidebarOpen]);
 
-  useEffect(() => {
-    if (colorMode) {
-      document.body.classList.add("color-mode");
-    } else {
-      document.body.classList.remove("color-mode");
-    }
-  }, [colorMode]);
+  // useEffect(() => {
+  //   if (darkMode) {
+  //     document.body.classList.add("dark-mode");
+  //   } else {
+  //     document.body.classList.remove("dark-mode");
+  //   }
+  // }, [darkMode]);
+
+  // useEffect(() => {
+  //   if (colorMode) {
+  //     document.body.classList.add("color-mode");
+  //   } else {
+  //     document.body.classList.remove("color-mode");
+  //   }
+  // }, [colorMode]);
 
   return (
     <header className="header">
@@ -70,21 +91,29 @@ function Header() {
         <FontAwesomeIcon icon={faHome} />
       </div>
       <div className="header__spacer"></div>
-      <div className="header__title" >
-        <p className="header__title-kor" onClick={goHome}>한글&nbsp;</p>
-        <p className="header__title-eng" onClick={goHome}>Wordle</p>
+      <div className="header__title">
+        <p className="header__title-kor" onClick={goHome}>
+          한글&nbsp;
+        </p>
+        <p className="header__title-eng" onClick={goHome}>
+          Wordle
+        </p>
       </div>
       <div className="header__icon-second">
         <div className="icon-items" onClick={openInfoModal}>
           <FontAwesomeIcon icon={faInfoCircle} />
         </div>
-        <div className="icon-items" onClick={toggleColorMode}>
+        {/* <div className="icon-items" onClick={toggleColorMode}>
           <FontAwesomeIcon icon={!colorMode ? faAdjust : faEye} />
         </div>
         <div className="icon-items" onClick={toggleDarkMode}>
           <FontAwesomeIcon icon={!darkMode ? faMoon : faSun} />
+        </div> */}
+        <div className="icon-items" onClick={handleCloseClick}>
+          <FontAwesomeIcon icon={faBars} />
         </div>
       </div>
+      {shouldRenderSidebar && <Sidebar />}
       {showInfoModal && <InfoModal onClose={closeInfoModal} />}
     </header>
   );
