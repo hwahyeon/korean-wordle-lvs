@@ -51,27 +51,6 @@
       font-weight: bold;
       padding-top: 25px;
     }
-    .ref {
-      button {
-        font-family: "Orbit";
-        width: 96px;
-        color: black;
-        border-color: black;
-        border-radius: 12px;
-        border: 2px solid #000;
-        margin-top: 40px;
-        transition: background 0.3s, color 0.3s;
-        margin-right: 10px;
-        padding: 10px;
-        &:last-child {
-          margin-right: 0;
-        }
-        &:hover {
-          background-color: black;
-          color: white;
-        }
-      }
-    }
   }
   body.dark-mode & {
     color: #e0e0e0;

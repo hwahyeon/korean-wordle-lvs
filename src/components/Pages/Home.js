@@ -26,10 +26,14 @@ function HomePage() {
 
   const darkMode = useRecoilValue(darkModeState);
   const colorMode = useRecoilValue(colorModeState);
-  const icon = darkMode && colorMode ? iconBoth
-              : darkMode ? iconDark
-              : colorMode ? iconColor
-              : iconNormal;
+  const icon =
+    darkMode && colorMode
+      ? iconBoth
+      : darkMode
+      ? iconDark
+      : colorMode
+      ? iconColor
+      : iconNormal;
 
   const handleEasyClick = () => {
     navigate("/play/easy");
@@ -85,28 +89,6 @@ function HomePage() {
           <p>매일 12시 정각에 정답이 바뀌어요</p>
           <p className="text-date">{currentDateTime.date}</p>
           <p className="text-edit">Made by hwahyeon</p>
-        </div>
-        <div className="ref">
-          <button
-            className="alink-button"
-            component={Link}
-            onClick={() =>
-              (window.location.href =
-                "https://github.com/hwahyeon/reactjs-wordle-kor")
-            }
-          >
-            Code of this game
-          </button>
-          <button
-            className="alink-button"
-            component={Link}
-            onClick={() =>
-              (window.location.href =
-                "https://www.nytimes.com/games/wordle/index.html")
-            }
-          >
-            Original Wordle
-          </button>
         </div>
       </div>
     </Container>
