@@ -1,0 +1,42 @@
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 15px;
+
+  .desc {
+    text-align: left;
+    flex-grow: 1;
+  }
+
+  .toggle-container {
+    position: relative;
+    min-width: 50px;
+    margin-left: 5px;
+    height: 24px;
+    border-radius: 30px;
+    background-color: #94a3b8;
+    cursor: pointer;
+    transition: background-color 0.5s;
+
+    &.toggle--checked {
+      background-color: #6aaa64;
+    }
+
+    .toggle-circle {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: rgb(255, 254, 255);
+      transition: left 0.5s;
+
+      &.toggle--checked {
+        left: 27px;
+      }
+    }
+  }
+}
