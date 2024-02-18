@@ -1,0 +1,128 @@
+.sidebar {
+  .sidebar-right {
+    width: 85%;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: white;
+    color: black;
+    z-index: 1000;
+    animation: fallIn 0.7s ease forwards;
+
+    .sidebar-content {
+      padding: 20px;
+      margin-top: 35px;
+      .sidebar-title {
+        font-size: 25px;
+        font-weight: 700;
+        padding-bottom: 15px;
+      }
+      .sidebar-option {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        .option-title {
+          font-weight: 700;
+        }
+
+        a {
+          text-decoration: underline;
+          color: black;
+          &:hover {
+            font-weight: 700;
+            text-decoration-thickness: 2px;
+          }
+        }
+      }
+
+      nav div {
+        padding: 10px;
+        font-size: 22px;
+        transition: transform 0.7s ease;
+        cursor: pointer;
+        a {
+          text-decoration: none;
+        }
+        &:hover {
+          color: #2f9add;
+          transform: translateX(10px);
+        }
+      }
+    }
+    .close--btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 35px;
+      cursor: pointer;
+    }
+  }
+  .sidebar-left {
+    width: 15%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #333333;
+    z-index: 1000;
+    animation: slideIn 0.7s ease forwards;
+  }
+}
+
+.sidebar.close {
+  .sidebar-right {
+    animation: fallOut 0.5s ease forwards;
+  }
+  .sidebar-left {
+    animation: slideOut 0.5s ease forwards;
+  }
+}
+
+.sidebar.hide {
+  display: none;
+}
+
+@keyframes slideIn {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 0.9;
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    width: 15%;
+    opacity: 0.9;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fallIn {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes fallOut {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -100%;
+  }
+}
