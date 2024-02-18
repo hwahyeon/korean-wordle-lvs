@@ -1,5 +1,5 @@
 # Korean Wordle
-This is the Korean version of [Wordle](https://www.nytimes.com/games/wordle/index.html). Only one challenge per day is given, and the answer changes every day at 00:00. This Wordle game only supports nouns and standard language (no dialect or slang).
+This is the Korean version of Wordle. Only one challenge per day is given, and the answer changes every day at 00:00. This Wordle game only supports nouns and standard language (no dialect or slang).
 
 
 ## Play Now
