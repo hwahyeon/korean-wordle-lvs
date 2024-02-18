@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import buttonsData from "./buttons-kor.json";
 import { Box } from "@mui/material";
+import buttonsData from "./buttons-kor.json";
 import msg from "./message.json";
 
 const Keyboard = ({
@@ -125,7 +125,6 @@ const Keyboard = ({
     return "";
 }
 
-
   const handleRemoveButtonClick = () => {
     if (pred[pred.length - 1]?.deletable) {
       let updatedList = [...pred];
@@ -197,7 +196,7 @@ const Keyboard = ({
         <button
           className={`submit__btn ${
             animatedButton === "enter" ? "animate-button" : ""
-          }`}
+          }`}  
           onClick={(event) => {
             handleSubmitButtonClick();
             event.currentTarget.blur();
