@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 // State
 import { useRecoilState } from "recoil";
-import { darkModeState, colorModeState } from "../../state/themeState.js";
+// import { darkModeState, colorModeState } from "../../state/themeState.js";
 
 // Style
 import "../../styles/components/_header.scss";
@@ -13,10 +13,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faInfoCircle,
-  faSun,
-  faMoon,
-  faAdjust,
-  faEye,
+  // faSun,
+  // faMoon,
+  // faAdjust,
+  // faEye,
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -86,7 +86,7 @@ function Header() {
   // }, [colorMode]);
 
   return (
-    <header className="header">
+    <div className="header">
       <div className="header__icon-first" onClick={goHome}>
         <FontAwesomeIcon icon={faHome} />
       </div>
@@ -115,7 +115,7 @@ function Header() {
       </div>
       {shouldRenderSidebar && <Sidebar />}
       {showInfoModal && <InfoModal onClose={closeInfoModal} />}
-    </header>
+    </div>
   );
 }
 
