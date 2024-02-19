@@ -18,6 +18,8 @@ import {
   // faAdjust,
   // faEye,
   faBars,
+  faQuestionCircle,
+  faCog,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Components
@@ -101,7 +103,7 @@ function Header() {
       </div>
       <div className="header__icon-second">
         <div className="icon-items" onClick={openInfoModal}>
-          <FontAwesomeIcon icon={faInfoCircle} />
+          <FontAwesomeIcon icon={faQuestionCircle} />
         </div>
         {/* <div className="icon-items" onClick={toggleColorMode}>
           <FontAwesomeIcon icon={!colorMode ? faAdjust : faEye} />
@@ -110,7 +112,7 @@ function Header() {
           <FontAwesomeIcon icon={!darkMode ? faMoon : faSun} />
         </div> */}
         <div className="icon-items" onClick={handleCloseClick}>
-          <FontAwesomeIcon icon={faBars} />
+          <FontAwesomeIcon icon={faCog} />
         </div>
       </div>
       {shouldRenderSidebar && <Sidebar />}

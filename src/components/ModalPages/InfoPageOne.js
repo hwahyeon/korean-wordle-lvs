@@ -1,65 +1,59 @@
+import { ko } from "../../lang/ko.js";
+import { en } from "../../lang/en.js";
+
 const InfoPageOne = () => {
+  const currentLang = localStorage.getItem("language") || "ko";
+  const lang = currentLang === "ko" ? ko : en;
+
   return (
-    // <div className="overlay">
-    //   <div className="content">
-        <div className="example">
-          <p className="example__header">게임하는 방법</p>
-          <p className="example__explain">
-            6번 시도해서 숨겨진 글자(명사)를 맞춰보세요
-          </p>
-          <p className="example__sub-header">색상은 정답의 단서가 됩니다.</p>
-          <div className="example__group">
-            <div className="example__div">
-              <div className="green btn--active">ㅎ</div>
-              <div>ㅏ</div>
-              <div>ㄴ</div>
-              <div>ㅡ</div>
-              <div>ㄹ</div>
-            </div>
-            <p className="text-explain">
-              ㅎ은 단어 안에 있고, 정확한 위치에 있습니다.
-            </p>
-            <div className="example__div">
-              <div>ㄴ</div>
-              <div className="yellow btn--active">ㅓ</div>
-              <div>ㅇ</div>
-              <div>ㅜ</div>
-              <div>ㄹ</div>
-            </div>
-            <p className="example__text-explain">
-              ㅓ는 단어 안에 있지만, 잘못된 위치에 있습니다.
-            </p>
-            <div className="example__div">
-              <div>ㅂ</div>
-              <div>ㅏ</div>
-              <div className="gray btn--active">ㄹ</div>
-              <div>ㅣ</div>
-              <div>ㅁ</div>
-            </div>
-            <p className="example__text-explain">
-              ㄹ은 단어에 포함되지 않습니다.
-            </p>
-            <p className="example__sub-header">겹자모는 두 칸을 활용합니다.</p>
-            <div className="example__div">
-              <div className="letter-example">ㄱ</div>
-              <div className="letter-example">ㄱ</div>
-              <div>ㅗ</div>
-              <div>ㅁ</div>
-              <div>ㅏ</div>
-            </div>
-            <p className="example__text-explain">ㄲ은 ㄱㄱ으로 표기합니다.</p>
-            <div className="example__div">
-              <div>ㄱ</div>
-              <div className="letter-example">ㅗ</div>
-              <div className="letter-example">ㅏ</div>
-              <div>ㄱ</div>
-              <div>ㅓ</div>
-            </div>
-            <p className="example__text-explain">ㅘ는 ㅗㅏ로 표기합니다.</p>
-          </div>
+    <div className="example">
+      <p className="example__header">{lang.info.header}</p>
+      <p className="example__explain">{lang.info.title}</p>
+      <p className="example__sub-header">{lang.info.sub_title1}</p>
+      <div className="example__group">
+        <div className="example__div">
+          <div className="green btn--active">ㅎ</div>
+          <div>ㅏ</div>
+          <div>ㄴ</div>
+          <div>ㅡ</div>
+          <div>ㄹ</div>
         </div>
-    //   </div>
-    // </div>
+        <p className="text-explain">{lang.info.sub_desc1}</p>
+        <div className="example__div">
+          <div>ㄴ</div>
+          <div className="yellow btn--active">ㅓ</div>
+          <div>ㅇ</div>
+          <div>ㅜ</div>
+          <div>ㄹ</div>
+        </div>
+        <p className="example__text-explain">{lang.info.sub_desc2}</p>
+        <div className="example__div">
+          <div>ㅂ</div>
+          <div>ㅏ</div>
+          <div className="gray btn--active">ㄹ</div>
+          <div>ㅣ</div>
+          <div>ㅁ</div>
+        </div>
+        <p className="example__text-explain">{lang.info.sub_desc3}</p>
+        <p className="example__sub-header">{lang.info.sub_title2}</p>
+        <div className="example__div">
+          <div className="letter-example">ㄱ</div>
+          <div className="letter-example">ㄱ</div>
+          <div>ㅗ</div>
+          <div>ㅁ</div>
+          <div>ㅏ</div>
+        </div>
+        <p className="example__text-explain">{lang.info.sub_desc4}</p>
+        <div className="example__div">
+          <div>ㄱ</div>
+          <div className="letter-example">ㅗ</div>
+          <div className="letter-example">ㅏ</div>
+          <div>ㄱ</div>
+          <div>ㅓ</div>
+        </div>
+        <p className="example__text-explain">{lang.info.sub_desc5}</p>
+      </div>
+    </div>
   );
 };
 

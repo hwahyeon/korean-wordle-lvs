@@ -1,8 +1,14 @@
+import { ko } from "../../lang/ko.js";
+import { en } from "../../lang/en.js";
+
 const InfoPageSix = () => {
+  const currentLang = localStorage.getItem("language") || "ko";
+  const lang = currentLang === "ko" ? ko : en;
+
   return (
     <div className="example">
-      <p className="example__header">게임하는 방법</p>
-      <p className="example__with">함께 해볼까요? (5/5)</p>
+      <p className="example__header">{lang.info.header}</p>
+      <p className="example__with">{lang.together.title} (5/5)</p>
       <div className="example__group">
         <div className="example__div">
           <div className="gray">ㅎ</div>
@@ -46,7 +52,7 @@ const InfoPageSix = () => {
           <div></div>
           <div></div>
         </div>
-        <p className="example__text-explain">정답!</p>
+        <p className="example__text-explain">{lang.together.desc5}</p>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 // React
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // MUI
 import { Container } from "@mui/material";
@@ -21,8 +21,15 @@ import iconDark from "../../assets/wordle-icon-dark.svg";
 import iconColor from "../../assets/wordle-icon-color.svg";
 import iconBoth from "../../assets/wordle-icon-both.svg";
 
+// Lang
+import { ko } from "../../lang/ko.js";
+import { en } from "../../lang/en.js";
+
 function HomePage() {
   const navigate = useNavigate();
+
+  const currentLang = localStorage.getItem("language") || "ko";
+  const lang = currentLang === "ko" ? ko : en;
 
   const darkMode = useRecoilValue(darkModeState);
   const colorMode = useRecoilValue(colorModeState);
@@ -71,22 +78,22 @@ function HomePage() {
       <Header />
       <div className="homepage__content">
         <img src={icon} alt="wordle icon" className="cont__icon" />
-        <p className="cont__txt">이 게임은 Wordle의 한글 변형판입니다</p>
+        <p className="cont__txt">{lang.home1}</p>
         <div>
-          <p className="text-start">시작해볼까요?</p>
-          <p className="text-level">난이도를 선택하세요</p>
+          <p className="text-start">{lang.home2}</p>
+          <p className="text-level">{lang.home3}</p>
           <button className="play-button" onClick={handleEasyClick}>
-            초급
+            {lang.lv1}
           </button>
           <button className="play-button" onClick={handleImdtClick}>
-            중급
+            {lang.lv2}
           </button>
           <button className="play-button" onClick={handleHardClick}>
-            고급
+            {lang.lv3}
           </button>
         </div>
         <div>
-          <p>매일 12시 정각에 정답이 바뀌어요</p>
+          <p>{lang.home4}</p>
           <p className="text-date">{currentDateTime.date}</p>
           <p className="text-edit">Made by hwahyeon</p>
         </div>
