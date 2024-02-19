@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
 import "../../styles/components/_sidebar.scss";
 import { useRecoilState } from "recoil";
-import { sidebarState } from "../../state/sidebarState";
+import { currentLanguage, sidebarState } from "../../state/sidebarState";
 import Toggle from "./Toggle";
 import { colorModeState, darkModeState } from "../../state/themeState";
+import { ko } from "../../lang/ko.js";
+import { en } from "../../lang/en.js";
 
 function Sidebar() {
+  const currentLang = localStorage.getItem("language") || "ko";
+  const lang = currentLang === "ko" ? ko : en;
+
   // sidebar
   const [sidebarOpen, setSidebarOpen] = useRecoilState(sidebarState);
 
@@ -43,6 +48,21 @@ function Sidebar() {
     }
   }, [colorMode]);
 
+  // Language
+  const [langMode, setLangMode] = useRecoilState(currentLanguage);
+
+  const handleLanguageToggle = () => {
+    setLangMode(!langMode);
+  };
+
+  useEffect(() => {
+    if (langMode) {
+      localStorage.setItem('language', 'en');
+    } else {
+      localStorage.setItem('language', 'ko');
+    }
+  }, [langMode]);
+
   return (
     <div className={`sidebar ${sidebarOpen ? "open" : "close"}`}>
       <div className="sidebar-right">
@@ -50,52 +70,56 @@ function Sidebar() {
           <div className="close--btn" onClick={handleCloseClick}>
             &times;
           </div>
-          <div className="sidebar-title">Settings</div>
+          <div className="sidebar-title">{lang.setting}</div>
           <Toggle
-            title="Dark Theme"
+            title={lang.settings.dark}
             description=""
             isOn={darkMode}
             onChange={handleDarkModeToggle}
           />
           <hr />
           <Toggle
-            title="High Contrast Mode"
-            description="Contrast and colorblindness improvements"
+            title={lang.settings.color}
+            description={lang.settings.color_desc}
             isOn={colorMode}
             onChange={handleColorModeToggle}
           />
           <hr />
           {/* <Toggle
-            title="Onscreen Keyboard Input Only"
-            description="Ignore key input except from the onscreen keyboard. Most helpful for users using speech recognition or other assistive devices."
+            title={lang.keyboard}
+            description={lang.keyboard_desc}
           />
-          <hr />
+          <hr />*/}
           <Toggle
-            title="Language"
-            description="한국어를 학습하려는 외국인을 위하여 영어도 제공합니다."
-          /> */}
+            title={lang.settings.lang}
+            description={lang.settings.lang_desc}
+            isOn={langMode}
+            onChange={handleLanguageToggle}
+          /> 
           <hr />
           <div className="sidebar-option">
-            <span className="option-title">Report a Bug</span>
+            <span className="option-title">{lang.report}</span>
             <a
               href="https://github.com/hwahyeon/reactjs-wordle-kor/issues"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Link
+              {lang.link}
             </a>
           </div>
+          <span>{lang.report_desc}</span>
           <hr />
           <div className="sidebar-option">
-            <span className="option-title">Original Wordle</span>
+            <span className="option-title">{lang.original}</span>
             <a
               href="https://www.nytimes.com/games/wordle/index.html"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Link
+              {lang.link}
             </a>
           </div>
+          <span>{lang.original_desc}</span>
         </div>
       </div>
       <div className="sidebar-left" onClick={handleCloseClick}></div>

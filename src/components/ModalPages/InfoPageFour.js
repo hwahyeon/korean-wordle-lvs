@@ -1,8 +1,14 @@
+import { ko } from "../../lang/ko.js";
+import { en } from "../../lang/en.js";
+
 const InfoPageFour = () => {
+  const currentLang = localStorage.getItem("language") || "ko";
+  const lang = currentLang === "ko" ? ko : en;
+
   return (
     <div className="example">
-      <p className="example__header">게임하는 방법</p>
-      <p className="example__with">함께 해볼까요? (3/5)</p>
+      <p className="example__header">{lang.info.header}</p>
+      <p className="example__with">{lang.together.title} (3/5)</p>
       <div className="example__group">
         <div className="example__div">
           <div className="gray">ㅎ</div>
@@ -46,11 +52,7 @@ const InfoPageFour = () => {
           <div></div>
           <div></div>
         </div>
-        <p className="example__text-explain">
-          이런, 정답은 아니지만 확실한 단서를 얻었어요. 오늘의 단어는{" "}
-          <span>사</span>로 끝나는 단어였군요. <br />
-          음, <span>경사</span>로 한 번 시도해 볼까요?
-        </p>
+        <p className="example__text-explain">{lang.together.desc3}</p>
       </div>
     </div>
   );

@@ -2,75 +2,34 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/components/_modal.scss";
 import dictionary from "../../assets/dictionary.json";
+import { ko } from "../../lang/ko.js";
+import { en } from "../../lang/en.js";
 
 const AnswerPopup = (props) => {
+  const currentLang = localStorage.getItem("language") || "ko";
+  const lang = currentLang === "ko" ? ko : en;
+
   const rounds = Math.floor(props.rounds / 5);
   let msg = "";
 
   switch (rounds) {
     case 1:
-      msg = (
-        <>
-          대단한 운!
-          <br />
-          첫 시도에 바로 맞추셨어요!
-          <br />
-          저기, 혹시 복권 번호 좀 알려줄래요?😏
-        </>
-      );
+      msg = lang.answer.msg1;
       break;
     case 2:
-      msg = (
-        <>
-          굉장합니다! 단 두 번만에 성공!
-          <br />
-          복권 구매를 고려해 보는 건 어떨까요?
-          <br />
-          (물론 저는 책임지지 않을 겁니다만 😉)
-        </>
-      );
+      msg = lang.answer.msg2;
       break;
     case 3:
-      msg = (
-        <>
-          놀라워요! 세 번만에 맞췄어요.
-          <br />
-          운인가요? 실력인가요?
-          <br />
-          아, 운도 실력이라고요?😎
-        </>
-      );
+      msg = lang.answer.msg3;
       break;
     case 4:
-      msg = (
-        <>
-          네 번째 시도에 성공하셨군요.
-          <br />
-          진짜 재미는 네 번째부터죠!🤩
-        </>
-      );
+      msg = lang.answer.msg4;
       break;
     case 5:
-      msg = (
-        <>
-          다섯 번째 시도에 성공하셨군요.
-          <br />
-          표정이 여유로워 보이진 않는데...
-          <br />
-          긴장 안 했다고요? 정말?🤨
-        </>
-      );
+      msg = lang.answer.msg5;
       break;
     default:
-      msg = (
-        <>
-          휴
-          <br />
-          마지막 기회를 놓치지 않으셨군요!
-          <br />
-          성공!🤗
-        </>
-      );
+      msg = lang.answer.msg6;
   }
 
   const [isVisible, setIsVisible] = useState(true);
@@ -125,7 +84,7 @@ const AnswerPopup = (props) => {
 
   const handleClick = (pageNumber) => {
     setCurrentPage(pageNumber);
-    toggleContract()
+    toggleContract();
   };
 
   const renderPageNumbers = () => {
@@ -157,7 +116,10 @@ const AnswerPopup = (props) => {
           </p>
 
           {/* Meaning of words */}
-          <div className={`AnswerMeaning ${isExpanded ? '' : 'more_active'}`} onClick={toggleExpand}>
+          <div
+            className={`AnswerMeaning ${isExpanded ? "" : "more_active"}`}
+            onClick={toggleExpand}
+          >
             <div
               dangerouslySetInnerHTML={{
                 __html:
@@ -174,10 +136,10 @@ const AnswerPopup = (props) => {
           <div className="pagination-btn">{renderPageNumbers()}</div>
           <div className="Buttons">
             <div className="HomeButton" onClick={handleNoWordsMeaningClick}>
-              뒤로 가기
+              {lang.button.back}
             </div>
             <div className="HomeButton" onClick={handleHomeClick}>
-              홈으로
+              {lang.button.home}
             </div>
           </div>
         </div>
@@ -191,10 +153,10 @@ const AnswerPopup = (props) => {
           </div>
           <div className="Buttons">
             <div className="HomeButton" onClick={handleWordsMeaningClick}>
-              단어 뜻 보기
+              {lang.button.meaning}
             </div>
             <div className="HomeButton" onClick={handleHomeClick}>
-              홈으로
+              {lang.button.home}
             </div>
           </div>
         </div>
@@ -204,11 +166,11 @@ const AnswerPopup = (props) => {
             &times;
           </div>
           <div className="content_txt">
-            <p>아쉬워요! 다시 도전해보세요!😔</p>
+            <p>{lang.falied}</p>
           </div>
           <div className="Buttons">
             <div className="HomeButton" onClick={handleHomeClick}>
-              홈으로
+              {lang.button.home}
             </div>
           </div>
         </div>

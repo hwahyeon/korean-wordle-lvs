@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import buttonsData from "./buttons-kor.json";
-import msg from "./message.json";
+import { ko } from "../../lang/ko.js";
+import { en } from "../../lang/en.js";
 
 const Keyboard = ({
   pred,
@@ -11,6 +12,9 @@ const Keyboard = ({
   showMessage,
   handleSubmitButtonClick,
 }) => {
+  const currentLang = localStorage.getItem("language") || "ko";
+  const lang = currentLang === "ko" ? ko : en;
+
   const [key, setKey] = useState("");
   const [keyUpdateCount, setKeyUpdateCount] = useState(0);
   const [animatedButton, setAnimatedButton] = useState(null);
@@ -148,7 +152,7 @@ const Keyboard = ({
         return newPred;
       });
     } else {
-      showMessage(msg.much);
+      showMessage(lang.center_msg.much);
     }
   };
 
@@ -204,7 +208,7 @@ const Keyboard = ({
           }}
           disabled={gotAnswer}
         >
-          제출
+          {lang.submit}
         </button>
         {myButtons3.map((button) => (
           <button

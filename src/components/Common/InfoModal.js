@@ -15,9 +15,13 @@ import PageSix from "../modalPages/InfoPageSix";
 
 // Message
 import CentralMessage from "./CentralMessage";
-import msg from "./message.json"
+import { ko } from "../../lang/ko.js";
+import { en } from "../../lang/en.js";
 
 const InfoModal = ({ onClose }) => {
+  const currentLang = localStorage.getItem("language") || "ko";
+  const lang = currentLang === "ko" ? ko : en;
+
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 6;
   const navigate = useNavigate();
@@ -70,29 +74,33 @@ const InfoModal = ({ onClose }) => {
         {currentPage === 6 && <PageSix />}
 
         <div className="navigation">
-          {currentPage == 1 && (
+          {currentPage === 1 && (
             <button className="prev--btn" onClick={firstPage}>
-              함께 해보기
+              {lang.button.example}
             </button>
           )}
           {currentPage > 1 && (
             <button className="prev--btn" onClick={prevPage}>
-              &#8592; 이전
+              &#8592; {lang.button.prev}
             </button>
           )}
-          {(currentPage < totalPages && currentPage !== 1)&& (
+          {currentPage < totalPages && currentPage !== 1 && (
             <button className="next--btn" onClick={nextPage}>
-              다음 &#8594;
+              {lang.button.next} &#8594;
             </button>
           )}
           {currentPage === 6 && (
             <button className="next--btn" onClick={gamePage}>
-              게임 시작
+              {lang.button.start}
             </button>
           )}
         </div>
       </div>
-      {isVisible ? <CentralMessage message={msg.play_block} /> : <div></div>}
+      {isVisible ? (
+        <CentralMessage message={lang.center_msg.play_block} />
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };

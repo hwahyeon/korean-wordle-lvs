@@ -1,8 +1,14 @@
+import { ko } from "../../lang/ko.js";
+import { en } from "../../lang/en.js";
+
 const InfoPageFive = () => {
+  const currentLang = localStorage.getItem("language") || "ko";
+  const lang = currentLang === "ko" ? ko : en;
+
   return (
     <div className="example">
-      <p className="example__header">게임하는 방법</p>
-      <p className="example__with">함께 해볼까요? (4/5)</p>
+      <p className="example__header">{lang.info.header}</p>
+      <p className="example__with">{lang.together.title} (4/5)</p>
       <div className="example__group">
         <div className="example__div">
           <div className="gray">ㅎ</div>
@@ -46,10 +52,7 @@ const InfoPageFive = () => {
           <div></div>
           <div></div>
         </div>
-        <p className="example__text-explain">
-          정답에 근접했습니다. 이제 두 타일만 맞추면 됩니다. 혹시 답은{" "}
-          <span>검사</span>가 아닐까요?
-        </p>
+        <p className="example__text-explain">{lang.together.desc4}</p>
       </div>
     </div>
   );

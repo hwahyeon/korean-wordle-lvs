@@ -20,9 +20,13 @@ import hardMode from "../../assets/hard-mode.json";
 import imdtMode from "../../assets/imdt-mode.json";
 import easyMode from "../../assets/easy-mode.json";
 import allDeposedWords from "../../assets/all-deposed-words.json";
-import msg from "../common/message.json";
+import { ko } from "../../lang/ko.js";
+import { en } from "../../lang/en.js";
 
 function WordleKorPage() {
+  const currentLang = localStorage.getItem("language") || "ko";
+  const lang = currentLang === "ko" ? ko : en;
+  
   const [pred, setPred] = useState([]); // List of input
   const [colorList, setColorList] = useState([]); // List of color
   const [listLen, setListLen] = useState(5);
@@ -76,7 +80,7 @@ function WordleKorPage() {
         }
         pred[i].deletable = false;
       } else {
-        showMessage(msg.lack);
+        showMessage(lang.center_msg.lack);
         continue;
         // console.error(`pred[${i}] is undefined`);
       }
@@ -87,16 +91,16 @@ function WordleKorPage() {
 
   const handleSubmitButtonClick = () => {
     if (pred.length % 5 !== 0 || pred.length === 0) {
-      showMessage(msg.lack);
+      showMessage(lang.center_msg.lack);
     } else if (pred.length % 5 === 0 && !pred[pred.length - 1].deletable) {
-      showMessage(msg.lack);
+      showMessage(lang.center_msg.lack);
     } else {
       const submitted = pred
         .slice(-5)
         .map((obj) => obj.value)
         .join("");
       if (!jsonData.includes(submitted)) {
-        showMessage(msg.wrong);
+        showMessage(lang.center_msg.wrong);
       } else {
         // Case: when it's a noun
         setListLen((listLen) => listLen + 5);
@@ -127,7 +131,6 @@ function WordleKorPage() {
     gotAnswer,
     listLen,
     showMessage,
-    msg,
     handleSubmitButtonClick,
   };
 
