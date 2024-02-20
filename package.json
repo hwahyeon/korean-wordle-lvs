@@ -1,5 +1,5 @@
 {
-  "name": "Korean-Wordle",
+  "name": "korean-wordle-lvs",
   "version": "1.1.1",
   "private": true,
   "dependencies": {
@@ -51,5 +51,5 @@
   "devDependencies": {
     "gh-pages": "^6.0.0"
   },
-  "homepage": "https://hwahyeon.github.io/reactjs-wordle-kor"
+  "homepage": "https://hwahyeon.github.io/korean-wordle-lvs"
 }
