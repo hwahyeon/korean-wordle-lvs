@@ -1,8 +1,8 @@
 export const en = {
   home1: "This game is a Korean version of Wordle",
   home2: "Shall we start?",
-  home3: "Choose the difficulty level",
-  home4: "The answer changes every day at 12 PM sharp",
+  home3: "Select a dificulty level",
+  home4: "The answer changes every day at 00:00 AM Korean time (GMT+9)",
   lv1: "Beginner",
   lv2: "Intermediate",
   lv3: "Advanced",
@@ -11,7 +11,7 @@ export const en = {
   settings: {
     dark: "Dark Theme",
     color: "High Contrast Mode",
-    color_desc: "Contrast and colorblindness improvements",
+    color_desc: "Enjoy the game without color barriers.",
     lang: "언어",
     lang_desc:
       "한국어 학습이 목표인 분들을 위해 영어를 제공합니다. 하지만 정답을 맞힌 후, 볼 수 있는 단어의 뜻은 한국어로만 제공됩니다.",
@@ -26,7 +26,7 @@ export const en = {
     "The original Wordle game in English, provided by The New York Times.",
   link: "Link",
   button: {
-    example: "Try Together",
+    example: "Try it together",
     prev: "Prev",
     next: "Next",
     start: "Start Game",
@@ -38,7 +38,7 @@ export const en = {
     header: "How to Play",
     title: "Guess the hidden letters (noun) in 6 tries",
     sub_title1: "Colors will give you clues about the answer.",
-    sub_title2: "Double consonants take up two spaces.",
+    sub_title2: "Double consonant and complex vowels take up two spaces.",
     sub_desc1: "ㅎ is in the word and in the correct position.",
     sub_desc2: "ㅓ is in the word but in the wrong position.",
     sub_desc3: "ㄹ is not in the word.",
