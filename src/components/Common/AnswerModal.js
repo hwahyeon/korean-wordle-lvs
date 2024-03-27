@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../styles/components/_modal.scss";
-import dictionary from "../../assets/dictionary.json";
-import { ko } from "../../lang/ko.js";
-import { en } from "../../lang/en.js";
+import "@styles/components/_modal.scss";
+import dictionary from "@assets/dictionary.json";
+import { ko } from "@lang/ko.js";
+import { en } from "@lang/en.js";
 
 const AnswerPopup = (props) => {
   const currentLang = localStorage.getItem("language") || "ko";

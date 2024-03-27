@@ -1,5 +1,5 @@
-import { ko } from "../../lang/ko.js";
-import { en } from "../../lang/en.js";
+import { ko } from "@lang/ko.js";
+import { en } from "@lang/en.js";
 
 const InfoPageThree = () => {
   const currentLang = localStorage.getItem("language") || "ko";

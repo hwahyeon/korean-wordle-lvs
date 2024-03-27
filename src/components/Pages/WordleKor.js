@@ -2,26 +2,26 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-// MUI
-import { Box } from "@mui/material";
-
 // style
-import "../../styles/pages/_wordleKor.scss";
+import { Box } from "@mui/material";
+import "@styles/pages/_wordleKor.scss";
 
 // Components
-import Header from "../common/Header.js";
-import CentralMessage from "../common/CentralMessage.js";
-import AnswerPopup from "../common/AnswerModal.js";
-import Keyboard from "../common/Keyboard.js";
+import Header from "@components/common/Header.js";
+import CentralMessage from "@components/common/CentralMessage.js";
+import AnswerPopup from "@components/common/AnswerModal.js";
+import Keyboard from "@components/common/Keyboard.js";
 
 // Function & Data
-import getDailyRandomNumber from "../utils/randomNumber.js";
-import hardMode from "../../assets/hard-mode.json";
-import imdtMode from "../../assets/imdt-mode.json";
-import easyMode from "../../assets/easy-mode.json";
-import allDeposedWords from "../../assets/all-deposed-words.json";
-import { ko } from "../../lang/ko.js";
-import { en } from "../../lang/en.js";
+import getDailyRandomNumber from "@components/utils/randomNumber.js";
+import hardMode from "@assets/hard-mode.json";
+import imdtMode from "@assets/imdt-mode.json";
+import easyMode from "@assets/easy-mode.json";
+import allDeposedWords from "@assets/all-deposed-words.json";
+
+// Lang
+import { ko } from "@lang/ko.js";
+import { en } from "@lang/en.js";
 
 function WordleKorPage() {
   const currentLang = localStorage.getItem("language") || "ko";

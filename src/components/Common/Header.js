@@ -8,7 +8,7 @@ import { useRecoilState } from "recoil";
 // import { darkModeState, colorModeState } from "../../state/themeState.js";
 
 // Style
-import "../../styles/components/_header.scss";
+import "@styles/components/_header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -24,7 +24,7 @@ import {
 
 // Components
 import InfoModal from "./InfoModal.js";
-import { sidebarState } from "../../state/sidebarState.js";
+import { sidebarState } from "@state/sidebarState.js";
 import Sidebar from "./Sidebar.js";
 
 function Header() {

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
-import buttonsData from "./buttons-kor.json";
-import { ko } from "../../lang/ko.js";
-import { en } from "../../lang/en.js";
+import buttonsData from "@assets/buttons-kor.json";
+import { ko } from "@lang/ko.js";
+import { en } from "@lang/en.js";
 
 const Keyboard = ({
   pred,

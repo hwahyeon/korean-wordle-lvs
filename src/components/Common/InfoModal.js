@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 // Style
-import "../../styles/components/_infoModal.scss";
+import "@styles/components/_infoModal.scss";
 
 // Pages
 import PageOne from "../modalPages/InfoPageOne";
@@ -15,8 +15,8 @@ import PageSix from "../modalPages/InfoPageSix";
 
 // Message
 import CentralMessage from "./CentralMessage";
-import { ko } from "../../lang/ko.js";
-import { en } from "../../lang/en.js";
+import { ko } from "@lang/ko.js";
+import { en } from "@lang/en.js";
 
 const InfoModal = ({ onClose }) => {
   const currentLang = localStorage.getItem("language") || "ko";

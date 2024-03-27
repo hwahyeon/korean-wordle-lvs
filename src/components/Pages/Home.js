@@ -2,28 +2,26 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-// MUI
-import { Container } from "@mui/material";
-
 // Style
-import "../../styles/pages/_home.scss";
+import { Container } from "@mui/material";
+import "@styles/pages/_home.scss";
 
 // Component
-import Header from "../common/Header";
+import Header from "@components/common/Header";
 
 // State
 import { useRecoilValue } from "recoil";
-import { colorModeState, darkModeState } from "../../state/themeState";
+import { colorModeState, darkModeState } from "@state/themeState";
 
 // Images
-import iconNormal from "../../assets/wordle-icon.svg";
-import iconDark from "../../assets/wordle-icon-dark.svg";
-import iconColor from "../../assets/wordle-icon-color.svg";
-import iconBoth from "../../assets/wordle-icon-both.svg";
+import iconNormal from "@assets/wordle-icon.svg";
+import iconDark from "@assets/wordle-icon-dark.svg";
+import iconColor from "@assets/wordle-icon-color.svg";
+import iconBoth from "@assets/wordle-icon-both.svg";
 
 // Lang
-import { ko } from "../../lang/ko.js";
-import { en } from "../../lang/en.js";
+import { ko } from "@lang/ko.js";
+import { en } from "@lang/en.js";
 
 function HomePage() {
   const navigate = useNavigate();
