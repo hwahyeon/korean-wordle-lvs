@@ -8,7 +8,7 @@ const InfoPageSix = () => {
   return (
     <div className="example">
       <p className="example__header">{lang.info.header}</p>
-      <p className="example__with">{lang.together.title} (5/5)</p>
+      <p className="example__with">{lang.together.title} (5/6)</p>
       <div className="example__group">
         <div className="example__div">
           <div className="gray">ㅎ</div>

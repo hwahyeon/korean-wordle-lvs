@@ -8,7 +8,7 @@ const InfoPageFour = () => {
   return (
     <div className="example">
       <p className="example__header">{lang.info.header}</p>
-      <p className="example__with">{lang.together.title} (3/5)</p>
+      <p className="example__with">{lang.together.title} (3/6)</p>
       <div className="example__group">
         <div className="example__div">
           <div className="gray">ㅎ</div>

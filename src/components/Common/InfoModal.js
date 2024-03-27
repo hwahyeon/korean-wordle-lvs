@@ -12,18 +12,20 @@ import PageThree from "@components/modalPages/InfoPageThree";
 import PageFour from "@components/modalPages/InfoPageFour";
 import PageFive from "@components/modalPages/InfoPageFive";
 import PageSix from "@components/modalPages/InfoPageSix";
+import InfoPageSeven from "@components/modalPages/InfoPageSeven";
 
 // Message
 import CentralMessage from "@components/common/CentralMessage";
 import { ko } from "@lang/ko.js";
 import { en } from "@lang/en.js";
 
+
 const InfoModal = ({ onClose }) => {
   const currentLang = localStorage.getItem("language") || "ko";
   const lang = currentLang === "ko" ? ko : en;
 
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 6;
+  const totalPages = 7;
   const navigate = useNavigate();
   const location = useLocation();
   const [isVisible, setIsVisible] = useState(false);
@@ -72,6 +74,7 @@ const InfoModal = ({ onClose }) => {
         {currentPage === 4 && <PageFour />}
         {currentPage === 5 && <PageFive />}
         {currentPage === 6 && <PageSix />}
+        {currentPage === 7 && <InfoPageSeven />}
 
         <div className="navigation">
           {currentPage === 1 && (
@@ -89,7 +92,7 @@ const InfoModal = ({ onClose }) => {
               {lang.button.next} &#8594;
             </button>
           )}
-          {currentPage === 6 && (
+          {currentPage === 7 && (
             <button className="next--btn" onClick={gamePage}>
               {lang.button.start}
             </button>
