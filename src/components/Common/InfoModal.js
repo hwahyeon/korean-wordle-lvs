@@ -6,15 +6,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "@styles/components/_infoModal.scss";
 
 // Pages
-import PageOne from "../modalPages/InfoPageOne";
-import PageTwo from "../modalPages/InfoPageTwo";
-import PageThree from "../modalPages/InfoPageThree";
-import PageFour from "../modalPages/InfoPageFour";
-import PageFive from "../modalPages/InfoPageFive";
-import PageSix from "../modalPages/InfoPageSix";
+import PageOne from "@components/modalPages/InfoPageOne";
+import PageTwo from "@components/modalPages/InfoPageTwo";
+import PageThree from "@components/modalPages/InfoPageThree";
+import PageFour from "@components/modalPages/InfoPageFour";
+import PageFive from "@components/modalPages/InfoPageFive";
+import PageSix from "@components/modalPages/InfoPageSix";
 
 // Message
-import CentralMessage from "./CentralMessage";
+import CentralMessage from "@components/common/CentralMessage";
 import { ko } from "@lang/ko.js";
 import { en } from "@lang/en.js";
 

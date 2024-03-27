@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "@styles/components/_sidebar.scss";
 import { useRecoilState } from "recoil";
 import { currentLanguage, sidebarState } from "@state/sidebarState";
-import Toggle from "./Toggle";
+import Toggle from "@components/common/Toggle";
 import { colorModeState, darkModeState } from "@state/themeState";
 import { ko } from "@lang/ko.js";
 import { en } from "@lang/en.js";
