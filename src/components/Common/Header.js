@@ -12,12 +12,12 @@ import "@styles/components/_header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
-  faInfoCircle,
+  // faInfoCircle,
   // faSun,
   // faMoon,
   // faAdjust,
   // faEye,
-  faBars,
+  // faBars,
   faQuestionCircle,
   faCog,
 } from "@fortawesome/free-solid-svg-icons";
