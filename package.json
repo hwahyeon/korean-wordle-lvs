@@ -52,5 +52,5 @@
   "devDependencies": {
     "gh-pages": "^6.0.0"
   },
-  "homepage": "."
+  "homepage": "https://korean-wordle-lvs.vercel.app/"
 }
