@@ -42,6 +42,45 @@
         padding-bottom: 20px;
       }
 
+      &__answer {
+        padding-top: 17px;
+        padding-bottom: 17px;
+        // padding: 10px;
+        position: relative;
+        min-height: 190px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 25px;
+        border: 3px solid #d3d6da;
+        border-radius: 3px;
+        margin: 10px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+
+        .answerheader {
+          display: flex;
+          margin-right: 5px;
+          align-items: baseline;
+          p,
+          .hanja {
+            display: inline-block;
+            margin-right: 5px;
+          }
+
+          .hanja {
+            font-size: 20px;
+          }
+        }
+        .answermeaning {
+          font-size: 17px;
+          padding: 10px;
+          font-family: "Orbit";
+          min-height: 92px;
+        }
+      }
+
       .example__sub-header {
         font-size: 17px;
         padding-top: 9px;

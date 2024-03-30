@@ -9,14 +9,20 @@ const InfoPageSeven = () => {
     <div className="example">
       <p className="example__header">{lang.info.header}</p>
       <p className="example__with">{lang.together.title} (6/6)</p>
-
-      <p className="example__text-explain">
-        정답을 맞춘 후엔,
-        <div className="HomeButton">{lang.button.meaning}</div> 버튼을 누르면,
-        단어의 뜻을 확인할 수 있습니다.
-
-        자, 그럼 게임을 시작해볼까요? 아래의 게임 시작 버튼을 눌러주세요.
-      </p>
+      <div className="example__group">
+        <p className="example__text-explain">{lang.together.desc6_1}</p>
+        <div className="example__answer">
+          <div className="answerheader">
+            <p>검사</p>
+            <p className="hanja">檢査</p>
+          </div>
+          <div className="answermeaning">
+            "물질을 시험하거나 시약으로 어떤 물질의 화학적 성질을 측정하는
+            방법."
+          </div>
+        </div>
+        <p className="example__text-explain">{lang.together.desc6_2}</p>
+      </div>
     </div>
   );
 };
