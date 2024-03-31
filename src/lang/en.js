@@ -12,12 +12,9 @@ export const en = {
     dark: "Dark Theme",
     color: "High Contrast Mode",
     color_desc: "Enjoy the game without color barriers.",
-    lang: "언어",
-    lang_desc:
-      "한국어 학습이 목표인 분들을 위해 영어를 제공합니다. 하지만 정답을 맞힌 후, 볼 수 있는 단어의 뜻은 한국어로만 제공됩니다.",
     keyboard: "Onscreen Keyboard Input Only",
     keyboard_desc:
-      "화면에 제공된 키보드만 사용할 수 있도록 합니다. 음성 인식이나 입력 보조 장치의 사용자가 온전히 게임을 즐길 수 있도록 도와줍니다 Ignore key input except from the onscreen keyboard. Most helpful for users using speech recognition or other assistive devices.",
+      "Only use the keyboard provided on the screen. Helps voice recognition users or input assist device users fully enjoy the game.",
   },
   report: "Report a bug",
   report_desc: "",
@@ -77,15 +74,14 @@ export const en = {
     desc5: <>"Correct!"</>,
     desc6_1: (
       <>
-        정답을 맞춘 후에 나오는 <br />
-        <span>단어 뜻 보기</span>를 누르면, <br />
-        단어의 뜻을 아래와 같이 확인할 수 있습니다.
+        If you click the <span>See Word Meaning</span> button after you've
+        answered correctly, you'll see the definitions of the word only in
+        Korean as shown below.
       </>
     ),
     desc6_2: (
       <>
-        자, 그럼 게임을 시작해볼까요? <br/> 아래의 <span>게임 시작</span> 버튼을
-        눌러주세요.
+        Shall we start? <br /> Click the <span>Start Game</span> below.
       </>
     ),
   },
