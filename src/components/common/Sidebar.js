@@ -48,21 +48,6 @@ function Sidebar() {
     }
   }, [colorMode]);
 
-  // Language
-  const [langMode, setLangMode] = useRecoilState(currentLanguage);
-
-  const handleLanguageToggle = () => {
-    setLangMode(!langMode);
-  };
-
-  useEffect(() => {
-    if (langMode) {
-      localStorage.setItem('language', 'en');
-    } else {
-      localStorage.setItem('language', 'ko');
-    }
-  }, [langMode]);
-
   return (
     <div className={`sidebar ${sidebarOpen ? "open" : "close"}`}>
       <div className="sidebar-right">
@@ -90,13 +75,6 @@ function Sidebar() {
             description={lang.keyboard_desc}
           />
           <hr />*/}
-          <Toggle
-            title={lang.settings.lang}
-            description={lang.settings.lang_desc}
-            isOn={langMode}
-            onChange={handleLanguageToggle}
-          /> 
-          <hr />
           <div className="sidebar-option">
             <span className="option-title">{lang.report}</span>
             <a
