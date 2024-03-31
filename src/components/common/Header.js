@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 // State
 import { useRecoilState } from "recoil";
+import { sidebarState } from "@state/sidebarState.js";
 
 // Style
 import "@styles/components/_header.scss";
@@ -18,12 +19,12 @@ import {
 
 // Components
 import InfoModal from "./InfoModal.js";
-import { sidebarState } from "@state/sidebarState.js";
 import Sidebar from "./Sidebar.js";
 
 function Header() {
   const navi = useNavigate();
   const [showInfoModal, setShowInfoModal] = useState(false);
+  const [showLangsOpen, setShowLangsOpen] = useState(false);
 
   const goHome = () => {
     navi("/");
@@ -38,8 +39,13 @@ function Header() {
   };
 
   const handleLangsClick = () => {
-    console.log('language')
-  }
+    console.log("language");
+    setShowLangsOpen(!showLangsOpen);
+  };
+
+  const handleSelectLangs = (event) => {
+    localStorage.setItem("language", event.target.value);
+  };
 
   const [sidebarOpen, setSidebarOpen] = useRecoilState(sidebarState);
   const [shouldRenderSidebar, setShouldRenderSidebar] = useState(false);
@@ -80,6 +86,16 @@ function Header() {
         <div className="icon-items" onClick={handleLangsClick}>
           <FontAwesomeIcon icon={faGlobe} />
         </div>
+        {showLangsOpen && (
+          <div className="language-options">
+            <select onChange={handleSelectLangs}>
+              <option value="ko">한국어</option>
+              <option value="en">English</option>
+              <option value="de">Deutsch</option>
+              <option value="el">Ελληνικά</option>
+            </select>
+          </div>
+        )}
         <div className="icon-items" onClick={handleCloseClick}>
           <FontAwesomeIcon icon={faCog} />
         </div>
