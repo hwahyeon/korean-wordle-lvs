@@ -13,9 +13,6 @@ export const ko = {
     color: "고대비 모드",
     color_desc:
       "색 구별에 불편함이 있는 사용자가 색을 더 명확하게 인식할 수 있도록 도와줍니다.",
-    lang: "Language",
-    lang_desc:
-      "English is also available for those learning Korean, but the definitions of words accessible after finding the correct answer are exclusively provided in Korean.",
     keyboard: "화면 키보드 입력만 사용",
     keyboard_desc:
       "화면에 제공된 키보드만 사용할 수 있도록 합니다. 음성 인식이나 입력 보조 장치의 사용자가 온전히 게임을 즐길 수 있도록 도와줍니다.",
