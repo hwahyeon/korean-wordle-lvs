@@ -14,10 +14,10 @@ import {
   faQuestionCircle,
   faCog,
 } from "@fortawesome/free-solid-svg-icons";
-import ko_flag from "@assets/flags/ko-flag.svg";
-import uk_flag from "@assets/flags/uk-flag.svg";
-import gr_flag from "@assets/flags/gr-flag.svg";
-import de_flag from "@assets/flags/de-flag.svg";
+// import ko_flag from "@assets/flags/ko-flag.svg";
+// import uk_flag from "@assets/flags/uk-flag.svg";
+// import gr_flag from "@assets/flags/gr-flag.svg";
+// import de_flag from "@assets/flags/de-flag.svg";
 
 // Components
 import InfoModal from "./InfoModal.js";
@@ -27,30 +27,30 @@ import LangBtn from "./LangBtn.js";
 function Header() {
   const navi = useNavigate();
   const [showInfoModal, setShowInfoModal] = useState(false);
-  const [showLangsOpen, setShowLangsOpen] = useState(false);
+  // const [showLangsOpen, setShowLangsOpen] = useState(false);
 
-  const [langIcon, setLangIcon] = useState(ko_flag);
-  const [langIconState, setLangIconState] = useState(false);
+  // const [langIcon, setLangIcon] = useState(ko_flag);
+  // const [langIconState, setLangIconState] = useState(false);
 
-  useEffect(() => {
-    const selectedLang = localStorage.getItem("language") || "ko";
-    switch (selectedLang) {
-      case "ko":
-        setLangIcon(ko_flag);
-        break;
-      case "en":
-        setLangIcon(uk_flag);
-        break;
-      case "de":
-        setLangIcon(de_flag);
-        break;
-      case "el":
-        setLangIcon(gr_flag);
-        break;
-      default:
-        setLangIcon(ko_flag);
-    }
-  }, [langIconState]);
+  // useEffect(() => {
+  //   const selectedLang = localStorage.getItem("language") || "ko";
+  //   switch (selectedLang) {
+  //     case "ko":
+  //       setLangIcon(ko_flag);
+  //       break;
+  //     case "en":
+  //       setLangIcon(uk_flag);
+  //       break;
+  //     case "de":
+  //       setLangIcon(de_flag);
+  //       break;
+  //     case "el":
+  //       setLangIcon(gr_flag);
+  //       break;
+  //     default:
+  //       setLangIcon(ko_flag);
+  //   }
+  // }, [langIconState]);
 
   const goHome = () => {
     navi("/");
