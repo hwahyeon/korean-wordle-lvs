@@ -6,7 +6,7 @@ This is the Korean version of Wordle. Only one challenge per day is given, and t
 Ready to test your Korean vocabulary skills? Play Korean Wordle now! Click the link below to start playing:
 
 
-**[Play Korean Wordle](https://hwahyeon.github.io/korean-wordle-lvs/)**
+**[Play Korean Wordle](https://korean-wordle-lvs.vercel.app/)**
 
 ## Difficulty Levels
 - **초급(Easy)**: Use common words, great for beginners.
