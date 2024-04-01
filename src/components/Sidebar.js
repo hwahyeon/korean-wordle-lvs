@@ -3,7 +3,7 @@ import "@styles/components/_sidebar.scss";
 import { useRecoilState } from "recoil";
 import { sidebarState } from "@state/sidebarState";
 import Toggle from "@components/Toggle";
-import { colorModeState, darkModeState } from "@state/themeState";
+import { colorModeState, darkModeState, keyboardModeState } from "@state/themeState";
 import { useLanguage } from "@contexts/LanguageContext";
 
 
@@ -47,6 +47,13 @@ function Sidebar() {
     }
   }, [colorMode]);
 
+  // keyboardmode
+  const [keyboardMode, setKeyboardMode] = useRecoilState(keyboardModeState);
+
+  const handleKeyboardModeToggle = () => {
+    setKeyboardMode(!keyboardMode);
+  };
+
   return (
     <div className={`sidebar ${sidebarOpen ? "open" : "close"}`}>
       <div className="sidebar-right">
@@ -69,11 +76,13 @@ function Sidebar() {
             onChange={handleColorModeToggle}
           />
           <hr />
-          {/* <Toggle
-            title={lang.keyboard}
-            description={lang.keyboard_desc}
+          <Toggle
+            title={lang.settings.keyboard}
+            description={lang.settings.keyboard_desc}
+            isOn={keyboardMode}
+            onChange={handleKeyboardModeToggle}
           />
-          <hr />*/}
+          <hr />
           <div className="sidebar-option">
             <span className="option-title">{lang.report}</span>
             <a

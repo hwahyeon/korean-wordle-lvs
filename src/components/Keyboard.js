@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import buttonsData from "@assets/buttons-kor.json";
 import { useLanguage } from "@contexts/LanguageContext";
+import { useRecoilValue } from "recoil";
+import { keyboardModeState } from "@state/themeState";
 
 const Keyboard = ({
   pred,
@@ -23,6 +25,9 @@ const Keyboard = ({
   const myButtons3 = buttonsData.myButtons3;
 
   // Real Keyboard input
+  const keyboardMode = useRecoilValue(keyboardModeState);
+
+
   useEffect(() => {
     if (firstRender) {
       setFirstRender(false);
@@ -39,6 +44,11 @@ const Keyboard = ({
 
   useEffect(() => {
     const handleKeyDown = (event) => {
+      // Keyboard Mode
+      if (!!keyboardMode) {
+        return;
+      }
+
       const keyToHangul = {
         q: "ㅂ",
         w: "ㅈ",
@@ -83,7 +93,7 @@ const Keyboard = ({
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [keyboardMode]);
 
   useEffect(() => {
     if (animatedButton !== null) {
