@@ -1,18 +1,20 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
-import { ko } from '@lang/ko.js';
-import { en } from '@lang/en.js';
-import { de } from '@lang/de.js';
-import { el } from '@lang/el.js';
+import React, { createContext, useState, useEffect, useContext } from "react";
+import { ko } from "@lang/ko.js";
+import { en } from "@lang/en.js";
+import { de } from "@lang/de.js";
+import { el } from "@lang/el.js";
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [currentLang, setCurrentLang] = useState(localStorage.getItem('language') || 'ko');
+  const [currentLang, setCurrentLang] = useState(
+    localStorage.getItem("language") || "ko"
+  );
   const languages = { ko, en, de, el };
   const lang = languages[currentLang];
 
   useEffect(() => {
-    localStorage.setItem('language', currentLang);
+    localStorage.setItem("language", currentLang);
   }, [currentLang]);
 
   const changeLanguage = (langCode) => {

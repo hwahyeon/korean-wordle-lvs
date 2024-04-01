@@ -13,7 +13,7 @@ import de_flag from "@assets/flags/de-flag.svg";
 import { useLanguage } from "@contexts/LanguageContext";
 
 export default function AccountMenu() {
-  const {changeLanguage} = useLanguage();
+  const { changeLanguage } = useLanguage();
 
   const [langIcon, setLangIcon] = useState(ko_flag);
   const [langIconState, setLangIconState] = useState(false);

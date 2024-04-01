@@ -2,7 +2,7 @@ import { useLanguage } from "@contexts/LanguageContext";
 
 const InfoPageFour = () => {
   const { lang } = useLanguage();
-  
+
   return (
     <div className="example">
       <p className="example__header">{lang.info.header}</p>

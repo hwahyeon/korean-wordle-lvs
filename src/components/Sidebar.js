@@ -3,13 +3,16 @@ import "@styles/components/_sidebar.scss";
 import { useRecoilState } from "recoil";
 import { sidebarState } from "@state/sidebarState";
 import Toggle from "@components/Toggle";
-import { colorModeState, darkModeState, keyboardModeState } from "@state/themeState";
+import {
+  colorModeState,
+  darkModeState,
+  keyboardModeState,
+} from "@state/themeState";
 import { useLanguage } from "@contexts/LanguageContext";
-
 
 function Sidebar() {
   const { lang } = useLanguage();
-  
+
   // sidebar
   const [sidebarOpen, setSidebarOpen] = useRecoilState(sidebarState);
 

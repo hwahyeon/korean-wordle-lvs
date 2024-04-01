@@ -1,6 +1,5 @@
 import { useLanguage } from "@contexts/LanguageContext";
 
-
 const InfoPageThree = () => {
   const { lang } = useLanguage();
 

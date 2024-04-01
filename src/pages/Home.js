@@ -19,7 +19,7 @@ import iconDark from "@assets/wordle-icon-dark.svg";
 import iconColor from "@assets/wordle-icon-color.svg";
 import iconBoth from "@assets/wordle-icon-both.svg";
 
-import { useLanguage } from '@contexts/LanguageContext';
+import { useLanguage } from "@contexts/LanguageContext";
 
 function HomePage() {
   const { lang } = useLanguage();

@@ -1,5 +1,5 @@
-import React from 'react';
-import '@styles/components/_centralMessage.scss'
+import React from "react";
+import "@styles/components/_centralMessage.scss";
 
 function CentralMessage({ message, duration }) {
   // const [isVisible, setIsVisible] = useState(true);
@@ -14,10 +14,8 @@ function CentralMessage({ message, duration }) {
 
   return (
     // isVisible && (
-      <div className='center-message'>
-        {message}
-      </div>
-    );
+    <div className="center-message">{message}</div>
+  );
   // );
 }
 

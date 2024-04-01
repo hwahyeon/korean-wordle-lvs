@@ -27,7 +27,6 @@ const Keyboard = ({
   // Real Keyboard input
   const keyboardMode = useRecoilValue(keyboardModeState);
 
-
   useEffect(() => {
     if (firstRender) {
       setFirstRender(false);

@@ -114,7 +114,7 @@ function Header() {
           className="icon-items"
           //  onClick={handleLangsClick}
         > */}
-          {/* <img src={langIcon} alt="langs-flag" /> */}
+        {/* <img src={langIcon} alt="langs-flag" /> */}
         {/* </div> */}
         {/* {showLangsOpen && (
           <div className="language-options">
