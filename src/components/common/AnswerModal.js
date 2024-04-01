@@ -2,12 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "@styles/components/_modal.scss";
 import dictionary from "@assets/dictionary.json";
-import { ko } from "@lang/ko.js";
-import { en } from "@lang/en.js";
+import { useLanguage } from "@contexts/LanguageContext";
 
 const AnswerPopup = (props) => {
-  const currentLang = localStorage.getItem("language") || "ko";
-  const lang = currentLang === "ko" ? ko : en;
+  const { lang } = useLanguage();
 
   const rounds = Math.floor(props.rounds / 5);
   let msg = "";

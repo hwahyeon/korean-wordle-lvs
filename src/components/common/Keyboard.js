@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import buttonsData from "@assets/buttons-kor.json";
-import { ko } from "@lang/ko.js";
-import { en } from "@lang/en.js";
+import { useLanguage } from "@contexts/LanguageContext";
 
 const Keyboard = ({
   pred,
@@ -12,9 +11,7 @@ const Keyboard = ({
   showMessage,
   handleSubmitButtonClick,
 }) => {
-  const currentLang = localStorage.getItem("language") || "ko";
-  const lang = currentLang === "ko" ? ko : en;
-
+  const { lang } = useLanguage();
   const [key, setKey] = useState("");
   const [keyUpdateCount, setKeyUpdateCount] = useState(0);
   const [animatedButton, setAnimatedButton] = useState(null);
@@ -122,12 +119,16 @@ const Keyboard = ({
     const colors = ["green", "yellow", "gray"];
 
     for (const color of colors) {
-        if (pred.some(predItem => predItem.value === value && predItem.color === color)) {
-            return color;
-        }
+      if (
+        pred.some(
+          (predItem) => predItem.value === value && predItem.color === color
+        )
+      ) {
+        return color;
+      }
     }
     return "";
-}
+  }
 
   const handleRemoveButtonClick = () => {
     if (pred[pred.length - 1]?.deletable) {
@@ -200,7 +201,7 @@ const Keyboard = ({
         <button
           className={`submit__btn ${
             animatedButton === "enter" ? "animate-button" : ""
-          }`}  
+          }`}
           onClick={(event) => {
             handleSubmitButtonClick();
             event.currentTarget.blur();

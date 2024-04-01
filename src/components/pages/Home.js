@@ -19,15 +19,14 @@ import iconDark from "@assets/wordle-icon-dark.svg";
 import iconColor from "@assets/wordle-icon-color.svg";
 import iconBoth from "@assets/wordle-icon-both.svg";
 
-// Lang
-import { ko } from "@lang/ko.js";
-import { en } from "@lang/en.js";
+import { useLanguage } from '@contexts/LanguageContext';
 
 function HomePage() {
+  const { lang } = useLanguage();
   const navigate = useNavigate();
 
-  const currentLang = localStorage.getItem("language") || "ko";
-  const lang = currentLang === "ko" ? ko : en;
+  // const currentLang = localStorage.getItem("language") || "ko";
+  // const lang = currentLang === "ko" ? ko : en;
 
   const darkMode = useRecoilValue(darkModeState);
   const colorMode = useRecoilValue(colorModeState);
