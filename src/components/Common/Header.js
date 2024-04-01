@@ -5,19 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 // State
 import { useRecoilState } from "recoil";
-// import { darkModeState, colorModeState } from "../../state/themeState.js";
 
 // Style
 import "@styles/components/_header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
-  // faInfoCircle,
-  // faSun,
-  // faMoon,
-  // faAdjust,
-  // faEye,
-  // faBars,
+  faGlobe,
   faQuestionCircle,
   faCog,
 } from "@fortawesome/free-solid-svg-icons";
@@ -30,8 +24,6 @@ import Sidebar from "./Sidebar.js";
 function Header() {
   const navi = useNavigate();
   const [showInfoModal, setShowInfoModal] = useState(false);
-  // const [darkMode, setDarkMode] = useRecoilState(darkModeState);
-  // const [colorMode, setColorMode] = useRecoilState(colorModeState);
 
   const goHome = () => {
     navi("/");
@@ -45,13 +37,9 @@ function Header() {
     setShowInfoModal(false);
   };
 
-  // const toggleDarkMode = () => {
-  //   setDarkMode(!darkMode);
-  // };
-
-  // const toggleColorMode = () => {
-  //   setColorMode(!colorMode);
-  // };
+  const handleLangsClick = () => {
+    console.log('language')
+  }
 
   const [sidebarOpen, setSidebarOpen] = useRecoilState(sidebarState);
   const [shouldRenderSidebar, setShouldRenderSidebar] = useState(false);
@@ -71,22 +59,6 @@ function Header() {
     }
   }, [sidebarOpen]);
 
-  // useEffect(() => {
-  //   if (darkMode) {
-  //     document.body.classList.add("dark-mode");
-  //   } else {
-  //     document.body.classList.remove("dark-mode");
-  //   }
-  // }, [darkMode]);
-
-  // useEffect(() => {
-  //   if (colorMode) {
-  //     document.body.classList.add("color-mode");
-  //   } else {
-  //     document.body.classList.remove("color-mode");
-  //   }
-  // }, [colorMode]);
-
   return (
     <div className="header">
       <div className="header__icon-first" onClick={goHome}>
@@ -105,12 +77,9 @@ function Header() {
         <div className="icon-items" onClick={openInfoModal}>
           <FontAwesomeIcon icon={faQuestionCircle} />
         </div>
-        {/* <div className="icon-items" onClick={toggleColorMode}>
-          <FontAwesomeIcon icon={!colorMode ? faAdjust : faEye} />
+        <div className="icon-items" onClick={handleLangsClick}>
+          <FontAwesomeIcon icon={faGlobe} />
         </div>
-        <div className="icon-items" onClick={toggleDarkMode}>
-          <FontAwesomeIcon icon={!darkMode ? faMoon : faSun} />
-        </div> */}
         <div className="icon-items" onClick={handleCloseClick}>
           <FontAwesomeIcon icon={faCog} />
         </div>

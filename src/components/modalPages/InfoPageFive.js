@@ -1,9 +1,7 @@
-import { ko } from "@lang/ko.js";
-import { en } from "@lang/en.js";
+import { useLanguage } from "@contexts/LanguageContext";
 
 const InfoPageFive = () => {
-  const currentLang = localStorage.getItem("language") || "ko";
-  const lang = currentLang === "ko" ? ko : en;
+  const { lang } = useLanguage();
 
   return (
     <div className="example">

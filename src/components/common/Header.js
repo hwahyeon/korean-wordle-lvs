@@ -1,37 +1,56 @@
 // React
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // State
 import { useRecoilState } from "recoil";
-// import { darkModeState, colorModeState } from "../../state/themeState.js";
+import { sidebarState } from "@state/sidebarState.js";
 
 // Style
 import "@styles/components/_header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
-  // faInfoCircle,
-  // faSun,
-  // faMoon,
-  // faAdjust,
-  // faEye,
-  // faBars,
   faQuestionCircle,
   faCog,
 } from "@fortawesome/free-solid-svg-icons";
+// import ko_flag from "@assets/flags/ko-flag.svg";
+// import uk_flag from "@assets/flags/uk-flag.svg";
+// import gr_flag from "@assets/flags/gr-flag.svg";
+// import de_flag from "@assets/flags/de-flag.svg";
 
 // Components
 import InfoModal from "./InfoModal.js";
-import { sidebarState } from "@state/sidebarState.js";
 import Sidebar from "./Sidebar.js";
+import LangBtn from "./LangBtn.js";
 
 function Header() {
   const navi = useNavigate();
   const [showInfoModal, setShowInfoModal] = useState(false);
-  // const [darkMode, setDarkMode] = useRecoilState(darkModeState);
-  // const [colorMode, setColorMode] = useRecoilState(colorModeState);
+  // const [showLangsOpen, setShowLangsOpen] = useState(false);
+
+  // const [langIcon, setLangIcon] = useState(ko_flag);
+  // const [langIconState, setLangIconState] = useState(false);
+
+  // useEffect(() => {
+  //   const selectedLang = localStorage.getItem("language") || "ko";
+  //   switch (selectedLang) {
+  //     case "ko":
+  //       setLangIcon(ko_flag);
+  //       break;
+  //     case "en":
+  //       setLangIcon(uk_flag);
+  //       break;
+  //     case "de":
+  //       setLangIcon(de_flag);
+  //       break;
+  //     case "el":
+  //       setLangIcon(gr_flag);
+  //       break;
+  //     default:
+  //       setLangIcon(ko_flag);
+  //   }
+  // }, [langIconState]);
 
   const goHome = () => {
     navi("/");
@@ -45,12 +64,13 @@ function Header() {
     setShowInfoModal(false);
   };
 
-  // const toggleDarkMode = () => {
-  //   setDarkMode(!darkMode);
+  // const handleLangsClick = () => {
+  //   setShowLangsOpen(!showLangsOpen);
   // };
 
-  // const toggleColorMode = () => {
-  //   setColorMode(!colorMode);
+  // const handleSelectLangs = (event) => {
+  //   localStorage.setItem("language", event.target.value);
+  //   setLangIconState(!langIconState);
   // };
 
   const [sidebarOpen, setSidebarOpen] = useRecoilState(sidebarState);
@@ -71,22 +91,6 @@ function Header() {
     }
   }, [sidebarOpen]);
 
-  // useEffect(() => {
-  //   if (darkMode) {
-  //     document.body.classList.add("dark-mode");
-  //   } else {
-  //     document.body.classList.remove("dark-mode");
-  //   }
-  // }, [darkMode]);
-
-  // useEffect(() => {
-  //   if (colorMode) {
-  //     document.body.classList.add("color-mode");
-  //   } else {
-  //     document.body.classList.remove("color-mode");
-  //   }
-  // }, [colorMode]);
-
   return (
     <div className="header">
       <div className="header__icon-first" onClick={goHome}>
@@ -105,12 +109,23 @@ function Header() {
         <div className="icon-items" onClick={openInfoModal}>
           <FontAwesomeIcon icon={faQuestionCircle} />
         </div>
-        {/* <div className="icon-items" onClick={toggleColorMode}>
-          <FontAwesomeIcon icon={!colorMode ? faAdjust : faEye} />
-        </div>
-        <div className="icon-items" onClick={toggleDarkMode}>
-          <FontAwesomeIcon icon={!darkMode ? faMoon : faSun} />
-        </div> */}
+        <LangBtn />
+        {/* <div
+          className="icon-items"
+          //  onClick={handleLangsClick}
+        > */}
+          {/* <img src={langIcon} alt="langs-flag" /> */}
+        {/* </div> */}
+        {/* {showLangsOpen && (
+          <div className="language-options">
+            <select onChange={handleSelectLangs}>
+              <option value="ko">한국어</option>
+              <option value="en">English</option>
+              <option value="de">Deutsch</option>
+              <option value="el">Ελληνικά</option>
+            </select>
+          </div>
+        )} */}
         <div className="icon-items" onClick={handleCloseClick}>
           <FontAwesomeIcon icon={faCog} />
         </div>

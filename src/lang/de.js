@@ -1,4 +1,4 @@
-export const en = {
+export const de = {
   home1: "This game is a Korean version of Wordle",
   home2: "Shall we start?",
   home3: "Select a dificulty level",

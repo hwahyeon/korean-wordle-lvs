@@ -20,13 +20,10 @@ import easyMode from "@assets/easy-mode.json";
 import allDeposedWords from "@assets/all-deposed-words.json";
 
 // Lang
-import { ko } from "@lang/ko.js";
-import { en } from "@lang/en.js";
+import { useLanguage } from "@contexts/LanguageContext";
 
 function WordleKorPage() {
-  const currentLang = localStorage.getItem("language") || "ko";
-  const lang = currentLang === "ko" ? ko : en;
-  
+  const { lang } = useLanguage();
   const [pred, setPred] = useState([]); // List of input
   const [colorList, setColorList] = useState([]); // List of color
   const [listLen, setListLen] = useState(5);

@@ -1,13 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RecoilRoot } from 'recoil'; 
+import { RecoilRoot } from "recoil";
 import App from "./App";
+import { LanguageProvider } from './contexts/LanguageContext';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RecoilRoot>
-      <App />
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
     </RecoilRoot>
   </React.StrictMode>
 );

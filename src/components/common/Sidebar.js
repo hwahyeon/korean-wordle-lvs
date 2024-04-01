@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
 import "@styles/components/_sidebar.scss";
 import { useRecoilState } from "recoil";
-import { currentLanguage, sidebarState } from "@state/sidebarState";
+import { sidebarState } from "@state/sidebarState";
 import Toggle from "@components/common/Toggle";
 import { colorModeState, darkModeState } from "@state/themeState";
-import { ko } from "@lang/ko.js";
-import { en } from "@lang/en.js";
+import { useLanguage } from "@contexts/LanguageContext";
+
 
 function Sidebar() {
-  const currentLang = localStorage.getItem("language") || "ko";
-  const lang = currentLang === "ko" ? ko : en;
-
+  const { lang } = useLanguage();
+  
   // sidebar
   const [sidebarOpen, setSidebarOpen] = useRecoilState(sidebarState);
 
@@ -48,21 +47,6 @@ function Sidebar() {
     }
   }, [colorMode]);
 
-  // Language
-  const [langMode, setLangMode] = useRecoilState(currentLanguage);
-
-  const handleLanguageToggle = () => {
-    setLangMode(!langMode);
-  };
-
-  useEffect(() => {
-    if (langMode) {
-      localStorage.setItem('language', 'en');
-    } else {
-      localStorage.setItem('language', 'ko');
-    }
-  }, [langMode]);
-
   return (
     <div className={`sidebar ${sidebarOpen ? "open" : "close"}`}>
       <div className="sidebar-right">
@@ -90,13 +74,6 @@ function Sidebar() {
             description={lang.keyboard_desc}
           />
           <hr />*/}
-          <Toggle
-            title={lang.settings.lang}
-            description={lang.settings.lang_desc}
-            isOn={langMode}
-            onChange={handleLanguageToggle}
-          /> 
-          <hr />
           <div className="sidebar-option">
             <span className="option-title">{lang.report}</span>
             <a

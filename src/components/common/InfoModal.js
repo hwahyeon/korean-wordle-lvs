@@ -16,13 +16,11 @@ import InfoPageSeven from "@components/modalPages/InfoPageSeven";
 
 // Message
 import CentralMessage from "@components/common/CentralMessage";
-import { ko } from "@lang/ko.js";
-import { en } from "@lang/en.js";
+import { useLanguage } from "@contexts/LanguageContext";
 
 
 const InfoModal = ({ onClose }) => {
-  const currentLang = localStorage.getItem("language") || "ko";
-  const lang = currentLang === "ko" ? ko : en;
+  const { lang } = useLanguage();
 
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 7;
