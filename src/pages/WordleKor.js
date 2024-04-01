@@ -7,13 +7,13 @@ import { Box } from "@mui/material";
 import "@styles/pages/_wordleKor.scss";
 
 // Components
-import Header from "@components/common/Header.js";
-import CentralMessage from "@components/common/CentralMessage.js";
-import AnswerPopup from "@components/common/AnswerModal.js";
-import Keyboard from "@components/common/Keyboard.js";
+import Header from "@components/Header.js";
+import CentralMessage from "@components/CentralMessage.js";
+import AnswerPopup from "@components/AnswerModal.js";
+import Keyboard from "@components/Keyboard.js";
 
 // Function & Data
-import getDailyRandomNumber from "@components/utils/randomNumber.js";
+import getDailyRandomNumber from "@utils/randomNumber.js";
 import hardMode from "@assets/hard-mode.json";
 import imdtMode from "@assets/imdt-mode.json";
 import easyMode from "@assets/easy-mode.json";

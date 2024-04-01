@@ -6,18 +6,17 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "@styles/components/_infoModal.scss";
 
 // Pages
-import PageOne from "@components/modalPages/InfoPageOne";
-import PageTwo from "@components/modalPages/InfoPageTwo";
-import PageThree from "@components/modalPages/InfoPageThree";
-import PageFour from "@components/modalPages/InfoPageFour";
-import PageFive from "@components/modalPages/InfoPageFive";
-import PageSix from "@components/modalPages/InfoPageSix";
-import InfoPageSeven from "@components/modalPages/InfoPageSeven";
+import Page100 from "@pages/modalPages/InfoPage100";
+import Page200 from "@pages/modalPages/InfoPage200";
+import Page300 from "@pages/modalPages/InfoPage300";
+import Page400 from "@pages/modalPages/InfoPage400";
+import Page500 from "@pages/modalPages/InfoPage500";
+import Page600 from "@pages/modalPages/InfoPage600";
+import Page700 from "@pages/modalPages/InfoPage700";
 
 // Message
-import CentralMessage from "@components/common/CentralMessage";
+import CentralMessage from "@components/CentralMessage";
 import { useLanguage } from "@contexts/LanguageContext";
-
 
 const InfoModal = ({ onClose }) => {
   const { lang } = useLanguage();
@@ -66,13 +65,13 @@ const InfoModal = ({ onClose }) => {
           &times;
         </button>
 
-        {currentPage === 1 && <PageOne />}
-        {currentPage === 2 && <PageTwo />}
-        {currentPage === 3 && <PageThree />}
-        {currentPage === 4 && <PageFour />}
-        {currentPage === 5 && <PageFive />}
-        {currentPage === 6 && <PageSix />}
-        {currentPage === 7 && <InfoPageSeven />}
+        {currentPage === 1 && <Page100 />}
+        {currentPage === 2 && <Page200 />}
+        {currentPage === 3 && <Page300 />}
+        {currentPage === 4 && <Page400 />}
+        {currentPage === 5 && <Page500 />}
+        {currentPage === 6 && <Page600 />}
+        {currentPage === 7 && <Page700 />}
 
         <div className="navigation">
           {currentPage === 1 && (

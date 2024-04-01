@@ -6,8 +6,10 @@
       "@styles/*": ["src/styles/*"],
       "@lang/*": ["src/lang/*"],
       "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"],
       "@assets": ["src/assets/*"],
-      "@contexts": ["src/contexts/*"]
+      "@contexts": ["src/contexts/*"],
+      "@utils": ["src/utils/*"]
     }
   }
 }
