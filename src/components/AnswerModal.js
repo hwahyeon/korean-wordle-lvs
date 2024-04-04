@@ -164,7 +164,7 @@ const AnswerPopup = (props) => {
             &times;
           </div>
           <div className="content_txt">
-            <p>{lang.falied}</p>
+            <p>{lang.failed}</p>
           </div>
           <div className="Buttons">
             <div className="HomeButton" onClick={handleHomeClick}>

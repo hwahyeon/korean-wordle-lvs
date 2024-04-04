@@ -140,7 +140,7 @@ export const el = {
       </>
     ),
   },
-  falied: "So close! Give it another shot!😔",
+  failed: "So close! Give it another shot!😔",
   center_msg: {
     lack: "Not enough letters.",
     much: "Input exceeds limit.",
