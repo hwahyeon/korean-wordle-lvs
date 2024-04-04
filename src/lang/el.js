@@ -140,12 +140,12 @@ export const el = {
       </>
     ),
   },
-  failed: "So close! Give it another shot!😔",
+  failed: "Τόσο κοντά! Δοκιμάστε ξανά!😔",
   center_msg: {
-    lack: "Not enough letters.",
-    much: "Input exceeds limit.",
-    wrong: "Not a valid noun.",
+    lack: "Ανεπαρκής αριθμός γραμμάτων.",
+    much: "Η εισαγωγή υπερβαίνει το όριο.",
+    wrong: "Δεν είναι έγκυρο ουσιαστικό.",
     play_block:
-      "You are already playing a game. Please press the close button.",
+      "Παίζετε ήδη ένα παιχνίδι. Παρακαλώ πατήστε το κουμπί κλεισίματος.",
   },
 };
