@@ -1,151 +1,154 @@
 export const de = {
-  home1: "This game is a Korean version of Wordle",
-  home2: "Shall we start?",
-  home3: "Select a dificulty level",
-  home4: "The answer changes every day at 00:00 AM Korean time (GMT+9)",
-  lv1: "Beginner",
-  lv2: "Intermediate",
-  lv3: "Advanced",
-  submit: "Submit",
-  setting: "Settings",
+  home1: "Dieses Spiel ist eine koreanische Version von Wordle",
+  home2: "Sollen wir anfangen?",
+  home3: "Wählen Sie einen Schwierigkeitsgrad",
+  home4:
+    "Die Antwort ändert sich jeden Tag um 00:00 Uhr koreanischer Zeit (GMT+9)",
+  lv1: "Anfänger",
+  lv2: "Mittelstufe",
+  lv3: "Fortgeschrittene",
+  submit: "Einreichen",
+  setting: "Einstellungen",
   settings: {
-    dark: "Dark Theme",
-    color: "High Contrast Mode",
-    color_desc: "Enjoy the game without color barriers.",
-    keyboard: "Onscreen Keyboard Input Only",
+    dark: "Dunkles Thema",
+    color: "Hochkontrastmodus",
+    color_desc: "Genießen Sie das Spiel ohne Farbschranken.",
+    keyboard: "Nur Bildschirmeingabe über die Tastatur",
     keyboard_desc:
-      "Only use the keyboard provided on the screen. Helps voice recognition users or input assist device users fully enjoy the game.",
+      "Verwenden Sie nur die auf dem Bildschirm angezeigte Tastatur. Hilft Benutzern von Spracherkennungsgeräten oder Eingabegeräten, das Spiel voll zu genießen.",
   },
-  report: "Report a bug",
+  report: "Einen Fehler melden",
   report_desc: "",
   original: "Original Wordle",
   original_desc:
-    "The original Wordle game in English, provided by The New York Times.",
+    "Das Original-Wordle-Spiel auf Englisch, zur Verfügung gestellt von der New York Times.",
   link: "Link",
   button: {
-    example: "Try it together",
-    prev: "Prev",
-    next: "Next",
-    start: "Start Game",
-    meaning: "See Word Meaning",
-    home: "Home",
-    back: "Go Back",
+    example: "Gemeinsam ausprobieren",
+    prev: "Zurück",
+    next: "Weiter",
+    start: "Spiel starten",
+    meaning: "Siehe Wortbedeutung",
+    home: "Zuhause",
+    back: "Zurückgehen",
   },
   info: {
-    header: "How to Play",
-    title: "Guess the hidden letters (noun) in 6 tries",
-    sub_title1: "Colors will give you clues about the answer.",
-    sub_title2: "Double consonant and complex vowels take up two spaces.",
-    sub_desc1: "ㅎ is in the word and in the correct position.",
-    sub_desc2: "ㅓ is in the word but in the wrong position.",
-    sub_desc3: "ㄹ is not in the word.",
-    sub_desc4: "ㄲ is represented as ㄱㄱ.",
-    sub_desc5: "ㅘ is represented as ㅗㅏ.",
+    header: "Wie man spielt",
+    title: "Errate die versteckten Buchstaben (Substantiv) in 6 Versuchen",
+    sub_title1: "Farben geben dir Hinweise auf die Antwort.",
+    sub_title2:
+      "Doppelte Konsonanten und komplexe Vokale nehmen zwei Leerzeichen ein.",
+    sub_desc1: "ㅎ ist im Wort und an der richtigen Stelle.",
+    sub_desc2: "ㅓ ist im Wort, aber an der falschen Stelle.",
+    sub_desc3: "ㄹ steht nicht im Wort.",
+    sub_desc4: "ㄲ wird als ㄱㄱ dargestellt.",
+    sub_desc5: "ㅘ wird als ㅗㅏ dargestellt.",
   },
   together: {
-    title: "Shall We Try Together?",
+    title: "Sollen wir es gemeinsam versuchen?",
     desc1: (
       <>
-        This is the start screen. Since there are no clues yet, why not try any
-        word? Let's try <span>하늘</span>.
+        Dies ist der Startbildschirm. Da es noch keine Hinweise gibt, warum
+        nicht irgendein Wort versuchen? Versuchen wir <span>하늘</span>.
       </>
     ),
     desc2: (
       <>
-        As the tile colors change, we get several clues.
-        <br /> Today's word does not include <span>ㅎ</span>,<span>ㄴ</span>,
-        <span>ㅡ</span>,<span>ㄹ</span>, but it does include <span>ㅏ</span>.{" "}
-        <br /> What word could that be? <br /> How about <span>복사</span>?
+        Wenn die Farben der Kacheln wechseln, erhalten wir mehrere Hinweise.
+        <br /> Das heutige Wort enthält nicht <span>ㅎ</span>,<span>ㄴ</span>,
+        <span>ㅡ</span>,<span>ㄹ</span>, aber es enthält <span>ㅏ</span>. <br />{" "}
+        Welches Wort könnte das sein? <br /> Wie wäre es mit <span>복사</span>?
       </>
     ),
     desc3: (
       <>
-        Oh, it's not the correct answer, but we've got a definite clue. Today's
-        word ends with <span>사</span>. <br />
-        Hmm, shall we try <span>경사</span>?
+        Oh, es ist nicht die richtige Antwort, aber wir haben einen eindeutigen
+        Anhaltspunkt. Das heutige Wort endet mit <span>사</span>. Hmm, sollen
+        wir <span>경사</span> versuchen?
       </>
     ),
     desc4: (
       <>
-        We're close to the answer. Now we only need to match two tiles. Could
-        the answer possibly be <span>검사</span>?
+        Wir sind der Antwort sehr nahe. Jetzt müssen wir nur noch zwei Steine
+        zuordnen. Könnte die Antwort vielleicht <span>검사</span> lauten?
       </>
     ),
-    desc5: <>"Correct!"</>,
+    desc5: <>"Richtig!"</>,
     desc6_1: (
       <>
-        If you click the <span>See Word Meaning</span> button after you've
-        answered correctly, you'll see the definitions of the word only in
-        Korean as shown below.
+        Wenn Sie auf die Schaltfläche <span>Wortbedeutung sehen</span> klicken,
+        nachdem Sie die richtige Antwort gegeben haben, sehen Sie die
+        Definitionen des Wortes nur auf Koreanisch, wie unten gezeigt.
       </>
     ),
     desc6_2: (
       <>
-        Shall we start? <br /> Click the <span>Start Game</span> below.
+        Sollen wir anfangen? <br />
+        Klicken Sie unten auf <span>Spiel starten</span>.
       </>
     ),
   },
   answer: {
     msg1: (
       <>
-        Amazing luck!
+        Erstaunliches Glück!
         <br />
-        You got it right on the first try!
+        Sie haben es gleich beim ersten Versuch richtig gemacht!
         <br />
-        Hey, could you share <br />
-        the lottery numbers with me?😏
+        Hey, könntest du die die Lottozahlen
+        <br /> mit mir teilen?😏
       </>
     ),
     msg2: (
       <>
-        Fantastic! You succeeded in just two tries!
+        Fantastisch! Du hast es in nur zwei Versuchen geschafft!
         <br />
-        Maybe consider buying a lottery ticket?
+        Sie sollten sich überlegen, ein Lotterielos zu kaufen!
         <br />
-        (Though I won't be held responsible 😉)
+        (Auch wenn ich dafür nicht verantwortlich gemacht werden kann 😉)
       </>
     ),
     msg3: (
       <>
-        Incredible! Got it in three tries.
+        Unglaublich! Du hast es in drei Versuchen geschafft.
         <br />
-        Is it luck? Or skill?
+        Ist das Glück? Oder Können?
         <br />
-        Oh, luck is a skill too, you say?😎
+        Oh, Glück ist auch eine Fähigkeit, sagst du?😎
       </>
     ),
     msg4: (
       <>
-        You succeeded on the fourth try.
+        Sie haben es beim vierten Versuch geschafft.
         <br />
-        The real fun starts from now on, right?!🤩
+        Ab jetzt fängt der Spaß erst richtig an, oder?!🤩
       </>
     ),
     msg5: (
       <>
-        You succeeded on the fifth try.
+        Sie haben es beim fünften Versuch geschafft.
         <br />
-        You don’t seem too relaxed...
+        Du scheinst nicht sehr entspannt zu sein...
         <br />
-        Didn’t feel tense, you say? Really?🤨
+        Du hast dich nicht angespannt gefühlt, sagst du? Wirklich?🤨
       </>
     ),
     msg6: (
       <>
-        Phew
+        Puh,
         <br />
-        You didn’t miss your last chance!
+        Du hast deine letzte Chance nicht verpasst!
         <br />
-        Success!🤗
+        Erfolg!🤗
       </>
     ),
   },
-  failed: "So close! Give it another shot!😔",
+  failed: "So close! Versuchen Sie es noch einmal!😔",
   center_msg: {
-    lack: "Not enough letters.",
+    lack: "Nicht genug Buchstaben.",
     much: "Input exceeds limit.",
-    wrong: "Not a valid noun.",
+    wrong: "Kein gültiges Substantiv.",
     play_block:
-      "You are already playing a game. Please press the close button.",
+      "Sie befinden sich bereits in einem Spiel. Bitte drücken Sie die Schaltfläche Schließen.",
   },
 };
