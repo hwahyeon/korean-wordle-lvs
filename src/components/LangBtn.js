@@ -54,9 +54,9 @@ export default function AccountMenu() {
   };
   return (
     <React.Fragment>
-      <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
+      <Box sx={{ display: "flex", alignItems: "center", textAlign: "center"}}>
         <Tooltip title="Language">
-          <IconButton onClick={handleClick} size="small">
+          <IconButton onClick={handleClick} size="medium">
             <Avatar src={langIcon} sx={{ width: 21, height: 21 }} />
           </IconButton>
         </Tooltip>
