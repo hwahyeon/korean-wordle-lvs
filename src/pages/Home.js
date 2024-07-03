@@ -75,7 +75,7 @@ function HomePage() {
       <Header />
       <div className="homepage__content">
         <img src={icon} alt="wordle icon" className="cont__icon" />
-        <p className="cont__txt">{lang.home1}</p>
+        <h1 className="cont__txt">{lang.home1}</h1>
         <div>
           <p className="text-start">{lang.home2}</p>
           <p className="text-level">{lang.home3}</p>
