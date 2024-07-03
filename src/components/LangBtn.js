@@ -57,7 +57,7 @@ export default function AccountMenu() {
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center"}}>
         <Tooltip title="Language">
           <IconButton onClick={handleClick} size="medium">
-            <Avatar src={langIcon} sx={{ width: 21, height: 21 }} />
+            <Avatar src={langIcon} sx={{ width: 21, height: 21 }} alt="flag" />
           </IconButton>
         </Tooltip>
       </Box>
