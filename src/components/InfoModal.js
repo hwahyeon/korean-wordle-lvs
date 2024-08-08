@@ -6,13 +6,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "@styles/components/_infoModal.scss";
 
 // Pages
-import Page100 from "@pages/modalPages/InfoPage100";
-import Page200 from "@pages/modalPages/InfoPage200";
-import Page300 from "@pages/modalPages/InfoPage300";
-import Page400 from "@pages/modalPages/InfoPage400";
-import Page500 from "@pages/modalPages/InfoPage500";
-import Page600 from "@pages/modalPages/InfoPage600";
-import Page700 from "@pages/modalPages/InfoPage700";
+import Page100 from "@pages/modal/InfoPage100";
+import Page200 from "@pages/modal/InfoPage200";
+import Page300 from "@pages/modal/InfoPage300";
+import Page400 from "@pages/modal/InfoPage400";
+import Page500 from "@pages/modal/InfoPage500";
+import Page600 from "@pages/modal/InfoPage600";
+import Page700 from "@pages/modal/InfoPage700";
 
 // Message
 import CentralMessage from "@components/CentralMessage";
