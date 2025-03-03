@@ -8,6 +8,7 @@ import "@styles/pages/_home.scss";
 
 // Component
 import Header from "@components/Header";
+import { Helmet } from "react-helmet";
 
 // State
 import { useRecoilValue } from "recoil";
@@ -64,6 +65,13 @@ function HomePage() {
 
   return (
     <Container className="homepage">
+      <Helmet>
+        <title>한글 Wordle | Home</title>
+        <meta
+          name="description"
+          content="Wordle game for the Korean language with three levels of difficulty"
+        />
+      </Helmet>
       <Header />
       <div className="homepage__content">
         <img src={icon} alt="wordle icon" className="cont__icon" />

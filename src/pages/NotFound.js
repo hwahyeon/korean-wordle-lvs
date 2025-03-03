@@ -7,11 +7,7 @@ import Header from "@components/Header";
 const NotFound = () => (
   <div>
     <Helmet>
-      <title>Page Not Found</title>
-      <meta
-        name="description"
-        content="Sorry, the page you are looking for does not exist."
-      />
+      <title>한글 Wordle | 404</title>
     </Helmet>
     <Header />
     <h1>404 - Page Not Found</h1>

@@ -21,6 +21,7 @@ import allDeposedWords from "@assets/all-deposed-words.json";
 
 // Lang
 import { useLanguage } from "@contexts/LanguageContext";
+import { Helmet } from "react-helmet";
 
 function WordleKorPage() {
   const { lang } = useLanguage();
@@ -40,7 +41,8 @@ function WordleKorPage() {
   const { mode } = useParams();
   const jsonData = allDeposedWords;
   let dict_answer = hardMode[getDailyRandomNumber.randomNumberAnswer(hardMode)];
-
+  const formattedMode = mode.charAt(0).toUpperCase() + mode.slice(1);
+  
   let answer;
   if (mode === "easy") {
     dict_answer = easyMode[getDailyRandomNumber.randomNumberAnswer(easyMode)];
@@ -133,6 +135,9 @@ function WordleKorPage() {
 
   return (
     <div className="wordle-page">
+      <Helmet>
+        <title>한글 Wordle | {formattedMode} mode</title>
+      </Helmet>
       <Header />
       <Box className="wordle-page__answer-board">
         {[...Array(6)].map((_, boxIndex) => (
