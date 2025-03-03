@@ -26,9 +26,6 @@ function HomePage() {
   const { lang } = useLanguage();
   const navigate = useNavigate();
 
-  // const currentLang = localStorage.getItem("language") || "ko";
-  // const lang = currentLang === "ko" ? ko : en;
-
   const darkMode = useRecoilValue(darkModeState);
   const colorMode = useRecoilValue(colorModeState);
   const icon =
