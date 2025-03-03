@@ -167,7 +167,7 @@ function WordleKorPage() {
       <Keyboard {...keyboardProps} />
 
       {/* Center Message */}
-      {isVisible ? <CentralMessage message={centerMsg} /> : <div></div>}
+      {isVisible && <CentralMessage message={centerMsg} />}
 
       {/* Answer modal */}
       {gotAnswer || failAnwser ? (
