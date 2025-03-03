@@ -23,25 +23,16 @@ import LangBtn from "./LangBtn.js";
 function Header() {
   const navi = useNavigate();
   const [showInfoModal, setShowInfoModal] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useRecoilState(sidebarState);
+  const [shouldRenderSidebar, setShouldRenderSidebar] = useState(false);
 
   const goHome = () => {
     navi("/");
   };
 
-  const openInfoModal = () => {
-    setShowInfoModal(true);
-  };
+  const toggleInfoModal = () => setShowInfoModal((prev) => !prev);
 
-  const closeInfoModal = () => {
-    setShowInfoModal(false);
-  };
-
-  const [sidebarOpen, setSidebarOpen] = useRecoilState(sidebarState);
-  const [shouldRenderSidebar, setShouldRenderSidebar] = useState(false);
-
-  const handleCloseClick = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
+  const toggleSidebar = () => setSidebarOpen((prev) => !prev);
 
   useEffect(() => {
     if (sidebarOpen) {
@@ -65,18 +56,18 @@ function Header() {
           <p className="header__title--eng">Wordle</p>
         </div>
         <div className="header__icon-second">
-          <div className="icon-items" onClick={openInfoModal}>
+          <div className="icon-items" onClick={toggleInfoModal}>
             <FontAwesomeIcon icon={faQuestionCircle} />
           </div>
           <div className="icon-items">
             <LangBtn />
           </div>
-          <div className="icon-items" onClick={handleCloseClick}>
+          <div className="icon-items" onClick={toggleSidebar}>
             <FontAwesomeIcon icon={faCog} />
           </div>
         </div>
         {shouldRenderSidebar && <Sidebar />}
-        {showInfoModal && <InfoModal onClose={closeInfoModal} />}
+        {showInfoModal && <InfoModal onClose={toggleInfoModal} />}
       </div>
     </div>
   );
