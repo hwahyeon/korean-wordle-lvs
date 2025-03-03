@@ -1,98 +1,75 @@
 .homepage {
   margin-top: 70px;
   font-family: "Orbit";
+
   &__content {
     text-align: center;
-    .cont__icon {
-      margin-top: 50px;
-    }
-    .header {
-      margin-top: 30px;
-      font-weight: bold;
-      font-size: 30px;
-      margin-bottom: 30px;
-    }
-    .cont__txt {
-      font-size: 18px;
-      margin: 10px;
-    }
-    .play-button {
-      font-family: Arial;
-      font-size: 18px;
-      color: black;
-      padding: 10px 17px;
-      border-color: black;
-      border-radius: 12px;
-      border: 2px solid #000;
-      margin-bottom: 20px;
-      transition: background 0.3s, color 0.3s;
-      margin-right: 5px;
-      animation: rotate-360 1s ease;
+  }
 
-      &:last-child {
-        margin-right: 0;
-      }
-      &:hover {
-        background-color: black;
-        color: white;
-      }
-    }
-    .text-start {
+  &__icon {
+    margin-top: 50px;
+  }
+
+  &__text {
+    font-size: 18px;
+    margin: 10px;
+
+    &--start {
       font-size: 20px;
       font-weight: 800;
       margin: 15px;
     }
-    .text-level {
+
+    &--level {
       font-size: 17px;
       font-weight: 700;
       margin: 15px;
     }
-    .text-date {
+
+    &--date {
       font-weight: bold;
       padding-top: 25px;
     }
   }
-  body.dark-mode & {
-    color: #e0e0e0;
-    &__content {
-      .header {
-        color: #ffffff;
-      }
-      .cont__txt {
-        color: #cccccc;
-      }
-      .play-button {
-        background-color: #333333;
-        color: #ffffff;
-        border-color: #444444;
 
-        &:hover {
-          background-color: #ffffff;
-          color: #000000;
-          border-color: #333333;
-        }
-      }
+  &__button {
+    font-family: Arial;
+    font-size: 18px;
+    color: black;
+    padding: 10px 17px;
+    border-radius: 12px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+    margin-right: 5px;
+    transition: background 0.3s, color 0.3s;
 
-      .ref button {
-        background-color: #333333;
-        color: #ffffff;
-        border-color: #444444;
+    &:last-child {
+      margin-right: 0;
+    }
 
-        &:hover {
-          background-color: #ffffff;
-          color: #000000;
-          border-color: #333333;
-        }
-      }
+    &:hover {
+      background-color: black;
+      color: white;
     }
   }
-}
 
-@keyframes rotate-360 {
-  from {
-    transform: rotateX(0deg);
-  }
-  to {
-    transform: rotateX(360deg);
+  body.dark-mode & {
+    color: #e0e0e0;
+
+    &__text {
+      color: #cccccc;
+    }
+
+    &__button {
+      background-color: #333;
+      color: #fff;
+      border-color: #444;
+
+      &:hover {
+        background-color: #fff;
+        color: #000;
+        border-color: #333;
+      }
+    }
   }
 }

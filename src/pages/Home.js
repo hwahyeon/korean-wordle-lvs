@@ -74,34 +74,34 @@ function HomePage() {
       </Helmet>
       <Header />
       <div className="homepage__content">
-        <img src={icon} alt="wordle icon" className="cont__icon" />
-        <h1 className="cont__txt">{lang.home1}</h1>
+        <img src={icon} alt="wordle icon" className="homepage__icon" />
+        <h1 className="homepage__text">{lang.home1}</h1>
         <div>
-          <p className="text-start">{lang.home2}</p>
-          <p className="text-level">{lang.home3}</p>
+          <p className="homepage__text homepage__text--start">{lang.home2}</p>
+          <p className="homepage__text homepage__text--level">{lang.home3}</p>
           <button
-            className="play-button"
+            className="homepage__button"
             onClick={() => handleNavigation("easy")}
           >
             {lang.lv1}
           </button>
           <button
-            className="play-button"
+            className="homepage__button"
             onClick={() => handleNavigation("imdt")}
           >
             {lang.lv2}
           </button>
           <button
-            className="play-button"
+            className="homepage__button"
             onClick={() => handleNavigation("hard")}
           >
             {lang.lv3}
           </button>
         </div>
         <div>
-          <p>{lang.home4}</p>
-          <p className="text-date">{currentDateTime.date}</p>
-          <p className="text-edit">Made by hwahyeon</p>
+          <p className="homepage__text">{lang.home4}</p>
+          <p className="homepage__text homepage__text--date">{currentDateTime.date}</p>
+          <p className="homepage__text homepage__text--edit">Made by hwahyeon</p>
         </div>
       </div>
     </Container>
