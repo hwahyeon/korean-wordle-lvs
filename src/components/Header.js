@@ -36,12 +36,12 @@ function Header() {
 
   useEffect(() => {
     if (sidebarOpen) {
-      setShouldRenderSidebar(true); // Sidebar 랜더링
+      setShouldRenderSidebar(true);
     } else {
-      // 애니메이션 종료 후 Sidebar 숨기는 로직
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setShouldRenderSidebar(false);
       }, 300);
+      return () => clearTimeout(timer);
     }
   }, [sidebarOpen]);
 
