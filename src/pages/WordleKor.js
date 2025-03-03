@@ -31,18 +31,18 @@ function WordleKorPage() {
   const [isVisible, setIsVisible] = useState(false);
   const [centerMsg, setCenterMsg] = useState("");
   const [gotAnswer, setGotAnwser] = useState(false);
-  const [failAnwser, setFailAnwser] = useState(false);
+  const [failAnswer, setFailAnswer] = useState(false);
 
   const MAX_PRED_LENGTH = 30;
 
-  useEffect(() => {}, [failAnwser]);
+  useEffect(() => {}, [failAnswer]);
 
   // Adjust selected mode
   const { mode } = useParams();
   const jsonData = allDeposedWords;
   let dict_answer = hardMode[getDailyRandomNumber.randomNumberAnswer(hardMode)];
   const formattedMode = mode.charAt(0).toUpperCase() + mode.slice(1);
-  
+
   let answer;
   if (mode === "easy") {
     dict_answer = easyMode[getDailyRandomNumber.randomNumberAnswer(easyMode)];
@@ -118,7 +118,7 @@ function WordleKorPage() {
           setGotAnwser(true);
         } else if (pred.length === MAX_PRED_LENGTH) {
           // Case: got a failed
-          setFailAnwser(true);
+          setFailAnswer(true);
         }
       }
     }
@@ -170,13 +170,13 @@ function WordleKorPage() {
       {isVisible && <CentralMessage message={centerMsg} />}
 
       {/* Answer modal */}
-      {gotAnswer || failAnwser ? (
+      {(gotAnswer || failAnswer) && (
         <AnswerPopup
           rounds={pred.length}
-          fail={failAnwser}
+          fail={failAnswer}
           answer={dict_answer.key}
         />
-      ) : null}
+      )}
     </div>
   );
 }
