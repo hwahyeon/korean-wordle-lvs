@@ -85,38 +85,38 @@ function WordleKorPage() {
   };
 
   const handleSubmitButtonClick = () => {
-    if (pred.length % 5 !== 0 || pred.length === 0) {
-      showMessage(lang.center_msg.lack);
-    } else if (pred.length % 5 === 0 && !pred[pred.length - 1].deletable) {
-      showMessage(lang.center_msg.lack);
-    } else {
-      const submitted = pred
-        .slice(-5)
-        .map((obj) => obj.value)
-        .join("");
-      if (!jsonData.includes(submitted)) {
-        showMessage(lang.center_msg.wrong);
-      } else {
-        // Case: when it's a noun
-        setListLen((listLen) => listLen + 5);
+    if (
+      pred.length % 5 !== 0 ||
+      pred.length === 0 ||
+      !pred[pred.length - 1].deletable
+    ) {
+      return showMessage(lang.center_msg.lack);
+    }
 
-        const updatedColorList = updateColorPredList(pred, answer, listLen);
-        setPred([...pred]);
-        setColorList(colorList.concat(updatedColorList));
+    const submitted = pred
+      .slice(-5)
+      .map((obj) => obj.value)
+      .join("");
+    if (!jsonData.includes(submitted)) {
+      return showMessage(lang.center_msg.wrong);
+    }
 
-        if (
-          5 ===
-          updatedColorList.reduce((cnt, e) => {
-            return cnt + (e === "green" ? 1 : 0);
-          }, 0)
-        ) {
-          // Case: got an answer
-          setGotAnswer(true);
-        } else if (pred.length === MAX_PRED_LENGTH) {
-          // Case: got a failed
-          setFailAnswer(true);
-        }
-      }
+    setListLen((prev) => prev + 5);
+    const updatedColorList = updateColorPredList(pred, answer, listLen);
+    setPred([...pred]);
+    setColorList(colorList.concat(updatedColorList));
+
+    if (
+      5 ===
+      updatedColorList.reduce((cnt, e) => {
+        return cnt + (e === "green" ? 1 : 0);
+      }, 0)
+    ) {
+      // Case: got an answer
+      setGotAnswer(true);
+    } else if (pred.length === MAX_PRED_LENGTH) {
+      // Case: got a failed
+      setFailAnswer(true);
     }
   };
 
