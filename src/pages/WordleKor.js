@@ -40,15 +40,17 @@ function WordleKorPage() {
   // Adjust selected mode
   const { mode } = useParams();
   const jsonData = allDeposedWords;
-  let dict_answer = hardMode[getDailyRandomNumber.randomNumberAnswer(hardMode)];
   const formattedMode = mode.charAt(0).toUpperCase() + mode.slice(1);
 
-  const answer =
-  mode === "easy"
-    ? easyMode[getDailyRandomNumber.randomNumberAnswer(easyMode)].value
-    : mode === "imdt"
-    ? imdtMode[getDailyRandomNumber.randomNumberAnswer(imdtMode)].value
-    : dict_answer.value;
+  const modeMap = {
+    easy: easyMode,
+    imdt: imdtMode,
+    hard: hardMode,
+  };
+  
+  const selectedMode = modeMap[mode] || hardMode;
+  const dict_answer = selectedMode[getDailyRandomNumber.randomNumberAnswer(selectedMode)];
+  const answer = dict_answer.value;
 
   function showMessage(m) {
     setCenterMsg(m);
