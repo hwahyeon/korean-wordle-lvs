@@ -43,16 +43,12 @@ function WordleKorPage() {
   let dict_answer = hardMode[getDailyRandomNumber.randomNumberAnswer(hardMode)];
   const formattedMode = mode.charAt(0).toUpperCase() + mode.slice(1);
 
-  let answer;
-  if (mode === "easy") {
-    dict_answer = easyMode[getDailyRandomNumber.randomNumberAnswer(easyMode)];
-    answer = dict_answer.value;
-  } else if (mode === "imdt") {
-    dict_answer = imdtMode[getDailyRandomNumber.randomNumberAnswer(imdtMode)];
-    answer = dict_answer.value;
-  } else {
-    answer = dict_answer.value;
-  }
+  const answer =
+  mode === "easy"
+    ? easyMode[getDailyRandomNumber.randomNumberAnswer(easyMode)].value
+    : mode === "imdt"
+    ? imdtMode[getDailyRandomNumber.randomNumberAnswer(imdtMode)].value
+    : dict_answer.value;
 
   function showMessage(m) {
     setCenterMsg(m);
