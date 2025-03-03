@@ -30,7 +30,7 @@ function WordleKorPage() {
   const [listLen, setListLen] = useState(5);
   const [isVisible, setIsVisible] = useState(false);
   const [centerMsg, setCenterMsg] = useState("");
-  const [gotAnswer, setGotAnwser] = useState(false);
+  const [gotAnswer, setGotAnswer] = useState(false);
   const [failAnswer, setFailAnswer] = useState(false);
 
   const MAX_PRED_LENGTH = 30;
@@ -115,7 +115,7 @@ function WordleKorPage() {
           }, 0)
         ) {
           // Case: got an answer
-          setGotAnwser(true);
+          setGotAnswer(true);
         } else if (pred.length === MAX_PRED_LENGTH) {
           // Case: got a failed
           setFailAnswer(true);
