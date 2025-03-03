@@ -55,32 +55,29 @@ function Header() {
   }, [sidebarOpen]);
 
   return (
-    <div className="header">
-      <div className="header__icon-first" onClick={goHome}>
-        <FontAwesomeIcon icon={faHome} />
-      </div>
-      <div className="header__spacer"></div>
-      <div className="header__title">
-        <p className="header__title-kor" onClick={goHome}>
-          한글&nbsp;
-        </p>
-        <p className="header__title-eng" onClick={goHome}>
-          Wordle
-        </p>
-      </div>
-      <div className="header__icon-second">
-        <div className="icon-items" onClick={openInfoModal}>
-          <FontAwesomeIcon icon={faQuestionCircle} />
+    <div className="header-container">
+      <div className="header">
+        <div className="header__icon-first" onClick={goHome}>
+          <FontAwesomeIcon icon={faHome} />
         </div>
-        <div className="icon-items">
-          <LangBtn />
+        <div className="header__title" onClick={goHome}>
+          <p className="header__title--kor">한글&nbsp;</p>
+          <p className="header__title--eng">Wordle</p>
         </div>
-        <div className="icon-items" onClick={handleCloseClick}>
-          <FontAwesomeIcon icon={faCog} />
+        <div className="header__icon-second">
+          <div className="icon-items" onClick={openInfoModal}>
+            <FontAwesomeIcon icon={faQuestionCircle} />
+          </div>
+          <div className="icon-items">
+            <LangBtn />
+          </div>
+          <div className="icon-items" onClick={handleCloseClick}>
+            <FontAwesomeIcon icon={faCog} />
+          </div>
         </div>
+        {shouldRenderSidebar && <Sidebar />}
+        {showInfoModal && <InfoModal onClose={closeInfoModal} />}
       </div>
-      {shouldRenderSidebar && <Sidebar />}
-      {showInfoModal && <InfoModal onClose={closeInfoModal} />}
     </div>
   );
 }
