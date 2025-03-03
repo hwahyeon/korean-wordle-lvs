@@ -104,20 +104,16 @@ function WordleKorPage() {
     }
 
     setListLen((prev) => prev + 5);
+
     const updatedColorList = updateColorPredList(pred, answer, listLen);
     setPred([...pred]);
     setColorList(colorList.concat(updatedColorList));
 
-    if (
-      5 ===
-      updatedColorList.reduce((cnt, e) => {
-        return cnt + (e === "green" ? 1 : 0);
-      }, 0)
-    ) {
-      // Case: got an answer
+    const correctCount = updatedColorList.filter((color) => color === "green").length;
+
+    if (correctCount === 5) {
       setGotAnswer(true);
     } else if (pred.length === MAX_PRED_LENGTH) {
-      // Case: got a failed
       setFailAnswer(true);
     }
   };
