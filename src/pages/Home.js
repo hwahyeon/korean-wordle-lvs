@@ -39,16 +39,8 @@ function HomePage() {
       ? iconColor
       : iconNormal;
 
-  const handleEasyClick = () => {
-    navigate("/play/easy");
-  };
-
-  const handleImdtClick = () => {
-    navigate("/play/imdt");
-  };
-
-  const handleHardClick = () => {
-    navigate("/play/hard");
+  const handleNavigation = (difficulty) => {
+    navigate(`/play/${difficulty}`);
   };
 
   const [currentDateTime, setCurrentDateTime] = useState(() => {
@@ -79,13 +71,22 @@ function HomePage() {
         <div>
           <p className="text-start">{lang.home2}</p>
           <p className="text-level">{lang.home3}</p>
-          <button className="play-button" onClick={handleEasyClick}>
+          <button
+            className="play-button"
+            onClick={() => handleNavigation("easy")}
+          >
             {lang.lv1}
           </button>
-          <button className="play-button" onClick={handleImdtClick}>
+          <button
+            className="play-button"
+            onClick={() => handleNavigation("imdt")}
+          >
             {lang.lv2}
           </button>
-          <button className="play-button" onClick={handleHardClick}>
+          <button
+            className="play-button"
+            onClick={() => handleNavigation("hard")}
+          >
             {lang.lv3}
           </button>
         </div>
