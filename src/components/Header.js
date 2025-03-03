@@ -52,7 +52,7 @@ function Header() {
           <FontAwesomeIcon icon={faHome} />
         </div>
         <div className="header__title" onClick={goHome}>
-          <p className="header__title--kor">한글&nbsp;</p>
+          <p className="header__title--kor">한글</p>
           <p className="header__title--eng">Wordle</p>
         </div>
         <div className="header__icon-second">
