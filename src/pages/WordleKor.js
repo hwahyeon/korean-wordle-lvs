@@ -47,7 +47,7 @@ function WordleKorPage() {
     imdt: imdtMode,
     hard: hardMode,
   };
-  
+
   const selectedMode = modeMap[mode] || hardMode;
   const dict_answer = selectedMode[getDailyRandomNumber.randomNumberAnswer(selectedMode)];
   const answer = dict_answer.value;
@@ -61,31 +61,58 @@ function WordleKorPage() {
   }
 
   const updateColorPredList = (pred, answer, listLen) => {
-    let updatedColorList = [];
-
+    const updatedColorList = [];
+    const answerArray = answer.split("");
+    const answerLetterCount = {};
+    const answerUsed = new Array(answer.length).fill(false);
+  
+    for (const char of answerArray) {
+      answerLetterCount[char] = (answerLetterCount[char] || 0) + 1;
+    }
+  
     for (let i = listLen - 5; i < listLen; i++) {
-      if (pred[i]) {
-        if (answer[i - listLen + 5] === pred[i].value) {
-          updatedColorList.push("green");
-          pred[i].color = "green";
-        } else if (answer.includes(pred[i].value)) {
-          updatedColorList.push("yellow");
-          pred[i].color = "yellow";
-        } else {
-          updatedColorList.push("gray");
-          pred[i].color = "gray";
-        }
-        pred[i].deletable = false;
-      } else {
+      const item = pred[i];
+      if (!item) {
         showMessage(lang.center_msg.lack);
         continue;
-        // console.error(`pred[${i}] is undefined`);
       }
+  
+      if (answer[i - listLen + 5] === item.value) {
+        item.color = "green";
+        answerUsed[i - listLen + 5] = true;
+        answerLetterCount[item.value]--;
+        updatedColorList.push("green");
+      } else {
+        updatedColorList.push(null);
+      }
+  
+      item.deletable = false;
     }
-
+  
+    for (let i = listLen - 5; i < listLen; i++) {
+      const item = pred[i];
+      if (updatedColorList[i - listLen + 5] === "green") continue;
+  
+      const charIndex = answerArray.findIndex(
+        (char, idx) => char === item.value && !answerUsed[idx]
+      );
+  
+      if (charIndex !== -1 && answerLetterCount[item.value] > 0) {
+        item.color = "yellow";
+        answerUsed[charIndex] = true;
+        answerLetterCount[item.value]--;
+        updatedColorList[i - listLen + 5] = "yellow";
+      } else {
+        item.color = "gray";
+        updatedColorList[i - listLen + 5] = "gray";
+      }
+  
+      item.deletable = false;
+    }
+  
     return updatedColorList;
   };
-
+  
   const handleSubmitButtonClick = () => {
     if (
       pred.length % 5 !== 0 ||
