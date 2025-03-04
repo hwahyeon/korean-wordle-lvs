@@ -21,6 +21,7 @@ import allDeposedWords from "@assets/all-deposed-words.json";
 
 // Lang
 import { useLanguage } from "@contexts/LanguageContext";
+import { Helmet } from "react-helmet";
 
 function WordleKorPage() {
   const { lang } = useLanguage();
@@ -29,28 +30,27 @@ function WordleKorPage() {
   const [listLen, setListLen] = useState(5);
   const [isVisible, setIsVisible] = useState(false);
   const [centerMsg, setCenterMsg] = useState("");
-  const [gotAnswer, setGotAnwser] = useState(false);
-  const [failAnwser, setFailAnwser] = useState(false);
+  const [gotAnswer, setGotAnswer] = useState(false);
+  const [failAnswer, setFailAnswer] = useState(false);
 
   const MAX_PRED_LENGTH = 30;
 
-  useEffect(() => {}, [failAnwser]);
+  useEffect(() => {}, [failAnswer]);
 
   // Adjust selected mode
   const { mode } = useParams();
   const jsonData = allDeposedWords;
-  let dict_answer = hardMode[getDailyRandomNumber.randomNumberAnswer(hardMode)];
+  const formattedMode = mode.charAt(0).toUpperCase() + mode.slice(1);
 
-  let answer;
-  if (mode === "easy") {
-    dict_answer = easyMode[getDailyRandomNumber.randomNumberAnswer(easyMode)];
-    answer = dict_answer.value;
-  } else if (mode === "imdt") {
-    dict_answer = imdtMode[getDailyRandomNumber.randomNumberAnswer(imdtMode)];
-    answer = dict_answer.value;
-  } else {
-    answer = dict_answer.value;
-  }
+  const modeMap = {
+    easy: easyMode,
+    imdt: imdtMode,
+    hard: hardMode,
+  };
+
+  const selectedMode = modeMap[mode] || hardMode;
+  const dict_answer = selectedMode[getDailyRandomNumber.randomNumberAnswer(selectedMode)];
+  const answer = dict_answer.value;
 
   function showMessage(m) {
     setCenterMsg(m);
@@ -61,64 +61,87 @@ function WordleKorPage() {
   }
 
   const updateColorPredList = (pred, answer, listLen) => {
-    let updatedColorList = [];
-
+    const updatedColorList = [];
+    const answerArray = answer.split("");
+    const answerLetterCount = {};
+    const answerUsed = new Array(answer.length).fill(false);
+  
+    for (const char of answerArray) {
+      answerLetterCount[char] = (answerLetterCount[char] || 0) + 1;
+    }
+  
     for (let i = listLen - 5; i < listLen; i++) {
-      if (pred[i]) {
-        if (answer[i - listLen + 5] === pred[i].value) {
-          updatedColorList.push("green");
-          pred[i].color = "green";
-        } else if (answer.includes(pred[i].value)) {
-          updatedColorList.push("yellow");
-          pred[i].color = "yellow";
-        } else {
-          updatedColorList.push("gray");
-          pred[i].color = "gray";
-        }
-        pred[i].deletable = false;
-      } else {
+      const item = pred[i];
+      if (!item) {
         showMessage(lang.center_msg.lack);
         continue;
-        // console.error(`pred[${i}] is undefined`);
       }
+  
+      if (answer[i - listLen + 5] === item.value) {
+        item.color = "green";
+        answerUsed[i - listLen + 5] = true;
+        answerLetterCount[item.value]--;
+        updatedColorList.push("green");
+      } else {
+        updatedColorList.push(null);
+      }
+  
+      item.deletable = false;
     }
-
+  
+    for (let i = listLen - 5; i < listLen; i++) {
+      const item = pred[i];
+      if (updatedColorList[i - listLen + 5] === "green") continue;
+  
+      const charIndex = answerArray.findIndex(
+        (char, idx) => char === item.value && !answerUsed[idx]
+      );
+  
+      if (charIndex !== -1 && answerLetterCount[item.value] > 0) {
+        item.color = "yellow";
+        answerUsed[charIndex] = true;
+        answerLetterCount[item.value]--;
+        updatedColorList[i - listLen + 5] = "yellow";
+      } else {
+        item.color = "gray";
+        updatedColorList[i - listLen + 5] = "gray";
+      }
+  
+      item.deletable = false;
+    }
+  
     return updatedColorList;
   };
-
+  
   const handleSubmitButtonClick = () => {
-    if (pred.length % 5 !== 0 || pred.length === 0) {
-      showMessage(lang.center_msg.lack);
-    } else if (pred.length % 5 === 0 && !pred[pred.length - 1].deletable) {
-      showMessage(lang.center_msg.lack);
-    } else {
-      const submitted = pred
-        .slice(-5)
-        .map((obj) => obj.value)
-        .join("");
-      if (!jsonData.includes(submitted)) {
-        showMessage(lang.center_msg.wrong);
-      } else {
-        // Case: when it's a noun
-        setListLen((listLen) => listLen + 5);
+    if (
+      pred.length % 5 !== 0 ||
+      pred.length === 0 ||
+      !pred[pred.length - 1].deletable
+    ) {
+      return showMessage(lang.center_msg.lack);
+    }
 
-        const updatedColorList = updateColorPredList(pred, answer, listLen);
-        setPred([...pred]);
-        setColorList(colorList.concat(updatedColorList));
+    const submitted = pred
+      .slice(-5)
+      .map((obj) => obj.value)
+      .join("");
+    if (!jsonData.includes(submitted)) {
+      return showMessage(lang.center_msg.wrong);
+    }
 
-        if (
-          5 ===
-          updatedColorList.reduce((cnt, e) => {
-            return cnt + (e === "green" ? 1 : 0);
-          }, 0)
-        ) {
-          // Case: got an answer
-          setGotAnwser(true);
-        } else if (pred.length === MAX_PRED_LENGTH) {
-          // Case: got a failed
-          setFailAnwser(true);
-        }
-      }
+    setListLen((prev) => prev + 5);
+
+    const updatedColorList = updateColorPredList(pred, answer, listLen);
+    setPred([...pred]);
+    setColorList(colorList.concat(updatedColorList));
+
+    const correctCount = updatedColorList.filter((color) => color === "green").length;
+
+    if (correctCount === 5) {
+      setGotAnswer(true);
+    } else if (pred.length === MAX_PRED_LENGTH) {
+      setFailAnswer(true);
     }
   };
 
@@ -133,6 +156,9 @@ function WordleKorPage() {
 
   return (
     <div className="wordle-page">
+      <Helmet>
+        <title>한글 Wordle | {formattedMode} mode</title>
+      </Helmet>
       <Header />
       <Box className="wordle-page__answer-board">
         {[...Array(6)].map((_, boxIndex) => (
@@ -162,16 +188,16 @@ function WordleKorPage() {
       <Keyboard {...keyboardProps} />
 
       {/* Center Message */}
-      {isVisible ? <CentralMessage message={centerMsg} /> : <div></div>}
+      {isVisible && <CentralMessage message={centerMsg} />}
 
       {/* Answer modal */}
-      {gotAnswer || failAnwser ? (
+      {(gotAnswer || failAnswer) && (
         <AnswerPopup
           rounds={pred.length}
-          fail={failAnwser}
+          fail={failAnswer}
           answer={dict_answer.key}
         />
-      ) : null}
+      )}
     </div>
   );
 }

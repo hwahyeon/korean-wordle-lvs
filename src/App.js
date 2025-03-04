@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "@pages/Home.js";
 import WordleKor from "@pages/WordleKor.js";
-import NotFound from "@pages/NotFound.js"
+import NotFound from "@pages/NotFound.js";
 import "@styles/_reset.scss";
 import "@styles/global.scss";
 

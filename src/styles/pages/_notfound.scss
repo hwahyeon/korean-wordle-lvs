@@ -1,0 +1,59 @@
+.notfound {
+  text-align: center;
+  font-family: "Orbit";
+  margin-top: 50px;
+
+  &__content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  &__image {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+  }
+
+  &__text {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
+
+    &:hover {
+      background: black;
+      color: white;
+    }
+  }
+
+  body.dark-mode & {
+    color: #e0e0e0;
+
+    &__link {
+      color: #bbb;
+      border-color: #bbb;
+
+      &:hover {
+        background: #bbb;
+        color: #222;
+      }
+    }
+  }
+}

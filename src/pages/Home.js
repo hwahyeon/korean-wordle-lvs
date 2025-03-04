@@ -8,6 +8,7 @@ import "@styles/pages/_home.scss";
 
 // Component
 import Header from "@components/Header";
+import { Helmet } from "react-helmet";
 
 // State
 import { useRecoilValue } from "recoil";
@@ -25,9 +26,6 @@ function HomePage() {
   const { lang } = useLanguage();
   const navigate = useNavigate();
 
-  // const currentLang = localStorage.getItem("language") || "ko";
-  // const lang = currentLang === "ko" ? ko : en;
-
   const darkMode = useRecoilValue(darkModeState);
   const colorMode = useRecoilValue(colorModeState);
   const icon =
@@ -39,16 +37,8 @@ function HomePage() {
       ? iconColor
       : iconNormal;
 
-  const handleEasyClick = () => {
-    navigate("/play/easy");
-  };
-
-  const handleImdtClick = () => {
-    navigate("/play/imdt");
-  };
-
-  const handleHardClick = () => {
-    navigate("/play/hard");
+  const handleNavigation = (difficulty) => {
+    navigate(`/play/${difficulty}`);
   };
 
   const [currentDateTime, setCurrentDateTime] = useState(() => {
@@ -72,27 +62,43 @@ function HomePage() {
 
   return (
     <Container className="homepage">
+      <Helmet>
+        <title>한글 Wordle | Home</title>
+        <meta
+          name="description"
+          content="Wordle game for the Korean language with three levels of difficulty"
+        />
+      </Helmet>
       <Header />
       <div className="homepage__content">
-        <img src={icon} alt="wordle icon" className="cont__icon" />
-        <h1 className="cont__txt">{lang.home1}</h1>
+        <img src={icon} alt="wordle icon" className="homepage__icon" />
+        <h1 className="homepage__text">{lang.home1}</h1>
         <div>
-          <p className="text-start">{lang.home2}</p>
-          <p className="text-level">{lang.home3}</p>
-          <button className="play-button" onClick={handleEasyClick}>
+          <p className="homepage__text homepage__text--start">{lang.home2}</p>
+          <p className="homepage__text homepage__text--level">{lang.home3}</p>
+          <button
+            className="homepage__button"
+            onClick={() => handleNavigation("easy")}
+          >
             {lang.lv1}
           </button>
-          <button className="play-button" onClick={handleImdtClick}>
+          <button
+            className="homepage__button"
+            onClick={() => handleNavigation("imdt")}
+          >
             {lang.lv2}
           </button>
-          <button className="play-button" onClick={handleHardClick}>
+          <button
+            className="homepage__button"
+            onClick={() => handleNavigation("hard")}
+          >
             {lang.lv3}
           </button>
         </div>
         <div>
-          <p>{lang.home4}</p>
-          <p className="text-date">{currentDateTime.date}</p>
-          <p className="text-edit">Made by hwahyeon</p>
+          <p className="homepage__text">{lang.home4}</p>
+          <p className="homepage__text homepage__text--date">{currentDateTime.date}</p>
+          <p className="homepage__text homepage__text--edit">Made by hwahyeon</p>
         </div>
       </div>
     </Container>
