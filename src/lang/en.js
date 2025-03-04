@@ -148,4 +148,9 @@ export const en = {
     play_block:
       "You are already playing a game. Please press the close button.",
   },
+  notfound: {
+    title: "Page Not Found",
+    content: "The page you're looking for doesn't exist. Check the URL or return to the home page.",
+    button:"Go to Home"
+  },
 };
