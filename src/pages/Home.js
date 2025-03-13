@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Style
-import { Container } from "@mui/material";
 import "@styles/pages/_home.scss";
 
 // Component
@@ -61,7 +60,7 @@ function HomePage() {
   }, []);
 
   return (
-    <Container className="homepage">
+    <div className="homepage">
       <Helmet>
         <title>한글 Wordle | Home</title>
         <meta
@@ -97,11 +96,15 @@ function HomePage() {
         </div>
         <div>
           <p className="homepage__text">{lang.home4}</p>
-          <p className="homepage__text homepage__text--date">{currentDateTime.date}</p>
-          <p className="homepage__text homepage__text--edit">Made by hwahyeon</p>
+          <p className="homepage__text homepage__text--date">
+            {currentDateTime.date}
+          </p>
+          <p className="homepage__text homepage__text--edit">
+            Made by hwahyeon
+          </p>
         </div>
       </div>
-    </Container>
+    </div>
   );
 }
 
