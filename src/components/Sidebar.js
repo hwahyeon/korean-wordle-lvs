@@ -13,83 +13,56 @@ import { useLanguage } from "@contexts/LanguageContext";
 function Sidebar() {
   const { lang } = useLanguage();
 
-  // sidebar
   const [sidebarOpen, setSidebarOpen] = useRecoilState(sidebarState);
 
-  const handleCloseClick = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
+  const toggleSidebar = () => setSidebarOpen((prev) => !prev);
 
-  // darkmode
   const [darkMode, setDarkMode] = useRecoilState(darkModeState);
-
-  const handleDarkModeToggle = () => {
-    setDarkMode(!darkMode);
-  };
-
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
-    }
-  }, [darkMode]);
-
-  // colormode
   const [colorMode, setColorMode] = useRecoilState(colorModeState);
-
-  const handleColorModeToggle = () => {
-    setColorMode(!colorMode);
-  };
-
-  useEffect(() => {
-    if (colorMode) {
-      document.body.classList.add("color-mode");
-    } else {
-      document.body.classList.remove("color-mode");
-    }
-  }, [colorMode]);
-
-  // keyboardmode
   const [keyboardMode, setKeyboardMode] = useRecoilState(keyboardModeState);
 
-  const handleKeyboardModeToggle = () => {
-    setKeyboardMode(!keyboardMode);
+  const handleToggle = (setter) => {
+    setter((prev) => !prev);
   };
 
+  useEffect(() => {
+    document.body.classList.toggle("dark-mode", darkMode);
+    document.body.classList.toggle("color-mode", colorMode);
+  }, [darkMode, colorMode]);
+
   return (
-    <div className={`sidebar ${sidebarOpen ? "open" : "close"}`}>
-      <div className="sidebar-right">
-        <div className="sidebar-content">
-          <div className="close--btn" onClick={handleCloseClick}>
-            &times;
-          </div>
-          <div className="sidebar-title">{lang.setting}</div>
+    <div className={`sidebar ${sidebarOpen ? "" : "sidebar--closed"}`}>
+      <div className="sidebar__panel">
+        <button className="sidebar__close-btn" onClick={toggleSidebar}>
+          &times;
+        </button>
+        <div className="sidebar__content">
+          <div className="sidebar__title">{lang.setting}</div>
+
           <Toggle
             title={lang.settings.dark}
-            description=""
             isOn={darkMode}
-            onChange={handleDarkModeToggle}
+            onChange={() => handleToggle(setDarkMode)}
           />
           <hr />
           <Toggle
             title={lang.settings.color}
             description={lang.settings.color_desc}
             isOn={colorMode}
-            onChange={handleColorModeToggle}
+            onChange={() => handleToggle(setColorMode)}
           />
           <hr />
           <Toggle
             title={lang.settings.keyboard}
             description={lang.settings.keyboard_desc}
             isOn={keyboardMode}
-            onChange={handleKeyboardModeToggle}
+            onChange={() => handleToggle(setKeyboardMode)}
           />
           <hr />
-          <div className="sidebar-option">
-            <span className="option-title">{lang.report}</span>
+          <div className="sidebar__option">
+            <span className="sidebar__option-title">{lang.report}</span>
             <a
-              href="https://github.com/hwahyeon/reactjs-wordle-kor/issues"
+              href="https://github.com/hwahyeon/korean-wordle-lvs/issues"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -98,8 +71,8 @@ function Sidebar() {
           </div>
           <span>{lang.report_desc}</span>
           <hr />
-          <div className="sidebar-option">
-            <span className="option-title">{lang.original}</span>
+          <div className="sidebar__option">
+            <span className="sidebar__option-title">{lang.original}</span>
             <a
               href="https://www.nytimes.com/games/wordle/index.html"
               target="_blank"
@@ -111,7 +84,7 @@ function Sidebar() {
           <span>{lang.original_desc}</span>
         </div>
       </div>
-      <div className="sidebar-left" onClick={handleCloseClick}></div>
+      <div className="sidebar__overlay" onClick={toggleSidebar}></div>
     </div>
   );
 }
