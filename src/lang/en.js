@@ -2,7 +2,7 @@ export const en = {
   home1: "This game is a Korean version of Wordle",
   home2: "Shall we start?",
   home3: "Select a dificulty level",
-  home4: "The answer changes every day at 00:00 AM Korean time (GMT+9)",
+  home4: "The answer changes every day at 00:00 AM",
   lv1: "Beginner",
   lv2: "Intermediate",
   lv3: "Advanced",
