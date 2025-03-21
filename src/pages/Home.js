@@ -12,14 +12,13 @@ import { Helmet } from "react-helmet";
 // State
 import { useRecoilValue } from "recoil";
 import { colorModeState, darkModeState } from "@state/themeState";
+import { useLanguage } from "@contexts/LanguageContext";
 
 // Images
 import iconNormal from "@assets/wordle-icon.svg";
 import iconDark from "@assets/wordle-icon-dark.svg";
 import iconColor from "@assets/wordle-icon-color.svg";
 import iconBoth from "@assets/wordle-icon-both.svg";
-
-import { useLanguage } from "@contexts/LanguageContext";
 
 function HomePage() {
   const { lang } = useLanguage();
@@ -58,7 +57,7 @@ function HomePage() {
     }, 1000);
     return () => clearInterval(intervalId);
   }, []);
-
+  
   return (
     <div className="homepage">
       <Helmet>
@@ -75,26 +74,17 @@ function HomePage() {
         <div>
           <p className="homepage__text homepage__text--start">{lang.home2}</p>
           <p className="homepage__text homepage__text--level">{lang.home3}</p>
-          <button
-            className="homepage__button"
-            onClick={() => handleNavigation("easy")}
-          >
-            {lang.lv1}
-          </button>
-          <button
-            className="homepage__button"
-            onClick={() => handleNavigation("imdt")}
-          >
-            {lang.lv2}
-          </button>
-          <button
-            className="homepage__button"
-            onClick={() => handleNavigation("hard")}
-          >
-            {lang.lv3}
-          </button>
+          {["easy", "imdt", "hard"].map((level, i) => (
+            <button
+              key={level}
+              className="homepage__button"
+              onClick={() => handleNavigation(level)}
+            >
+              {lang[`lv${i + 1}`]}
+            </button>
+          ))}
         </div>
-        <div>
+        <>
           <p className="homepage__text">{lang.home4}</p>
           <p className="homepage__text homepage__text--date">
             {currentDateTime.date}
@@ -102,7 +92,7 @@ function HomePage() {
           <p className="homepage__text homepage__text--edit">
             Made by hwahyeon
           </p>
-        </div>
+        </>
       </div>
     </div>
   );
